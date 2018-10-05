@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Personal.Portfolio", "Personal.Portfolio.csproj", "{4BB94735-65D9-483F-A4BD-C59C0AEECBD6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Personal.Portfolio.Data", "Personal.Portfolio.Data\Personal.Portfolio.Data.csproj", "{4A5E91C6-8940-4C2C-B015-3DAFA57C7971}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Personal.Portfolio.Entity", "Personal.Portfolio.Entity\Personal.Portfolio.Entity.csproj", "{BBFE34A1-73D6-4F6E-8995-03DC608853C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +17,13 @@ Global
 		{4BB94735-65D9-483F-A4BD-C59C0AEECBD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BB94735-65D9-483F-A4BD-C59C0AEECBD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BB94735-65D9-483F-A4BD-C59C0AEECBD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A5E91C6-8940-4C2C-B015-3DAFA57C7971}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A5E91C6-8940-4C2C-B015-3DAFA57C7971}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A5E91C6-8940-4C2C-B015-3DAFA57C7971}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A5E91C6-8940-4C2C-B015-3DAFA57C7971}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBFE34A1-73D6-4F6E-8995-03DC608853C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBFE34A1-73D6-4F6E-8995-03DC608853C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBFE34A1-73D6-4F6E-8995-03DC608853C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBFE34A1-73D6-4F6E-8995-03DC608853C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

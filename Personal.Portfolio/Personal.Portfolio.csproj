@@ -17,4 +17,9 @@
     <Folder Include="wwwroot\js\" />
     <Folder Include="wwwroot\css\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Personal.Portfolio.Entity\obj\Debug\netcoreapp2.1\Personal.Portfolio.Entity.assets.cache" />
+    <None Remove="Personal.Portfolio.Data\obj\Personal.Portfolio.Data.csproj.nuget.cache" />
+    <None Remove="Personal.Portfolio.Data\obj\Debug\netcoreapp2.1\Personal.Portfolio.Data.assets.cache" />
+  </ItemGroup>
 </Project>
