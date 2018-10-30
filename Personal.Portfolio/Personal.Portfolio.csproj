@@ -21,5 +21,10 @@
     <None Remove="Personal.Portfolio.Entity\obj\Debug\netcoreapp2.1\Personal.Portfolio.Entity.assets.cache" />
     <None Remove="Personal.Portfolio.Data\obj\Personal.Portfolio.Data.csproj.nuget.cache" />
     <None Remove="Personal.Portfolio.Data\obj\Debug\netcoreapp2.1\Personal.Portfolio.Data.assets.cache" />
+    <None Remove="Personal.Portfolio.Tests\obj\Debug\netcoreapp2.1\Personal.Portfolio.Tests.assets.cache" />
+    <None Remove="Personal.Portfolio.Data\bin\Debug\netcoreapp2.1\Personal.Portfolio.Data.dll" />
+    <None Remove="Personal.Portfolio.Data\bin\Debug\netcoreapp2.1\Personal.Portfolio.Data.pdb" />
+    <None Remove="Personal.Portfolio.Tests\obj\Debug\netcoreapp2.1\Personal.Portfolio.Tests.assets.cache" />
+    <None Remove="Personal.Portfolio.Tests\obj\Debug\netcoreapp2.1\Personal.Portfolio.Tests.csprojResolveAssemblyReference.cache" />
   </ItemGroup>
 </Project>
