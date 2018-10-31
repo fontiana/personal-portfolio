@@ -1,3 +1,6 @@
-language: csharp
-solution: Personal.Portfolio.sln
-before_install: cd Solution
+- language: csharp
+      mono: none
+      dotnet: 2.1.300
+      script:
+        - dotnet restore Solution/Personal.Portfolio.sln
+        - dotnet build Solution/Personal.Portfolio.sln
