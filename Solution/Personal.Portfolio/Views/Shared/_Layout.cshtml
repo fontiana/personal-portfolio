@@ -12,8 +12,10 @@
             <link rel="stylesheet" href="~/css/mobile.css" asp-append-version="true"/>
         </environment>
     </head>
-    <body>            
+    <body class="transparent-header enable-nav-button nav-button-style-outline banner-button-style-outline gallery-design-grid small-button-style-outline medium-button-style-outline large-button-style-outline button-style-outline homepage collection-type-index">    
+        <partial name="_Header.cshtml" />
         @RenderBody()
+        <partial name="_Footer.cshtml" />        
 
         <environment include="Development">
             <!-- <script src="~/js/site.js" asp-append-version="true"></script> -->
