@@ -8,3 +8,4 @@ My personal portfolio and blog
  
  - [Identity and MySql with ASP.NET Core](https://stackoverflow.com/questions/46298605/how-to-use-aspnet-identity-core-in-my-sql-database)
  - [Host]()
+ - [Clean Architecture](#https://www.youtube.com/watch?v=_lwCVE_XgqI)
