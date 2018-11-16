@@ -8,6 +8,9 @@ packages/
 TestResults/
 
 # globs
+.vs
+.DS_Store
+**/.DS_Store
 Makefile.in
 *.DS_Store
 *.sln.cache
