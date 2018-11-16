@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 
 namespace Personal.Portfolio
 {
-    public class Program
+    public class Starter
     {
         public static void Main(string[] args)
         {

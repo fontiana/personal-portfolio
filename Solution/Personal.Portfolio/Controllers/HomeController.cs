@@ -8,6 +8,9 @@ namespace Personal.Portfolio.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.subtitle = "Developer with a passion for";
+            ViewBag.title = "ASP.NET MVC";
+            
             return View();
         }
 
