@@ -6,6 +6,7 @@ namespace Personal.Portfolio.Controllers
 {
     public class HomeController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
             ViewBag.subtitle = "Developer with a passion for";
@@ -13,12 +14,33 @@ namespace Personal.Portfolio.Controllers
             
             return View();
         }
+        
+        [HttpGet]
+        public IActionResult Portfolio()
+        {
+            return View();
+        }
 
+        [HttpGet]
         public IActionResult About()
         {
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Resume()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Blog()
+        {
+            return View();
+        }
+        
+        
+        [HttpGet]
         public IActionResult Contact()
         {
             return View();
