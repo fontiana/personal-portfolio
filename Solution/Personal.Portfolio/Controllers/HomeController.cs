@@ -20,6 +20,12 @@ namespace Personal.Portfolio.Controllers
         {
             return View();
         }
+        
+        [HttpGet]
+        public IActionResult Project(string id)
+        {
+            return View();
+        }
 
         [HttpGet]
         public IActionResult About()

@@ -16,7 +16,11 @@
     <body class="transparent-header enable-nav-button nav-button-style-outline banner-button-style-outline gallery-design-grid small-button-style-outline medium-button-style-outline large-button-style-outline button-style-outline homepage collection-type-index">    
         <div id="siteWrapper">
             <partial name="_Header.cshtml" />
-            @RenderBody()
+            <div id="page" role="main">
+                <div id="content" class="main-content">
+                    @RenderBody()
+                </div>
+            </div>
             <partial name="_Footer.cshtml" />        
         </div>
 
