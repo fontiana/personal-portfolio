@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -27,13 +26,6 @@ namespace Personal.Portfolio
             
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-                
-            //services.Configure<RazorViewEngineOptions>(options =>
-            //{
-            //    options.AreaViewLocationFormats.Add("/Areas/Admin/Views/{0}.cshtml");
-            //    options.AreaViewLocationFormats.Add("/Areas/Admin/Views/Shared/{0}.cshtml");
-            //    options.AreaViewLocationFormats.Add("/Views/Shared/{0}.cshtml");
-            //});
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
