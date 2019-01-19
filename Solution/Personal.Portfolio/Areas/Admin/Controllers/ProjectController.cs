@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Personal.Portfolio.Areas.Admin.Controllers
 {
-    public class AdminController : Controller
-    {
+    [Area("Admin")]
+    public class ProjectController : Controller
+    {        
         public IActionResult Index()
         {
             return View();

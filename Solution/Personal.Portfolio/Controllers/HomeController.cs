@@ -9,18 +9,16 @@ namespace Personal.Portfolio.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            ViewBag.subtitle = "Developer with a passion for";
-            ViewBag.title = "ASP.NET MVC";
-            
+            this.SetBanner("ASP.NET MVC", "Developer with a passion for");
             return View();
         }
-        
+
         [HttpGet]
         public IActionResult Portfolio()
         {
             return View();
         }
-        
+
         [HttpGet]
         public IActionResult Project(string id)
         {
@@ -44,8 +42,8 @@ namespace Personal.Portfolio.Controllers
         {
             return View();
         }
-        
-        
+
+
         [HttpGet]
         public IActionResult Contact()
         {
@@ -56,6 +54,12 @@ namespace Personal.Portfolio.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        private void SetBanner(string title, string subtitle)
+        {
+            ViewBag.subtitle = subtitle;
+            ViewBag.title = title;
         }
     }
 }
