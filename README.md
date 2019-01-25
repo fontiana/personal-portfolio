@@ -3,9 +3,14 @@
 
 My personal portfolio and blog
 
-
 ## Tech Stack
  
- - [Identity and MySql with ASP.NET Core](https://stackoverflow.com/questions/46298605/how-to-use-aspnet-identity-core-in-my-sql-database)
+ - [Entity Framework with Code first]()
  - [Host]()
+ - [Error handling](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/error-handling?view=aspnetcore-2.2)
  - [Clean Architecture](#https://www.youtube.com/watch?v=_lwCVE_XgqI)
+ - [Bootstrap 4.2.1]()
+
+### Design Tips
+
+ - (Design better forms)[https://uxdesign.cc/design-better-forms-96fadca0f49c]

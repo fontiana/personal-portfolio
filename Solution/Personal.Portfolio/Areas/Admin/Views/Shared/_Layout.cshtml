@@ -13,32 +13,30 @@
     </environment>
 </head>
 <body>
-        <div class="container-fluid">
-            <div class="row">
-                <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
-                    <ul class="nav nav-pills flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" asp-controller="project">Project</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="resume">Resume</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="blog">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="contact">Contact</a>
-                        </li>
-                    </ul>
-                </nav>
-                <main class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
-                    @RenderBody()
-                </main>
-            </div>
-        </div>
+    <div class="wrapper">
+            <nav>
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" asp-controller="project">Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="resume">Resume</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="contact">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <main>
+                @RenderBody()
+            </main>
+    </div>
 
     @RenderSection("Scripts", required: false)
 

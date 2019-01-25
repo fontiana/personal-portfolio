@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Personal.Portfolio.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class AboutController : Controller
+    public class ContactController : Controller
     {
         public IActionResult Index()
         {

@@ -12,6 +12,11 @@
     <Folder Include="wwwroot\css\" />
     <Folder Include="Areas\Admin\Views\Project\" />
     <Folder Include="Areas\Admin\Views\Main\" />
+    <Folder Include="Views\Error\" />
+    <Folder Include="Areas\Admin\Views\Blog\" />
+    <Folder Include="Areas\Admin\Views\Resume\" />
+    <Folder Include="Areas\Admin\Views\Contact\" />
+    <Folder Include="Areas\Admin\Views\About\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Areas\Admin\Controllers\AdminController.cs" />
