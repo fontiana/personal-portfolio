@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Personal.Portfolio
 {
@@ -23,6 +24,8 @@ namespace Personal.Portfolio
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.Strict;
             });
+            
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

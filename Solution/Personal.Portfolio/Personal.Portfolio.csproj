@@ -17,6 +17,7 @@
     <Folder Include="Areas\Admin\Views\Resume\" />
     <Folder Include="Areas\Admin\Views\Contact\" />
     <Folder Include="Areas\Admin\Views\About\" />
+    <Folder Include="Helper\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Areas\Admin\Controllers\AdminController.cs" />

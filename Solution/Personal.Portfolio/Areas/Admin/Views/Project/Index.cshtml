@@ -1,8 +1,22 @@
-﻿@{
+﻿@model List<ProjectViewModel>
+
+@{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
 <div class="row">
-    <div class="col-md-4">Projects</div>
-    <div class="col-md-4 offset-md-4">Button New</div>
+    <div class="col-md-8">
+        <h2>Projects</h2>
+    </div>
+    <div class="col-md-2 offset-md-2">
+        <a asp-controller="project" asp-action="add" class="btn btn-primary btn-md" role="button" aria-pressed="true">Add new</a>
+    </div>
+</div>
+
+<div class="row">
+    @foreach (var project in Model)
+    {
+        <p>Name: @project.Title</p>
+        <p>Age: @project.Description</p>
+    }
 </div>
