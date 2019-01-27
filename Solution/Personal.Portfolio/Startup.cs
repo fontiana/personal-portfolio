@@ -29,6 +29,10 @@ namespace Personal.Portfolio
             
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+                // .AddRazorPagesOptions(options =>
+                // {
+                //     options.AllowAreas = true;
+                // });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
