@@ -1,4 +1,4 @@
-﻿@model ProjectModel
+﻿@model ProjectViewModel
 
 @{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -30,6 +30,8 @@
         <div class="col-md-12">
             <div class="form-group">
                 <label asp-for="TechStack"></label>
+                
+                
                 <input asp-for="TechStack" class="form-control" />
                 <span asp-validation-for="TechStack"></span>
             </div>

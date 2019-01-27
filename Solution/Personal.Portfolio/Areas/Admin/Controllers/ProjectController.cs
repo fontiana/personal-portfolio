@@ -29,6 +29,7 @@ namespace Personal.Portfolio.Areas.Admin.Controllers
         }
         
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Add(ProjectViewModel model)
         {
             return View();
@@ -40,13 +41,14 @@ namespace Personal.Portfolio.Areas.Admin.Controllers
             return View();
         }
         
-        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Edit(ProjectViewModel model)
         {
             return View();
         }
         
         [HttpGet]
+        //[HttpPost("{categoryId}")]
         public IActionResult Delete(int id)
         {
             return View();

@@ -1,4 +1,6 @@
 ﻿using System;
+using Microsoft.AspNetCore.Http;
+
 namespace Personal.Portfolio.Areas.Admin.Models
 {
     public class ProjectViewModel
@@ -11,5 +13,7 @@ namespace Personal.Portfolio.Areas.Admin.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        public string TechStack { get; set; }
+        public IFormFile Image { get; set; }
     }
 }
