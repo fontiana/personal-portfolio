@@ -31,3 +31,11 @@ main {
     border-bottom: none;
     text-align: left !important;
 }
+
+label {
+    font-size: 12px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #9A9A9A;
+}
