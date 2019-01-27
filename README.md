@@ -3,13 +3,13 @@
 
 My personal portfolio and blog
 
-## Tech Stack
+## Things that need to be done yet
  
  - [Entity Framework with Code first](#)
- - [Host](#)
  - [Error handling](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/error-handling?view=aspnetcore-2.2)
  - [Clean Architecture](https://www.youtube.com/watch?v=_lwCVE_XgqI)
  - [Bootstrap 4.2.1](#)
+ - [Upload](https://docs.microsoft.com/pt-br/aspnet/core/mvc/models/file-uploads?view=aspnetcore-2.2)
 
 ### Design Tips
 
