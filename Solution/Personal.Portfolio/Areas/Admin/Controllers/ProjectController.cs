@@ -9,10 +9,17 @@ namespace Personal.Portfolio.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class ProjectController : Controller
-    {        
+    {     
+        [HttpGet]   
         public IActionResult Index()
         {
-            return View();
+            var model = new List<ProjectViewModel>();
+            model.Add(new ProjectViewModel { Description = "Jonas", Title = "Brothers" });
+            model.Add(new ProjectViewModel { Description = "Jonas", Title = "Brothers" });
+            model.Add(new ProjectViewModel { Description = "Jonas", Title = "Brothers" });
+            model.Add(new ProjectViewModel { Description = "Jonas", Title = "Brothers" });
+        
+            return View(model);
         }
         
         [HttpGet]
@@ -39,7 +46,7 @@ namespace Personal.Portfolio.Areas.Admin.Controllers
             return View();
         }
         
-        [HttpPost]
+        [HttpGet]
         public IActionResult Delete(int id)
         {
             return View();
