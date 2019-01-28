@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Personal.Portfolio.Areas.Admin.Models;
 
@@ -32,24 +29,35 @@ namespace Personal.Portfolio.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Add(ProjectViewModel model)
         {
+            model.Add();
+
             return View();
         }
         
         [HttpGet]
-        public IActionResult Edit()
+        public IActionResult Edit(int? id)
         {
-            return View();
+            if (!id.HasValue)
+            {
+                return RedirectToAction("Index");
+            }
+
+            var model = new ProjectViewModel();
+            model.GetById(id.Value);
+            return View(model);
         }
         
         [ValidateAntiForgeryToken]
         public IActionResult Edit(ProjectViewModel model)
         {
+            model.Edit();
+
             return View();
         }
         
         [HttpGet]
         //[HttpPost("{categoryId}")]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int? id)
         {
             return View();
         }
