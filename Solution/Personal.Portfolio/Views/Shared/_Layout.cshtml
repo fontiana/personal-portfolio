@@ -1,33 +1,37 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Developer / Victor Fontana</title>
-        <link rel="Shortcut Icon" href="~/favicon.ico" />
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@Localizer["Developer / Victor Fontana"]</title>
+    <link rel="Shortcut Icon" href="~/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
-        <environment include="Development">
-            <link rel="stylesheet" href="~/css/style.css" asp-append-version="true"/>
-            <link rel="stylesheet" href="~/css/framework.css" asp-append-version="true"/>
-            <link rel="stylesheet" href="~/css/mobile.css" asp-append-version="true"/>
-        </environment>
-    </head>
-    <body class="transparent-header enable-nav-button nav-button-style-outline banner-button-style-outline gallery-design-grid small-button-style-outline medium-button-style-outline large-button-style-outline button-style-outline homepage collection-type-index">    
-        <div id="siteWrapper">
-            <partial name="_Header.cshtml" />
-            <div id="page" role="main">
-                <div id="content" class="main-content">
-                    @RenderBody()
-                </div>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/framework.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/mobile.css" asp-append-version="true" />
+    </environment>
+</head>
+<body class="transparent-header enable-nav-button nav-button-style-outline banner-button-style-outline gallery-design-grid small-button-style-outline medium-button-style-outline large-button-style-outline button-style-outline homepage collection-type-index">
+    <div id="siteWrapper">
+        <partial name="_Header.cshtml" />
+        <div id="page" role="main">
+            <div id="content" class="main-content">
+                @RenderBody()
             </div>
-            <partial name="_Footer.cshtml" />        
         </div>
+        <partial name="_Footer.cshtml" />
+    </div>
 
-        <environment include="Development">
-            <!-- <script src="~/js/site.js" asp-append-version="true"></script> -->
-        </environment>
+    <environment include="Development">
+        <!-- <script src="~/js/site.js" asp-append-version="true"></script> -->
+    </environment>
 
-        @RenderSection("Scripts", required: false)
-    </body>
+    @RenderSection("Scripts", required: false)
+</body>
 </html>
