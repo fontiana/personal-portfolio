@@ -3,14 +3,14 @@
 
 My personal portfolio and blog
 
-## Things that need to be done yet
+## Work in Progress
  
  - [Entity Framework with Code first](#)
  - [Error handling](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/error-handling?view=aspnetcore-2.2)
  - [Clean Architecture](https://www.youtube.com/watch?v=_lwCVE_XgqI)
  - [Bootstrap 4.2.1](#)
  - [Upload](https://docs.microsoft.com/pt-br/aspnet/core/mvc/models/file-uploads?view=aspnetcore-2.2)
- - [Loalisation](https://andrewlock.net/adding-localisation-to-an-asp-net-core-application/)
+ - [Localisation :white_check_mark:](https://andrewlock.net/adding-localisation-to-an-asp-net-core-application/)
  - [Log Input/Output](https://exceptionnotfound.net/using-middleware-to-log-requests-and-responses-in-asp-net-core/)
 
 ### Design Tips
