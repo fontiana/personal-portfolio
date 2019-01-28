@@ -1,4 +1,8 @@
-﻿<footer id="footer" role="contentinfo">
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+<footer id="footer" role="contentinfo">
     <div class="footer-inner">
         <div class="sqs-layout sqs-grid-12 columns-12" id="footerBlocks">
             <div class="row sqs-row">
@@ -8,7 +12,7 @@
                             <div class="image-block-outer-wrapper layout-caption-below ">
                                 <div class="intrinsic">
                                     <div>
-                                        <img asp-append-version="true" src="~/images/logo.png" alt="Victor Fontana"/>
+                                        <img asp-append-version="true" src="~/images/logo.png" alt="Victor Fontana" />
                                     </div>
                                 </div>
                             </div>
@@ -23,7 +27,7 @@
                                 <a href="/Resume">Resume</a>&nbsp; &nbsp;&nbsp;
                                 <a href="/Contact">Contact</a>
                             </h3>
-                            <p class="text-align-center">© 2018 Victor Fontana.&nbsp;All rights reserved. Developer ASP.NET</p>
+                            <p class="text-align-center">© 2018 Victor Fontana.&nbsp;@Localizer["All rights reserved. Developer ASP.NET"]</p>
                         </div>
                     </div>
                     <div class="sqs-block socialaccountlinks-v2-block sqs-block-socialaccountlinks-v2">

@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Personal.Portfolio.Middlewares;
 
 namespace Personal.Portfolio
 {
@@ -24,15 +26,14 @@ namespace Personal.Portfolio
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.Strict;
             });
-            
+
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            
+
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
+
             services.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-                // .AddRazorPagesOptions(options =>
-                // {
-                //     options.AllowAreas = true;
-                // });
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -47,13 +48,13 @@ namespace Personal.Portfolio
                 app.UseExceptionHandler("/error");
                 app.UseHsts();
             }
-
+            app.UseLocalization();
             //app.UseStatusCodePagesWithRedirects("/error/{0}");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            app.UseMvc(routes => 
+            app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "areas",

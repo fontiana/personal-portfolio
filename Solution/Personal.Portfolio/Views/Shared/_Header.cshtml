@@ -1,4 +1,8 @@
-﻿<header id="header">
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+<header id="header">
     <div class="header_inner">
         <div id="logoWrapper" class="wrapper">
             <h1 id="logoImage">
@@ -16,22 +20,22 @@
             <div id="mainNavWrapper" class="nav-wrapper">
                 <nav id="mainNavigation">
                     <div class="active">
-                        <a href="/">Home</a>
+                        <a href="/">@Localizer["Home"]</a>
                     </div>
                     <div class="index">
-                        <a href="home/portfolio">Portfolio</a>
+                        <a href="home/portfolio">@Localizer["Portfolio"]</a>
                     </div>
                     <div class="collection">
-                        <a href="home/about">About</a>
+                        <a href="home/about">@Localizer["About"]</a>
                     </div>
                     <div class="collection">
-                        <a href="home/resume">Resume</a>
+                        <a href="home/resume">@Localizer["Resume"]</a>
                     </div>
                     <div class="collection">
-                        <a href="home/blog">Blog</a>
+                        <a href="home/blog">@Localizer["Blog"]</a>
                     </div>
                     <div class="collection">
-                        <a href="home/contact">Contact</a>
+                        <a href="home/contact">@Localizer["Contact"]</a>
                     </div>
                 </nav>
             </div>

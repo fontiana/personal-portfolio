@@ -1,11 +1,15 @@
-﻿<div class="index-section-wrapper page-content">
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+<div class="index-section-wrapper page-content">
     <div class="content-inner has-content">
         <div class="sqs-layout sqs-grid-12 columns-12">
             <div class="row sqs-row">
                 <div class="col sqs-col-12 span-12">
                     <div class="sblock html-block ">
                         <div class="block-content">
-                            <h1 class="text-align-center">My life at a glance</h1>
+                            <h1 class="text-align-center">@Localizer["My life at a glance"]</h1>
                         </div>
                     </div>
                     <div class="row sqs-row">
