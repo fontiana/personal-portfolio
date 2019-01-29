@@ -47,114 +47,8 @@
         padding: .75em 0;
     }
 
-    .force-mobile-nav.enable-nav-button #sidecarNav nav > div:not(.folder):last-child a {
-        display: inline-block;
-        margin: 1em 0 0 0;
-        line-height: 1;
-        padding: 1em 1.5em;
-    }
-
-    .force-mobile-nav #mobileNavToggle:checked ~ .overlayBg {
-        display: block;
-    }
-
-    .force-mobile-nav #mobileNavToggle:checked ~ #siteWrapper {
-        position: fixed;
-        -webkit-transform: translateX(-260px);
-        -webkit-transform: translate3d(-260px, 0, 0);
-        -moz-transform: translateX(-260px) translateZ(0);
-        -moz-transform: translate3d(-260px, 0, 0);
-        -ms-transform: translateX(-260px) translateZ(0);
-        -ms-transform: translate3d(-260px, 0, 0);
-        -o-transform: translateX(-260px) translateZ(0);
-        -o-transform: translate3d(-260px, 0, 0);
-        transform: translateX(-260px) translateZ(0);
-        transform: translate3d(-260px, 0, 0);
-    }
-
-    .force-mobile-nav #mobileNavToggle:checked ~ #sidecarNav {
-        height: 100%;
-        visibility: visible;
-        -webkit-transition: height 0s .14s linear, visibility 0s 0s linear;
-        -moz-transition: height 0s .14s linear, visibility 0s 0s linear;
-        -ms-transition: height 0s .14s linear, visibility 0s 0s linear;
-        -o-transition: height 0s .14s linear, visibility 0s 0s linear;
-        transition: height 0s .14s linear, visibility 0s 0s linear;
-    }
-
-    #mobileNavToggle:checked ~ #sidecarNav {
-        -webkit-overflow-scrolling: touch;
-        visibility: visible;
-        -webkit-transition: height 0s .14s linear, visibility 0s 0s linear;
-        -moz-transition: height 0s .14s linear, visibility 0s 0s linear;
-        -ms-transition: height 0s .14s linear, visibility 0s 0s linear;
-        -o-transition: height 0s .14s linear, visibility 0s 0s linear;
-        transition: height 0s .14s linear, visibility 0s 0s linear;
-    }
-
-    .mobile-nav-toggle-label .top-bar,
-    .mobile-nav-toggle-label .middle-bar,
-    .mobile-nav-toggle-label .bottom-bar {
-        width: 22px;
-        height: 2px;
-        background-color: #fff;
-        -webkit-transition: -webkit-transform .15s 0s ease-in-out,top .15s .15s ease-in-out;
-        -moz-transition: -moz-transform .15s 0s ease-in-out,top .15s .15s ease-in-out;
-        -ms-transition: -ms-transform .15s 0s ease-in-out,top .15s .15s ease-in-out;
-        -o-transition: -o-transform .15s 0s ease-in-out,top .15s .15s ease-in-out;
-        transition: transform .15s 0s ease-in-out,top .15s .15s ease-in-out;
-        -webkit-transform-origin: 50% 50%;
-        -moz-transform-origin: 50% 50%;
-        -ms-transform-origin: 50% 50%;
-        -o-transform-origin: 50% 50%;
-        transform-origin: 50% 50%;
-        position: absolute;
-        top: 0;
-        right: 0;
-    }
-
-    .mobile-nav-toggle-label .middle-bar {
-        -webkit-transition: opacity 0s .15s linear;
-        -moz-transition: opacity 0s .15s linear;
-        -ms-transition: opacity 0s .15s linear;
-        -o-transition: opacity 0s .15s linear;
-        transition: opacity 0s .15s linear;
-        top: 7px;
-    }
-
-    .mobile-nav-toggle-label .bottom-bar {
-        top: 14px;
-    }
-
-    .mobile-nav-toggle-label {
-        display: inline-block !important;
-    }
-
     #headerNav {
         display: none !important;
-    }
-
-    .mobile-nav-toggle-label {
-        display: none;
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        z-index: 100;
-        width: 10%;
-        position: absolute;
-        z-index: 1002;
-        top: 50%;
-        right: 20px;
-        margin-top: -8px;
-        padding: 0;
-        vertical-align: middle;
-        line-height: 16px;
-        text-align: right;
-        cursor: pointer;
-        user-select: none;
-        color: rgba(255,255,255,.8);
-        width: 22px;
-        height: 22px;
     }
 
     #logoWrapper {
@@ -205,7 +99,7 @@
         padding: 40px 20px;
     }
 
-    h1, .entry-title {
+    h1 {
         font-size: 30px;
     }
 

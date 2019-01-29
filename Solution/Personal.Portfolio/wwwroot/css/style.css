@@ -180,7 +180,7 @@ pre {
     padding-right: 17px;
 }
 
-h1, h2, h3, .entry-title {
+h1, h2, h3 {
     margin: 1em 0 .5em;
 }
 
@@ -190,7 +190,7 @@ h1, h2, h3, .entry-title {
 }
 
 /* TYPOGRAPHY */
-h1, .entry-title {
+h1 {
     color: rgba(26, 26, 26, .9);
 }
 
@@ -198,16 +198,17 @@ h2, .summary-title a {
     color: #4a4a4a;
 }
 
-h1, .entry-title {
-    font-family: 'Montserrat', "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 48px;
-    font-family: "adobe-garamond-pro";
-    font-size: 34px;
-    line-height: 1.2em;
-    text-transform: none;
-    letter-spacing: 0px;
+h1 {
+    font-family: Arial,Helvetica,sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    font-family: adobe-garamond-pro;
     font-weight: 400;
     font-style: normal;
+    font-size: 50px;
+    letter-spacing: 0em;
+    line-height: 1em;
+    text-transform: none;
 }
 
 h1, h2, h3 {

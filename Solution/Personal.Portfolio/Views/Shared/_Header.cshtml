@@ -3,11 +3,11 @@
 @inject IViewLocalizer Localizer
 
 <header id="header">
-    <div class="header_inner">
+    <div class="header-inner">
         <div id="logoWrapper" class="wrapper">
             <h1 id="logoImage">
                 <a href="/">
-                    <img src="/content/images/logo.png" alt="Victor Fontana">
+                    <img src="/images/logo.png" alt="Victor Fontana">
                 </a>
             </h1>
         </div>
@@ -19,24 +19,12 @@
         <div id="headerNav">
             <div id="mainNavWrapper" class="nav-wrapper">
                 <nav id="mainNavigation">
-                    <div class="active">
-                        <a href="/">@Localizer["Home"]</a>
-                    </div>
-                    <div class="index">
-                        <a href="home/portfolio">@Localizer["Portfolio"]</a>
-                    </div>
-                    <div class="collection">
-                        <a href="home/about">@Localizer["About"]</a>
-                    </div>
-                    <div class="collection">
-                        <a href="home/resume">@Localizer["Resume"]</a>
-                    </div>
-                    <div class="collection">
-                        <a href="home/blog">@Localizer["Blog"]</a>
-                    </div>
-                    <div class="collection">
-                        <a href="home/contact">@Localizer["Contact"]</a>
-                    </div>
+                    <a class="nav-link" asp-controller="home" asp-action="index">@Localizer["Home"]</a>
+                    <a class="nav-link" asp-controller="home" asp-action="portfolio">@Localizer["Portfolio"]</a>
+                    <a class="nav-link" asp-controller="home" asp-action="about">@Localizer["About"]</a>
+                    <a class="nav-link" asp-controller="home" asp-action="resume">@Localizer["Resume"]</a>
+                    <a class="nav-link" asp-controller="home" asp-action="blog">@Localizer["Blog"]</a>
+                    <a class="nav-link" asp-controller="home" asp-action="contact">@Localizer["Contact"]</a>
                 </nav>
             </div>
         </div>

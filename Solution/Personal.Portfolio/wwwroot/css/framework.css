@@ -15,6 +15,12 @@
     background: #fff;
 }
 
+.full-container {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 body {
     font-size: .85em;
     font-family: 'Montserrat', Proxima-Nova, Helvetica Neue, Arial, Sans-Serif;
@@ -94,15 +100,6 @@ a {
     color: rgba(26, 26, 26, .6);
 }
 
-#headerNav nav .active > a,
-#sidecarNav nav .active > a,
-#headerNav nav .active > a:visited,
-#sidecarNav nav .active > a:visited,
-#headerNav nav .active > label,
-#sidecarNav nav .active > label {
-    color: #fff;
-}
-
 #headerNav nav a,
 #sidecarNav nav a,
 #headerNav nav a:visited,
@@ -132,12 +129,14 @@ a {
     color: #fff;
 }
 
-body:not(.force-mobile-nav) .nav-wrapper nav > div > a, body:not(.force-mobile-nav) .nav-wrapper nav > div label {
-    display: block;
-    padding: .75em 1em;
+.nav-wrapper nav > a,
+.nav-wrapper nav > label {
+    margin: 0 1em;
+    padding: .618em 0;
 }
 
-body:not(.force-mobile-nav) .nav-wrapper nav > div a, body:not(.force-mobile-nav) .nav-wrapper nav > div label {
+.nav-wrapper nav > a, 
+.nav-wrapper nav > label {
     -webkit-transition: color .1s 0s ease-in-out;
     -moz-transition: color .1s 0s ease-in-out;
     -ms-transition: color .1s 0s ease-in-out;
@@ -325,7 +324,7 @@ body:not(.button-style-default) .sqs-editable-button, body:not(.button-style-def
     position: relative;
 }
 
-.header_inner {
+.header-inner {
     padding: 20px 0;
     display: table;
     width: 100%;
