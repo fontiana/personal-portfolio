@@ -2,36 +2,35 @@
 
 @inject IViewLocalizer Localizer
 
-<header id="header" class="full-container">
-    <div class="header-inner">
-        <div id="logoWrapper" class="wrapper">
-            <h1 id="logoImage">
-                <a href="/">
-                    <img src="/images/logo.png" alt="Victor Fontana">
-                </a>
-            </h1>
+<header id="header">
+    <div class="header-inner header-inner-content">
+        <div data-nc-container="header-left">
+            <div id="logoWrapper" class="wrapper" data-nc-element>
+                <h1 id="logoImage">
+                    <a href="/">
+                        <img src="/images/logo.png" alt="Victor Fontana">
+                    </a>
+                </h1>
+            </div>
         </div>
-        <label for="mobileNavToggle" class="mobile-nav-toggle-label">
-            <div class="top-bar"></div>
-            <div class="middle-bar"></div>
-            <div class="bottom-bar"></div>
-        </label>
-        <div id="headerNav">
-            <div id="mainNavWrapper" class="nav-wrapper">
-                <nav id="mainNavigation">
-                    <a class="nav-link" asp-controller="home" asp-action="index">@Localizer["Home"]</a>
-                    <a class="nav-link" asp-controller="home" asp-action="portfolio">@Localizer["Portfolio"]</a>
-                    <a class="nav-link" asp-controller="home" asp-action="about">@Localizer["About"]</a>
-                    <a class="nav-link" asp-controller="home" asp-action="resume">@Localizer["Resume"]</a>
-                    <a class="nav-link" asp-controller="home" asp-action="blog">@Localizer["Blog"]</a>
-                    <a class="nav-link" asp-controller="home" asp-action="contact">@Localizer["Contact"]</a>
-                </nav>
+        <div data-nc-container="header-right">
+            <div id="headerNav" data-nc-element>
+                <div id="mainNavWrapper" class="nav-wrapper">
+                    <nav id="mainNavigation">
+                        <a class="nav-link" asp-controller="home" asp-action="index">@Localizer["Home"]</a>
+                        <a class="nav-link" asp-controller="home" asp-action="portfolio">@Localizer["Portfolio"]</a>
+                        <a class="nav-link" asp-controller="home" asp-action="about">@Localizer["About"]</a>
+                        <a class="nav-link" asp-controller="home" asp-action="resume">@Localizer["Resume"]</a>
+                        <a class="nav-link" asp-controller="home" asp-action="blog">@Localizer["Blog"]</a>
+                        <a class="nav-link" asp-controller="home" asp-action="contact">@Localizer["Contact"]</a>
+                    </nav>
+                </div>
             </div>
         </div>
     </div>
 </header>
 
-<section class="index-page full-container">
+<section class="index-page">
     <div class="index-page-content">
         <div class="row sqs-row">
             <div class="col sqs-col-12 span-12">
