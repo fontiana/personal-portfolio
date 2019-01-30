@@ -17,11 +17,27 @@
     <Folder Include="Areas\Admin\Views\Contact\" />
     <Folder Include="Areas\Admin\Views\About\" />
     <Folder Include="Helper\" />
+    <Folder Include="Resources\Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Areas\Admin\Controllers\AdminController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Areas\Admin\Views\Admin\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Controllers\HomeController.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>HomeController.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Controllers\HomeController.pt-BR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>HomeController.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\Controllers\HomeController.Designer.cs">
+      <DependentUpon>HomeController.pt-BR.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

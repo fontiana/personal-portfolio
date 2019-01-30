@@ -1,16 +1,25 @@
 ﻿using System;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 using Personal.Portfolio.Models;
 
 namespace Personal.Portfolio.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IStringLocalizer<HomeController> localizer;
+    
+        public HomeController(IStringLocalizer<HomeController> localizer)
+        {
+            this.localizer = localizer;
+        }
+
         [HttpGet]
         public IActionResult Index()
         {
-            this.SetBanner("ASP.NET MVC", "Developer with a passion for");
+            
+            this.SetBanner(localizer["Let's build something amazing together"], localizer["I'm here to create meaningful and lasting relationships with my clients."]);
             return View();
         }
 

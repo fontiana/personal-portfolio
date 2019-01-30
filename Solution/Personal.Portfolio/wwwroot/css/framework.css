@@ -350,6 +350,10 @@ body:not(.button-style-default) .sqs-editable-button, body:not(.button-style-def
 }
 
 /* MAIN */
+h1 + h1, h1 + h2, h1 + h3, h2 + h1, h2 + h2, h2 + h3, h3 + h1, h3 + h2, h3 + h3 {
+    margin-top: 15px;
+}
+
 .banner_thumbnail_wrapper {
     padding: 180px 0 155px;
     position: relative;
@@ -359,54 +363,25 @@ body:not(.button-style-default) .sqs-editable-button, body:not(.button-style-def
     background-color: #000;
 }
 
-.desc_wrapper {
-    -webkit-animation: feature-text-anim 1.75s ease-in-out;
-    animation: feature-text-anim 1.75s ease-in-out;
-    z-index: 100;
-    position: relative;
-    width: 100%;
-    max-width: 956px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    margin: 0 auto;
-    padding: 32px;
-    text-align: center;
-    text-rendering: optimizeLegibility;
+.index-page h1 {
+    color: #fff;
+    font-family: 'Montserrat', "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1em;
+    text-transform: uppercase;
 }
 
-    .desc_wrapper p > strong,
-    .desc_wrapper p > em > strong {
-        display: block;
-        font-family: 'Montserrat', "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-weight: 400;
-        font-size: 48px;
-        letter-spacing: 0px;
-        text-transform: none;
-        font-size: 70px;
-        line-height: 1em;
-        text-transform: uppercase;
-        letter-spacing: 4px;
-        font-weight: 700;
-        font-style: normal;
-        color: #fff;
-    }
-
-    .desc_wrapper p {
-        font-style: normal;
-        font-size: 18px;
-        letter-spacing: 0px;
-        font-family: "adobe-garamond-pro";
-        font-size: 24px;
-        line-height: 1.5em;
-        text-transform: none;
-        letter-spacing: 1px;
-        font-weight: 400;
-        font-style: italic;
-        color: #fff;
-        margin: 20px auto;
-        -webkit-transform: translateZ(0);
-    }
+.index-page h2 {
+    color: #fff;
+    font-family: adobe-garamond-pro;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 1.5em;
+    text-transform: none;
+}
 
 .sqs-block:not(.sqs-block-html):not(.sqs-block-markdown) {
     clear: both;

@@ -1,4 +1,10 @@
-﻿@media only screen and (max-device-height: 768px) {
+﻿@media only screen and (max-width: 1440px) {
+    .Index-page h1 {
+        font-size: 68px !important;
+    }
+}
+
+@media only screen and (max-device-height: 768px) {
     .view-list.transparent-header .banner_thumbnail_wrapper,
     .collection-type-page.transparent-header .banner_thumbnail_wrapper,
     .collection-type-blog.view-item.transparent-header .banner_thumbnail_wrapper {
