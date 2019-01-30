@@ -15,12 +15,6 @@
     background: #fff;
 }
 
-.full-container {
-    max-width: 1440px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 body {
     font-size: .85em;
     font-family: 'Montserrat', Proxima-Nova, Helvetica Neue, Arial, Sans-Serif;
@@ -68,7 +62,7 @@ a {
     padding: 96px 32px;
     -moz-osx-font-smoothing: auto;
     -webkit-font-smoothing: subpixel-antialiased;
-    background:#fff;
+    background: #fff;
 }
 
 #headerNav nav a:hover,
@@ -135,7 +129,7 @@ a {
     padding: .618em 0;
 }
 
-.nav-wrapper nav > a, 
+.nav-wrapper nav > a,
 .nav-wrapper nav > label {
     -webkit-transition: color .1s 0s ease-in-out;
     -moz-transition: color .1s 0s ease-in-out;
@@ -354,34 +348,62 @@ h1 + h1, h1 + h2, h1 + h3, h2 + h1, h2 + h2, h2 + h3, h3 + h1, h3 + h2, h3 + h3 
     margin-top: 15px;
 }
 
-.banner_thumbnail_wrapper {
-    padding: 180px 0 155px;
+.full-container .index-page-content {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.full-container .header-inner {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.index-page-content {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 96px 60px;
+}
+
+.index-page {
+    background-color: #000;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #fff;
+    min-height: 320px;
     position: relative;
     overflow: hidden;
-    width: 100%;
-    min-height: 0;
-    background-color: #000;
 }
 
-.index-page h1 {
-    color: #fff;
-    font-family: 'Montserrat', "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 72px;
-    font-weight: 700;
-    line-height: 1em;
-    text-transform: uppercase;
-}
+    .index-page .index-page-content {
+        margin-top: 112px;
+        position: relative;
+        z-index: 2;
+        padding-top: 155px;
+        padding-bottom: 155px;
+    }
 
-.index-page h2 {
-    color: #fff;
-    font-family: adobe-garamond-pro;
-    font-size: 24px;
-    font-style: italic;
-    font-weight: 400;
-    letter-spacing: 1px;
-    line-height: 1.5em;
-    text-transform: none;
-}
+    .index-page h1 {
+        color: #fff;
+        font-family: 'Montserrat', "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 72px;
+        font-weight: 700;
+        line-height: 1em;
+        text-transform: uppercase;
+    }
+
+    .index-page h2 {
+        color: #fff;
+        font-family: adobe-garamond-pro;
+        font-size: 24px;
+        font-style: italic;
+        font-weight: 400;
+        letter-spacing: 1px;
+        line-height: 1.5em;
+        text-transform: none;
+    }
 
 .sqs-block:not(.sqs-block-html):not(.sqs-block-markdown) {
     clear: both;
@@ -862,6 +884,6 @@ svg:not(:root) {
 }
 
 .overlayBg {
-    display:none;
-    cursor:e-resize;
+    display: none;
+    cursor: e-resize;
 }

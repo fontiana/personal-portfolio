@@ -2,7 +2,7 @@
 
 @inject IViewLocalizer Localizer
 
-<header id="header">
+<header id="header" class="full-container">
     <div class="header-inner">
         <div id="logoWrapper" class="wrapper">
             <h1 id="logoImage">
@@ -31,16 +31,18 @@
     </div>
 </header>
 
-<div class="banner_thumbnail_wrapper index-page">
-    <div class="row sqs-row">
-        <div class="col sqs-col-12 span-12">
-            <div class="sqs-block html-block sqs-block-html">
-                <div class="sqs-block-content">
-                    <h2 class="text-align-center">@ViewBag.subtitle</h2>
-                    <h1 class="text-align-center">@ViewBag.title</h1>
+<section class="index-page full-container">
+    <div class="index-page-content">
+        <div class="row sqs-row">
+            <div class="col sqs-col-12 span-12">
+                <div class="sqs-block html-block sqs-block-html">
+                    <div class="sqs-block-content">
+                        <h2 class="text-align-center">@ViewBag.subtitle</h2>
+                        <h1 class="text-align-center">@ViewBag.title</h1>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
