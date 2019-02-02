@@ -213,19 +213,19 @@ h1 {
 
 h1, h2, h3 {
     text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased !important;
+
 }
 
 h2 {
     font-family: 'Montserrat', "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 32px;
-    letter-spacing: 0px;
-    text-transform: none;
-    font-size: 22px;
-    line-height: 1.2em;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 400;
+    font-weight: 300;
     font-style: normal;
+    font-size: 26px;
+    letter-spacing: .01em;
+    line-height: 1.4em;
+    text-transform: none;
+    color: rgba(26,26,26,.9);
 }
 
 h3 {
