@@ -5,7 +5,7 @@ My personal portfolio and blog
 
 ## Work in Progress
  
- - [Entity Framework with Code first](#)
+ - [Entity Framework - Repository Pattern + Unit of Work](https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-implemenation-entity-framework-core)
  - [Error handling](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/error-handling?view=aspnetcore-2.2)
  - [Clean Architecture](https://www.youtube.com/watch?v=_lwCVE_XgqI)
  - [Bootstrap 4.2.1](#)
