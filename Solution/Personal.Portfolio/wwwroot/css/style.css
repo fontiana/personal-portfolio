@@ -140,7 +140,8 @@ body:not(.button-style-default).button-style-outline .sqs-editable-button:hover,
     color: #fff;
 }
 
-.small-button-style-outline .sqs-block-button .sqs-block-button-element--small:hover {
+.small-button-style-outline .sqs-block-button .sqs-block-button-element--small:hover,
+.medium-button-style-outline .sqs-block-button .sqs-block-button-element--medium:hover {
     background-color: #272727;
     color: #fff;
 }
@@ -169,6 +170,19 @@ body:not(.button-style-default).button-style-outline .sqs-editable-button:hover,
     letter-spacing: 1px;
     font-weight: 600;
     font-style: normal;
+}
+
+.sqs-block-button .sqs-block-button-element--medium {
+    padding: 21px 34px;
+    letter-spacing: 1px;
+    font-family: 'Montserrat', "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: #000;
+    background-color: #272727;
+    border-color: #272727;
 }
 
 pre {
