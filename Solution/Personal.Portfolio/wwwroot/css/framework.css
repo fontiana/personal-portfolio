@@ -961,3 +961,44 @@ svg:not(:root) {
     display: none;
     cursor: e-resize;
 }
+
+.summary-title {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+    .summary-title a {
+        color: rgba(26,26,26,.9);
+    }
+
+.summary-content {
+    background-color: #fff;
+    min-height: 140px;
+    padding: 20px;
+}
+
+.sqs-block-summary-v2 .summary-block-setting-text-align-center .summary-content {
+    text-align: center;
+}
+
+.sqs-block-summary-v2 .img-wrapper img, .sqs-block-summary-v2 .sqs-video-wrapper img {
+    display: block;
+    width: 100%;
+    height: auto;
+    font-size: 13px;
+    line-height: normal;
+    -webkit-transition: .6s opacity;
+    -moz-transition: .6s opacity;
+    -ms-transition: .6s opacity;
+    -o-transition: .6s opacity;
+    transition: .6s opacity;
+}
+
+.sqs-gallery-design-autogrid-slide {
+    position: relative;
+    float: left;
+}
+
