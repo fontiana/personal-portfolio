@@ -980,7 +980,7 @@ svg:not(:root) {
     padding: 20px;
 }
 
-.sqs-block-summary-v2 .summary-block-setting-text-align-center .summary-content {
+.sqs-block-summary-v2 .summary-content {
     text-align: center;
 }
 
@@ -996,9 +996,3 @@ svg:not(:root) {
     -o-transition: .6s opacity;
     transition: .6s opacity;
 }
-
-.sqs-gallery-design-autogrid-slide {
-    position: relative;
-    float: left;
-}
-
