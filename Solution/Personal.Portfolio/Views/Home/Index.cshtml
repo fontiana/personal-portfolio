@@ -105,7 +105,9 @@
                     <div class="sqs-block button-block sqs-block-button">
                         <div class="sqs-block-content">
                             <div class="sqs-block-button-container--center">
-                                <a href="/portfolio" class="sqs-block-button-element--medium sqs-block-button-element">View more projects →</a>
+                                <a class="sqs-block-button-element--medium sqs-block-button-element"
+                                   asp-controller="home"
+                                   asp-action="portfolio">@Localizer["View more projects"]→</a>
                             </div>
                         </div>
                     </div>
@@ -219,7 +221,9 @@
                     <div class="sqs-block button-block sqs-block-button">
                         <div class="sqs-block-content">
                             <div class="sqs-block-button-container--center">
-                                <a href="/blog" class="sqs-block-button-element--medium sqs-block-button-element">View more posts →</a>
+                                <a class="sqs-block-button-element--medium sqs-block-button-element"
+                                   asp-controller="home"
+                                   asp-action="blog">@Localizer["View more posts"]→</a>
                             </div>
                         </div>
                     </div>

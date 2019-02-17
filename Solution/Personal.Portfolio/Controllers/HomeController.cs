@@ -17,8 +17,7 @@ namespace Personal.Portfolio.Controllers
 
         [HttpGet]
         public IActionResult Index()
-        {
-            
+        {            
             this.SetBanner(localizer["Let's build something amazing together"], localizer["I'm here to create meaningful and lasting relationships with my clients."]);
             return View();
         }
@@ -26,6 +25,7 @@ namespace Personal.Portfolio.Controllers
         [HttpGet]
         public IActionResult Portfolio()
         {
+            this.SetBanner(localizer["My projects"], localizer["My work as a Full-stack developer."]);
             return View();
         }
 

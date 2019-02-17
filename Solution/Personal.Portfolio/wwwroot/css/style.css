@@ -35,12 +35,16 @@
     clear: both;
 }
 
+.sqs-col-12 .sqs-col-1 {
+    width: 8.3333%;
+}
+
 .sqs-col-12 .sqs-col-2 {
     width: 16.6667%;
 }
 
-.sqs-col-12 .sqs-col-8 {
-    width: 66.6667%;
+.sqs-col-8 .sqs-col-3 {
+    width: 37.5%;
 }
 
 .sqs-col-12 .sqs-col-4 {
@@ -51,8 +55,12 @@
     width: 62.5%;
 }
 
-.sqs-col-8 .sqs-col-3 {
-    width: 37.5%;
+.sqs-col-12 .sqs-col-8 {
+    width: 66.6667%;
+}
+
+.sqs-col-12 .sqs-col-10 {
+    width: 83.3333%;
 }
 
 .sqs-col-12 {
@@ -235,7 +243,7 @@ h2 {
     font-family: 'Montserrat', "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 300;
     font-style: normal;
-    font-size: 26px;
+    font-size: 22px;
     letter-spacing: .01em;
     line-height: 1.4em;
     text-transform: none;
