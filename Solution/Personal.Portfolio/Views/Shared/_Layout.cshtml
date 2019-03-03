@@ -11,7 +11,7 @@
     <link rel="Shortcut Icon" href="~/favicon.ico" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
-    <environment include="Development">
+    <environment include="Development, Production">
         <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/css/framework.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/css/mobile.css" asp-append-version="true" />
@@ -28,7 +28,7 @@
         <partial name="_Footer.cshtml" />
     </div>
 
-    <environment include="Development">
+    <environment include="Development, Production">
         <!-- <script src="~/js/site.js" asp-append-version="true"></script> -->
     </environment>
 
