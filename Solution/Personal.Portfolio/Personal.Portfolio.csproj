@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
+    <MvcRazorCompileOnPublish>true</MvcRazorCompileOnPublish>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
     <UserSecretsId>9e626361-ea69-499b-9548-11be932e417d</UserSecretsId>
   </PropertyGroup>
