@@ -3,6 +3,16 @@
 
 My personal portfolio and blog
 
+## How it works?
+
+ - Built with DOT.NET Core 2.1
+ - It's deployed on Azure Web App using Kudu tools which watchs for changes on this repository
+ - It could also be deployed using this command: 
+   ```shell
+   cd Solution\Personal.Portfolio
+   dotnet publish -c Release -o /Users/victoroliveira/Documents/Projetos/Deploys
+   ```
+
 ## Work in Progress
  
  - [Entity Framework - Repository Pattern + Unit of Work](https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-implemenation-entity-framework-core)
