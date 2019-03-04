@@ -12,10 +12,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    <data name="Let's build something amazing together" xml:space="preserve">
+    <data name="Let's build something great together" xml:space="preserve">
         <value>Vamos construir algo incrível juntos</value>
     </data>
-    <data name="I'm here to create meaningful and lasting relationships with my clients." xml:space="preserve">
-        <value>Eu estou aqui para criar relacionamentos duradouros com meus clientes</value>
+    <data name="I'm here to create meaningful relationships with my clients." xml:space="preserve">
+        <value>Eu estou aqui para criar relacionamentos valiosos com meus clientes</value>
     </data>
 </root>

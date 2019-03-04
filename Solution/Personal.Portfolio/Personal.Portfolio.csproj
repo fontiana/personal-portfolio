@@ -34,7 +34,7 @@
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Controllers\HomeController.pt-BR.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>HomeController.Designer.cs</LastGenOutput>
+      <LastGenOutput>HomeController.pt-BR.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
