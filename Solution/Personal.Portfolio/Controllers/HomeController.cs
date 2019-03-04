@@ -1,15 +1,12 @@
-﻿using System;
-using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
-using Personal.Portfolio.Models;
 
 namespace Personal.Portfolio.Controllers
 {
     public class HomeController : Controller
     {
         private readonly IStringLocalizer<HomeController> localizer;
-    
+
         public HomeController(IStringLocalizer<HomeController> localizer)
         {
             this.localizer = localizer;
@@ -17,15 +14,15 @@ namespace Personal.Portfolio.Controllers
 
         [HttpGet]
         public IActionResult Index()
-        {            
-            this.SetBanner(localizer["Let's build something amazing together"], localizer["I'm here to create meaningful and lasting relationships with my clients."]);
+        {
+            SetBanner(localizer["Let's build something amazing together"], localizer["I'm here to create meaningful and lasting relationships with my clients."]);
             return View();
         }
 
         [HttpGet]
         public IActionResult Portfolio()
         {
-            this.SetBanner(localizer["My projects"], localizer["My work as a Full-stack developer."]);
+            SetBanner(localizer["My projects"], localizer["My work as a Full-stack developer."]);
             return View();
         }
 
@@ -38,6 +35,7 @@ namespace Personal.Portfolio.Controllers
         [HttpGet]
         public IActionResult About()
         {
+            SetBanner(localizer["My passions and traits"], localizer["Discover who I am as a person and as a developer."]);
             return View();
         }
 

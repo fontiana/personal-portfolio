@@ -16,21 +16,21 @@ namespace Personal.Portfolio.Resources.Controllers {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class HomeController_pt_BR {
+    internal class AboutController {
         
         private static System.Resources.ResourceManager resourceMan;
         
         private static System.Globalization.CultureInfo resourceCulture;
         
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal HomeController_pt_BR() {
+        internal AboutController() {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.Equals(null, resourceMan)) {
-                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("Personal.Portfolio.Resources.Controllers.HomeController.pt-BR", typeof(HomeController_pt_BR).Assembly);
+                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("Personal.Portfolio.Resources.Controllers.AboutController", typeof(AboutController).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -47,15 +47,15 @@ namespace Personal.Portfolio.Resources.Controllers {
             }
         }
         
-        internal static string Let_s_build_something_great_together {
+        internal static string Discover_who_I_am_as_a_person_and_as_a_developer_ {
             get {
-                return ResourceManager.GetString("Let\'s build something great together", resourceCulture);
+                return ResourceManager.GetString("Discover who I am as a person and as a developer.", resourceCulture);
             }
         }
         
-        internal static string I_m_here_to_create_meaningful_relationships_with_my_clients_ {
+        internal static string My_passions_and_traits {
             get {
-                return ResourceManager.GetString("I\'m here to create meaningful relationships with my clients.", resourceCulture);
+                return ResourceManager.GetString("My passions and traits", resourceCulture);
             }
         }
     }

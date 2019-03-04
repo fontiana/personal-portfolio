@@ -20,9 +20,11 @@
     <Folder Include="Areas\Admin\Views\About\" />
     <Folder Include="Helper\" />
     <Folder Include="Resources\Controllers\" />
+    <Folder Include="wwwroot\images\about\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Remove="Resources\Controllers\Resources.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Areas\Admin\Views\Admin\Index.cshtml" />
@@ -36,10 +38,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>HomeController.pt-BR.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Controllers\AboutController.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AboutController.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Resources\Controllers\HomeController.Designer.cs">
       <DependentUpon>HomeController.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Controllers\AboutController.Designer.cs">
+      <DependentUpon>AboutController.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>
