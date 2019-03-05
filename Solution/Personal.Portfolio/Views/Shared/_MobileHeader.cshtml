@@ -1,0 +1,66 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+<div class="Mobile loaded" data-nc-base="mobile-bar">
+    <div class="Mobile-bar Mobile-bar--top" data-nc-group="top">
+        <div data-nc-container="top-left">
+            <a href="/cart" class="Cart sqs-custom-cart sqs-template-integrated-shopping-cart" data-nc-element="cart">
+                Logo
+            </a>
+        </div>
+        <div data-nc-container="top-right">
+            <button class="Mobile-bar-menu" data-nc-element="menu-icon" data-controller-overlay="menu" data-controller="MobileOverlayToggle" data-controllers-bound="MobileOverlayToggle">
+                <svg class="Icon Icon--hamburger" viewBox="0 0 24 18">
+                    <use xlink:href="/images/ui-icons.svg#hamburger-icon--even" class="use--even"></use>
+                    <use xlink:href="/images/ui-icons.svg#hamburger-icon--odd" class="use--odd"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="Mobile-bar Mobile-bar--bottom" data-nc-group="bottom" data-controller="MobileOffset" data-controllers-bound="MobileOffset">
+        <div data-nc-container="bottom-left">
+        </div>
+        <div data-nc-container="bottom-center">
+        </div>
+        <div data-nc-container="bottom-right">
+        </div>
+    </div>
+    <div class="Mobile-overlay">
+        <div class="Mobile-overlay-menu" data-controller="MobileOverlayFolders" data-controllers-bound="MobileOverlayFolders">
+            <div class="Mobile-overlay-menu-main">
+                <nav class="Mobile-overlay-nav Mobile-overlay-nav--primary" data-content-field="navigation">
+                    <a href="/" class="Mobile-overlay-nav-item">
+                        @Localizer["Home"]
+                    </a>
+                    <a href="/squarespace-code-shop" class="Mobile-overlay-nav-item">
+                        @Localizer["Portfolio"]
+                    </a>
+                    <a href="/portfolio" class="Mobile-overlay-nav-item">
+                        @Localizer["About"]
+                    </a>
+                    <a href="/about" class="Mobile-overlay-nav-item">
+                        @Localizer["Resume"]
+                    </a>
+                    <a href="/blog" class="Mobile-overlay-nav-item">
+                        @Localizer["Blog"]
+                    </a>
+                    <a href="/contact" class="Mobile-overlay-nav-item">
+                        @Localizer["Contact"]
+                    </a>
+                </nav>
+                <nav class="Mobile-overlay-nav Mobile-overlay-nav--secondary" data-content-field="navigation">
+
+                </nav>
+            </div>
+            <div class="Mobile-overlay-folders" data-content-field="navigation">
+            </div>
+        </div>
+        <button class="Mobile-overlay-close" data-controller="MobileOverlayToggle" data-controllers-bound="MobileOverlayToggle">
+            <svg class="Icon Icon--close" viewBox="0 0 16 16">
+                <use xlink:href="/images/ui-icons.svg#close-icon"></use>
+            </svg>
+        </button>
+        <div class="Mobile-overlay-back" data-controller="MobileOverlayToggle" data-controllers-bound="MobileOverlayToggle"></div>
+    </div>
+</div>
