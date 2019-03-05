@@ -21,13 +21,14 @@
                     <div class="sqs-block html-block sqs-block-html">
                         <div class="sqs-block-content">
                             <h3 class="text-align-center">
-                                <a href="/">Home</a>&nbsp; &nbsp;&nbsp;
-                                <a href="/Portfolio">Portfolio</a>&nbsp; &nbsp;&nbsp;
-                                <a href="/About">About</a>&nbsp; &nbsp;&nbsp;
-                                <a href="/Resume">Resume</a>&nbsp; &nbsp;&nbsp;
-                                <a href="/Contact">Contact</a>
+                                <a asp-controller="home" asp-action="index">@Localizer["Home"]</a>
+                                <a asp-controller="home" asp-action="portfolio">@Localizer["Portfolio"]</a>
+                                <a asp-controller="home" asp-action="about">@Localizer["About"]</a>
+                                <a asp-controller="home" asp-action="resume">@Localizer["Resume"]</a>
+                                <a asp-controller="home" asp-action="blog">@Localizer["Blog"]</a>
+                                <a asp-controller="home" asp-action="contact">@Localizer["Contact"]</a>
                             </h3>
-                            <p class="text-align-center">© 2018 Victor Fontana.&nbsp;@Localizer["All rights reserved. Developer ASP.NET"]</p>
+                            <p class="text-align-center">© 2018 Victor Fontana. @Localizer["All rights reserved. Developer ASP.NET"]</p>
                         </div>
                     </div>
                     <div class="sqs-block socialaccountlinks-v2-block sqs-block-socialaccountlinks-v2">
@@ -48,15 +49,6 @@
                                             <use class="sqs-use--background" xlink:href="images/universal/svg/social-accounts.svg#background"></use>
                                             <use class="sqs-use--icon" xlink:href="images/universal/svg/social-accounts.svg#linkedin-icon"></use>
                                             <use class="sqs-use--mask" xlink:href="images/universal/svg/social-accounts.svg#linkedin-mask"></use>
-                                        </svg>
-                                    </div>
-                                </a>
-                                <a href="http://www.facebook.com/FoFonts" target="_blank" class="sqs-svg-icon--wrapper facebook" style="">
-                                    <div>
-                                        <svg class="sqs-svg-icon--social">
-                                            <use class="sqs-use--background" xlink:href="images/universal/svg/social-accounts.svg#background"></use>
-                                            <use class="sqs-use--icon" xlink:href="images/universal/svg/social-accounts.svg#facebook-icon"></use>
-                                            <use class="sqs-use--mask" xlink:href="images/universal/svg/social-accounts.svg#facebook-mask"></use>
                                         </svg>
                                     </div>
                                 </a>

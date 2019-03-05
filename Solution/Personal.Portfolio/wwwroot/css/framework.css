@@ -691,7 +691,7 @@ h3 + h3 {
 #footerBlocks .sqs-block-content a,
 #footerBlocks .sqs-block-content a:active,
 #footerBlocks .sqs-block-content a:visited {
-    color: rgba(255, 255, 255, .7);
+    padding: .5em 1.2em;
 }
 
 #footer .html-block a,
