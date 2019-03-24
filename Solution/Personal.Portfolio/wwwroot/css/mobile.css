@@ -4,11 +4,81 @@
     -moz-osx-font-smoothing: auto;
 }
 
+.Mobile-bar {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+[data-nc-group] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    text-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
 [data-nc-base="mobile-bar"] [data-nc-container="top-right"] [data-nc-element="menu-icon"] {
     -webkit-box-ordinal-group: 5;
     -ms-flex-order: 5;
     -webkit-order: 5;
     order: 5;
+}
+
+.Mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: -99999px;
+    bottom: 0;
+    z-index: 1010;
+    width: 100%;
+    -webkit-transition: left 0s 525ms,background-color 350ms cubic-bezier(.55,0,.1,1) 175ms;
+    -moz-transition: left 0s 525ms,background-color 350ms cubic-bezier(.55,0,.1,1) 175ms;
+    -ms-transition: left 0s 525ms,background-color 350ms cubic-bezier(.55,0,.1,1) 175ms;
+    -o-transition: left 0s 525ms,background-color 350ms cubic-bezier(.55,0,.1,1) 175ms;
+    transition: left 0s 525ms,background-color 350ms cubic-bezier(.55,0,.1,1) 175ms;
+}
+
+.is-mobile-overlay-active .Mobile-overlay {
+    left: 0;
+    background-color: #fff;
+    -webkit-transition: left 0s,background-color 350ms cubic-bezier(.55,0,.1,1);
+    -moz-transition: left 0s,background-color 350ms cubic-bezier(.55,0,.1,1);
+    -ms-transition: left 0s,background-color 350ms cubic-bezier(.55,0,.1,1);
+    -o-transition: left 0s,background-color 350ms cubic-bezier(.55,0,.1,1);
+    transition: left 0s,background-color 350ms cubic-bezier(.55,0,.1,1);
+}
+
+.Icon--hamburger {
+    width: 24px;
+    height: 18px;
+}
+
+.Mobile-bar-menu {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    stroke: #272727;
+    padding: 8px;
+    line-height: 0;
+    outline: 0;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    text-transform: inherit;
+    letter-spacing: inherit;
 }
 
 @media screen and (min-width: 768px) {
