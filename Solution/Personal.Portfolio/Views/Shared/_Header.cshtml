@@ -3,7 +3,6 @@
 @inject IViewLocalizer Localizer
 
 <partial name="_MobileHeader.cshtml" />
-
 <header id="header">
     <div class="header-inner header-inner-content">
         <div data-nc-container="header-left">
@@ -16,7 +15,7 @@
             </div>
         </div>
         <div data-nc-container="header-right">
-            <div id="headerNav" data-nc-element>
+            <div id="headerNav">
                 <div id="mainNavWrapper" class="nav-wrapper">
                     <nav id="mainNavigation">
                         <a class="nav-link" asp-controller="home" asp-action="index">@Localizer["Home"]</a>
@@ -31,7 +30,6 @@
         </div>
     </div>
 </header>
-
 <section class="index-page">
     <div class="index-page-content">
         <div class="row sqs-row">
@@ -46,4 +44,3 @@
         </div>
     </div>
 </section>
-

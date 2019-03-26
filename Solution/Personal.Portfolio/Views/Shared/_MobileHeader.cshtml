@@ -2,12 +2,13 @@
 
 @inject IViewLocalizer Localizer
 
+
 <div class="Mobile loaded" data-nc-base="mobile-bar">
     <div class="Mobile-bar Mobile-bar--top">
-        <div data-nc-container="top-left">
-            <a>VIFONTS</a>
+        <div class="mobile-menu">
+            <a href="/">VIFONTS</a>
         </div>
-        <div data-nc-container="top-right">
+        <div class="mobile-menu right">
             <button class="Mobile-bar-menu" data-nc-element="menu-icon">
                 <svg class="Icon Icon--hamburger" viewBox="0 0 24 18">
                     <use xlink:href="/images/ui-icons.svg#hamburger-icon--even" class="use--even"></use>
@@ -39,9 +40,6 @@
                         @Localizer["Contact"]
                     </a>
                 </nav>
-                <nav class="Mobile-overlay-nav Mobile-overlay-nav--secondary" data-content-field="navigation">
-
-                </nav>
             </div>
             <div class="Mobile-overlay-folders" data-content-field="navigation">
             </div>
@@ -54,3 +52,11 @@
         <div class="Mobile-overlay-back" data-controller="MobileOverlayToggle" data-controllers-bound="MobileOverlayToggle"></div>
     </div>
 </div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            alert("vara");
+        });
+    </script>
+}
