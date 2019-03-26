@@ -11,7 +11,7 @@
     padding-bottom: 8px;
 }
 
-[data-nc-group] {
+.Mobile-bar {
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -32,6 +32,14 @@
     -ms-flex-order: 5;
     -webkit-order: 5;
     order: 5;
+}
+
+[data-nc-base="mobile-bar"] [data-nc-container="top-right"] {
+    text-align: right;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
 }
 
 .Mobile-overlay {
