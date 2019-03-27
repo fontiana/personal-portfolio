@@ -21,34 +21,31 @@
         <div class="Mobile-overlay-menu" data-controller="MobileOverlayFolders" data-controllers-bound="MobileOverlayFolders">
             <div class="Mobile-overlay-menu-main">
                 <nav class="Mobile-overlay-nav Mobile-overlay-nav--primary" data-content-field="navigation">
-                    <a href="/" class="Mobile-overlay-nav-item">
+                    <a class="Mobile-overlay-nav-item" asp-controller="home" asp-action="index">
                         @Localizer["Home"]
                     </a>
-                    <a href="/squarespace-code-shop" class="Mobile-overlay-nav-item">
+                    <a class="Mobile-overlay-nav-item" asp-controller="home" asp-action="portfolio">
                         @Localizer["Portfolio"]
                     </a>
-                    <a href="/portfolio" class="Mobile-overlay-nav-item">
+                    <a class="Mobile-overlay-nav-item" asp-controller="home" asp-action="about">
                         @Localizer["About"]
                     </a>
-                    <a href="/about" class="Mobile-overlay-nav-item">
+                    <a class="Mobile-overlay-nav-item" asp-controller="home" asp-action="resume">
                         @Localizer["Resume"]
                     </a>
-                    <a href="/blog" class="Mobile-overlay-nav-item">
+                    <a class="Mobile-overlay-nav-item" asp-controller="home" asp-action="blog">
                         @Localizer["Blog"]
                     </a>
-                    <a href="/contact" class="Mobile-overlay-nav-item">
+                    <a class="Mobile-overlay-nav-item" asp-controller="home" asp-action="contact">
                         @Localizer["Contact"]
                     </a>
                 </nav>
             </div>
-            <div class="Mobile-overlay-folders" data-content-field="navigation">
-            </div>
         </div>
-        <button class="Mobile-overlay-close" data-controller="MobileOverlayToggle" data-controllers-bound="MobileOverlayToggle">
+        <button class="Mobile-overlay-close" data-nc-element="close-icon">
             <svg class="Icon Icon--close" viewBox="0 0 16 16">
                 <use xlink:href="/images/ui-icons.svg#close-icon"></use>
             </svg>
         </button>
-        <div class="Mobile-overlay-back" data-controller="MobileOverlayToggle" data-controllers-bound="MobileOverlayToggle"></div>
     </div>
 </div>

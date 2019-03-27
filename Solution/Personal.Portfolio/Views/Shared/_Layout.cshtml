@@ -37,6 +37,9 @@
                 $('[data-nc-element="menu-icon"]').on("click", function () {
                     $('body').addClass('is-mobile-overlay-active');
                 });
+                $('[data-nc-element="close-icon"]').on("click", function () {
+                    $('body').removeClass('is-mobile-overlay-active');
+                });
             });
         </script>
     </environment>

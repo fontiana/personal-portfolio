@@ -14,7 +14,7 @@
 .Mobile-bar {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: -webkit-flex; 
+    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -27,13 +27,13 @@
     justify-content: center;
 }
 
-.Mobile-bar .right {
-    text-align: right;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    -webkit-justify-content: flex-end;
-    justify-content: flex-end;
-}
+    .Mobile-bar .right {
+        text-align: right;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        -webkit-justify-content: flex-end;
+        justify-content: flex-end;
+    }
 
 .mobile-menu {
     display: -webkit-box;
@@ -96,6 +96,19 @@
     transition: transform 350ms cubic-bezier(.55,0,.1,1) 175ms;
 }
 
+.Mobile-overlay-menu {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 80%;
+    width: calc(100% - 60px );
+    overflow: hidden;
+    background-color: #fff;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+}
+
 .Mobile-overlay-nav-item, .Mobile-overlay-folder-item {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -108,11 +121,9 @@
 }
 
 .Mobile-overlay-nav .Mobile-overlay-nav-item {
-    font-family: Arial,Helvetica,sans-serif;
     font-weight: 400;
     font-size: 16px;
     letter-spacing: 0em;
-    font-family: proxima-nova;
     font-weight: 300;
     font-style: normal;
     font-size: 24px;
@@ -141,17 +152,47 @@
     transition: transform 350ms cubic-bezier(.55,0,.1,1);
 }
 
-.Mobile-overlay-back {
+.Mobile-overlay-close {
+    outline: 0;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    text-transform: inherit;
+    letter-spacing: inherit;
     position: absolute;
     top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 0;
+    z-index: 1;
+    padding: 22px;
+    line-height: 0;
+    stroke: transparent;
+    -webkit-transition: stroke 350ms cubic-bezier(.55,0,.1,1),background-color 350ms cubic-bezier(.55,0,.1,1);
+    -moz-transition: stroke 350ms cubic-bezier(.55,0,.1,1),background-color 350ms cubic-bezier(.55,0,.1,1);
+    -ms-transition: stroke 350ms cubic-bezier(.55,0,.1,1),background-color 350ms cubic-bezier(.55,0,.1,1);
+    -o-transition: stroke 350ms cubic-bezier(.55,0,.1,1),background-color 350ms cubic-bezier(.55,0,.1,1);
+    transition: stroke 350ms cubic-bezier(.55,0,.1,1),background-color 350ms cubic-bezier(.55,0,.1,1);
 }
 
-.Icon--hamburger {
+.is-mobile-overlay-active .Mobile-overlay-close {
+    background-color: rgba(255,255,255,0);
+    stroke: #272727;
+    -webkit-transition: stroke 350ms cubic-bezier(.55,0,.1,1) 175ms,background-color 350ms cubic-bezier(.55,0,.1,1) 175ms;
+    -moz-transition: stroke 350ms cubic-bezier(.55,0,.1,1) 175ms,background-color 350ms cubic-bezier(.55,0,.1,1) 175ms;
+    -ms-transition: stroke 350ms cubic-bezier(.55,0,.1,1) 175ms,background-color 350ms cubic-bezier(.55,0,.1,1) 175ms;
+    -o-transition: stroke 350ms cubic-bezier(.55,0,.1,1) 175ms,background-color 350ms cubic-bezier(.55,0,.1,1) 175ms;
+    transition: stroke 350ms cubic-bezier(.55,0,.1,1) 175ms,background-color 350ms cubic-bezier(.55,0,.1,1) 175ms;
+}
+
+.Icon--hamburger, .Icon--close {
     stroke-width: 2;
+}
+
+.Icon--close {
+    width: 16px;
+    height: 16px;
+}
+
+.Mobile-overlay-close {
+    right: 0;
 }
 
 .is-mobile-overlay-active .Mobile-overlay {
@@ -189,7 +230,7 @@
 
 @media screen and (min-width: 768px) {
     [data-nc-base="mobile-bar"] {
-        display: none;    
+        display: none;
     }
 }
 
