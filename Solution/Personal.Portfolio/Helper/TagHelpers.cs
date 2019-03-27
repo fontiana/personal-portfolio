@@ -18,7 +18,7 @@ namespace Personal.Portfolio.Helper
             this.contextAccessor = contextAccessor;
         }
  
-        private IDictionary<string, string> _routeValues;
+        private IDictionary<string, string> routeValues;
  
         /// <summary>The name of the action method.</summary>
         /// <remarks>Must be <c>null</c> if <see cref="P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Route" /> is non-<c>null</c>.</remarks>
@@ -39,13 +39,13 @@ namespace Personal.Portfolio.Helper
         {
             get
             {
-                if (this._routeValues == null)
-                    this._routeValues = (IDictionary<string, string>)new Dictionary<string, string>((IEqualityComparer<string>)StringComparer.OrdinalIgnoreCase);
-                return this._routeValues;
+                if (routeValues == null)
+                    routeValues = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+                return routeValues;
             }
             set
             {
-                this._routeValues = value;
+                this.routeValues = value;
             }
         }
  
