@@ -1,4 +1,35 @@
 ﻿/* MAIN */
+.BlogItem-meta {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+}
+
+.Blog-meta {
+    display: -moz-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0em;
+    text-transform: none;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(26,26,26,.5);
+}
+
+.Blog-meta-item--date:before {
+    content: '\00B7';
+    margin: 0 .5em;
+}
+
 .block-horizontalrule hr {
     border-style: none;
     border-width: 0;
