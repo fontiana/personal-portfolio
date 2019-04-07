@@ -237,6 +237,10 @@
     [data-nc-base="mobile-bar"] {
         display: none;
     }
+    
+    #header {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 1440px) {
@@ -257,7 +261,7 @@
     }
 }
 
-@media screen and (max-width:640px) {
+@media screen and (max-width: 640px) {
     .index-page .index-page-content {
         padding-top: 60px;
         padding-bottom: 60px;
@@ -290,10 +294,6 @@
     #sidecarNav nav div a, #sidecarNav nav div label {
         display: block;
         padding: .75em 0;
-    }
-
-    #header {
-        display: none;
     }
 
     #logoWrapper {
