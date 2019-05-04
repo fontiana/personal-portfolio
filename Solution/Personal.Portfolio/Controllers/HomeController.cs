@@ -46,11 +46,18 @@ namespace Personal.Portfolio.Controllers
         }
 
         [HttpGet]
-        public IActionResult Blog()
+        public IActionResult Blog(string id)
         {
-            return View();
+            ViewBag.darkHeader = "darkHeader";
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                return View();
+            }   
+            else
+            {
+                return View("BlogPost");
+            }
         }
-
 
         [HttpGet]
         public IActionResult Contact()

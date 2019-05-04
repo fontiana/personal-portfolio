@@ -1,29 +1,16 @@
-﻿
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
 <section>
     <div class="index-page-content">
         <div class="sqs-layout sqs-grid-12 columns-12">
             <div class="row sqs-row">
                 <div class="col sqs-col-12 span-12">
-                    <div class="sqs-block html-block sqs-block-html">
-                        <div class="sqs-block-content">
-                            <h1 class="text-align-center">Lorem Ipsum Dolores non Fat siamet</h1>
-                            <div class="Blog-meta BlogItem-meta">
-                                <span class="Blog-meta-item Blog-meta-item--categories">
-                                    <a href="#" class="Blog-meta-item-category">Category</a>
-                                </span>
-                                <time class="Blog-meta-item Blog-meta-item--date" datetime="2019-03-30">March 30, 2019</time>
-                            </div>
-                            <div class="sqs-layout sqs-grid-12 columns-12">
-                                <div class="row sqs-row">
-                                    <div class="col sqs-col-12 span-12">
-                                        <div class="sqs-block html-block sqs-block-html">
-                                            <div class="sqs-block-content">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu arcu a mauris efficitur tincidunt ut a magna. Mauris vitae mollis nisl. Sed fermentum sed dui eget maximus. Nulla est sem, commodo ut aliquet non, dictum non purus. Nullam ut turpis nec ligula vulputate vehicula ac in est. Pellentesque efficitur bibendum sem id laoreet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce mattis lorem quis dolor viverra vehicula ac nec enim. Vestibulum tincidunt dolor non pulvinar fringilla..</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="sblock html-block">
+                        <div class="block-content">
+                            <h1 class="text-align-center">@Localizer["Here's what've been studying."]</h1>
+                            <h2 class="text-align-center">@Localizer["Coming from a background in frontend and backend engineering, here's where I provide insight into my career"]</h2>
                         </div>
                     </div>
                 </div>

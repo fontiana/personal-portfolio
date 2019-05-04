@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="~/css/mobile.css" asp-append-version="true" />
     </environment>
 </head>
-<body class="transparent-header enable-nav-button nav-button-style-outline banner-button-style-outline gallery-design-grid small-button-style-outline medium-button-style-outline large-button-style-outline button-style-outline homepage collection-type-index">
+<body class="transparent-header enable-nav-button nav-button-style-outline banner-button-style-outline gallery-design-grid small-button-style-outline medium-button-style-outline large-button-style-outline button-style-outline homepage collection-type-index @(ViewBag.darkHeader)">
     <div id="siteWrapper">
         <partial name="_Header.cshtml" />
         <div id="page" role="main">
