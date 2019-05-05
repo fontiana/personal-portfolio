@@ -25,6 +25,7 @@
     color: rgba(26,26,26,.5);
 }
 
+.summary-metadata-item:after,
 .Blog-meta-item--date:before {
     content: '\00B7';
     margin: 0 .5em;
