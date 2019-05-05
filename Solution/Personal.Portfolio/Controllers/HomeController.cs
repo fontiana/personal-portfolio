@@ -48,7 +48,7 @@ namespace Personal.Portfolio.Controllers
         [HttpGet]
         public IActionResult Blog(string id)
         {
-            ViewBag.darkHeader = "darkHeader";
+            ViewBag.darkHeader = "dark-header";
             if (string.IsNullOrWhiteSpace(id))
             {
                 return View();

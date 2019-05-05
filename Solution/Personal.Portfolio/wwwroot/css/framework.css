@@ -76,6 +76,10 @@ a {
     color: #fff;
 }
 
+.dark-header #headerNav nav a:hover {
+    color: #000;
+}
+
 .clearfix:before,
 .clearfix:after {
     content: " ";
@@ -101,6 +105,10 @@ a {
     color: rgba(255, 255, 255, .4);
 }
 
+.dark-header #headerNav:hover a {
+    color: rgba(0,0,0,.4);
+}
+
 #headerNav nav a,
 #sidecarNav nav a,
 #headerNav nav a:visited,
@@ -119,6 +127,10 @@ a {
     font-style: normal;
     line-height: 1em;
     color: rgba(255, 255, 255, 1);
+}
+
+.dark-header #headerNav nav a {
+    color:#000;
 }
 
 .nav-button-style-outline.enable-nav-button #headerNav nav > div:not(.folder):last-child a,
