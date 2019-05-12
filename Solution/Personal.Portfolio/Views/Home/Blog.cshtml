@@ -2,7 +2,8 @@
 
 @inject IViewLocalizer Localizer
 
-<section>
+
+<section class="no-banner-section">
     <div class="index-page-content">
         <div class="sqs-layout sqs-grid-12 columns-12">
             <div class="row sqs-row">
@@ -17,9 +18,8 @@
             </div>
         </div>
     </div>
-</section>
-<section>
-    <div class="index-page-content">
+
+    <div class="index-page-content main-content">
         <div class="sqs-layout sqs-grid-12 columns-12">
             <div class="row sqs-row">
                 <div class="col sqs-col-12 span-12">
@@ -47,9 +47,12 @@
                                                 </div>
                                             </div>
                                             <a asp-controller="home" asp-action="blog" asp-route-id="post" class="BlogList-item-title">Blog post</a>
-                                            <a href="/blog/post" class="BlogList-item-readmore">
-                                                <span>Read More →</span>
-                                            </a>
+                                            <div class="BlogList-item-excerpt">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eleifend massa augue, posuere accumsan purus volutpat vel.</p>
+                                                <a href="/blog/post" class="BlogList-item-readmore">
+                                                    <span>Read More →</span>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -59,4 +62,5 @@
                 </div>
             </div>
         </div>
+    </div>
 </section>

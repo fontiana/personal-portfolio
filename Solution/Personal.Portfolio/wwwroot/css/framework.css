@@ -437,6 +437,10 @@ h3 + h3 {
     background-color: #edeeef;
 }
 
+.no-banner-section {
+    margin-top: 83px;
+}
+
 .header-inner {
     max-width: 1440px;
     margin-left: auto;
@@ -448,6 +452,10 @@ h3 + h3 {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 96px 60px;
+}
+
+.main-content {
+    padding-top: 0;
 }
 
 .index-page {

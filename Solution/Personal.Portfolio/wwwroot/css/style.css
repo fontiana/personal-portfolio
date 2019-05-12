@@ -51,6 +51,12 @@
     justify-content: center;
 }
 
+.BlogList-item-excerpt {
+    font-size: 15px;
+    line-height: 1.8em;
+    letter-spacing: 0em;
+}
+
 .Blog-meta {
     display: -moz-box;
     display: -webkit-box;
