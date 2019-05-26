@@ -75,6 +75,10 @@
     color: rgba(26, 26, 26, .5);
 }
 
+.Blog-meta-item--date {
+    font-weight:normal;
+}
+
 .summary-metadata-item:after,
 .Blog-meta-item--date:before {
     content: '\00B7';
@@ -114,6 +118,12 @@
     transition: box-shadow .1s ease-in-out;
     padding-top: 17px;
     padding-bottom: 17px;
+}
+
+.no-banner-section .sqs-block.html-block.sqs-block-html:not(.sqs-block-content) {
+    width: 83.33%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .sqs-row:after {

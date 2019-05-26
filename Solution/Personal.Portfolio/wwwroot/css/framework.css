@@ -21,6 +21,7 @@ body {
     font-family: 'Montserrat', Proxima-Nova, Helvetica Neue, Arial, Sans-Serif;
     color: #333330;
     line-height: 1;
+    background-color: #26262a;
 }
 
 input,
@@ -267,6 +268,10 @@ div#sidecarNav {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     position: absolute;
+}
+
+.dark-header.transparent-header #header {
+    background-color: #fff;
 }
 
 body:not(.force-mobile-nav) .nav-wrapper nav > div {
@@ -1006,7 +1011,6 @@ svg:not(:root) {
     font-size: 16px;
     font-weight: 600;
     letter-spacing: 1px;
-    margin-bottom: 10px;
     text-transform: uppercase;
 }
 
