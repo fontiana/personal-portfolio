@@ -120,7 +120,7 @@
     padding-bottom: 17px;
 }
 
-.no-banner-section .sqs-block.html-block.sqs-block-html:not(.sqs-block-content) {
+.no-banner-section .sqs-block-content .sqs-block.html-block.sqs-block-html {
     width: 83.33%;
     margin-right: auto;
     margin-left: auto;

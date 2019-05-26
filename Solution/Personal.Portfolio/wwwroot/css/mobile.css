@@ -251,6 +251,14 @@
     }
 }
 
+@media screen and (max-width: 900px) {
+    .no-banner-section .sqs-block-content .sqs-block.html-block.sqs-block-html {
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
 @media only screen and (max-width: 640px) {
     .index-page h1 {
         font-size: 22px !important;
@@ -262,14 +270,19 @@
         display: none;
     }
 
-    .index-page .index-page-content {
-        padding-top: 60px;
-        padding-bottom: 60px;
+    .no-banner-section {
+        margin-top: 0;
     }
 
     .index-page-content {
+        padding-top: 60px;
+        padding-bottom: 60px;
         padding-left: 20px;
         padding-right: 20px;
+    }
+
+    .index-page-content.main-content {
+        padding-top: 0;
     }
 
     .force-mobile-nav #siteWrapper {
