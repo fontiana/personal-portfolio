@@ -1,4 +1,9 @@
-﻿.Mobile-bar--top {
+﻿.is-mobile-overlay-active {
+    position: fixed;
+    width: 100%;
+}
+
+.Mobile-bar--top {
     background: #fff;
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: auto;

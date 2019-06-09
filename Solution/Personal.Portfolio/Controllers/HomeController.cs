@@ -62,6 +62,7 @@ namespace Personal.Portfolio.Controllers
         [HttpGet]
         public IActionResult Contact()
         {
+            SetBanner(localizer["Let's have a chat"], localizer["Send me a friendly hello."]);
             return View();
         }
 
