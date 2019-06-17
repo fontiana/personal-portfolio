@@ -1,19 +1,17 @@
-﻿
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
 <partial name="~/Views/Shared/_HeaderTitle.cshtml" />
 <section class="striped-section">
     <div class="index-page-content">
         <div class="sqs-layout sqs-grid-12 columns-12">
             <div class="row sqs-row">
                 <div class="col sqs-col-12 span-12">
-                    <div class="sblock html-block">
+                    <div class="sqs-block html-block sqs-block-html">
                         <div class="block-content">
-                            <h1 class="text-align-center">A few fun and curious facts about myself</h1>
-                            <h2 class="text-align-center">
-                                I love music, I can play guitar, clarinet, saxofone and the bass.
-                                My favorite number is 18, not a fan of watching sport matches on TV.
-                                I play video games like it's my life.
-                                I knew what I wanted to do at the age of 16.
-                                I'm a red belt in Taekwondo. I don't have a favorite food and I've never broken a bone.
+                            <h1 class="text-align-center">@Localizer["A few fun and curious facts about myself"]</h1>
+                            <h2 class="text-align-center">@Localizer["I love music, I can play guitar, clarinet, saxofone and the bass. My favorite number is 18, not a fan of watching sport matches on TV. I play video games like it's my life. I knew what I wanted to do at the age of 16.I'm a red belt in Taekwondo. I don't have a favorite food and I've never broken a bone."]
                             </h2>
                         </div>
                     </div>
