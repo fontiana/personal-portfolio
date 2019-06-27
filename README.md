@@ -25,6 +25,7 @@ My personal portfolio and blog
  - [Deploying with AKS](https://medium.com/@renato.groffe/asp-net-core-azure-kubernetes-orquestra%C3%A7%C3%A3o-de-containers-na-nuvem-parte-2-6c922daeadab)
  - [Adding security headers](https://andrewlock.net/adding-default-security-headers-in-asp-net-core/)
  - [Checking Security headers](https://securityheaders.com/?q=www.victorfontana.com.br&followRedirects=on)
+ - [Settings SSL](https://www.hanselman.com/blog/SecuringAnAzureAppServiceWebsiteUnderSSLInMinutesWithLetsEncrypt.aspx)
 
 ### Design Tips
 
