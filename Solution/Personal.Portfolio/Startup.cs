@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.IO;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -53,6 +55,16 @@ namespace Personal.Portfolio
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            app.UseRouter(r =>
+            {
+                r.MapGet(".well-known/acme-challenge/{id}", async (request, response, routeData) =>
+                {
+                    var id = routeData.Values["id"] as string;
+                    var file = Path.Combine(env.WebRootPath, ".well-known", "acme-challenge", id);
+                    await response.SendFileAsync(file);
+                });
+            });
 
             app.UseMvc(routes =>
             {
