@@ -35,7 +35,7 @@ namespace Personal.Portfolio.Controllers
         [HttpGet]
         public IActionResult About()
         {
-            SetBanner(localizer["My passions and traits"]);
+            SetBanner(localizer["My passions &<br/> traits"]);
             return View();
         }
 
