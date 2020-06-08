@@ -242,13 +242,7 @@
     [data-nc-base="mobile-bar"] {
         display: none;
     }
-}
-
-@media only screen and (max-width: 1440px) {
-    .index-page h1 {
-        font-size: 68px !important;
-    }
-}
+}   
 
 @media only screen and (max-width: 1200px) {
     .index-page h2 {
@@ -257,12 +251,6 @@
 }
 
 @media screen and (max-width: 900px) {
-    .no-banner-section .sqs-block-content .sqs-block.html-block.sqs-block-html {
-        width: 100%;
-        margin-right: auto;
-        margin-left: auto;
-    }
-
     #header {
         display: none;
     }
@@ -275,8 +263,8 @@
 }
 
 @media screen and (max-width: 640px) {
-    .no-banner-section {
-        margin-top: 0;
+    .intro-content {
+        padding: 0;
     }
 
     .index-page {

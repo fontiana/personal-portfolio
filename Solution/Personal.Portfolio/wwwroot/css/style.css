@@ -2,8 +2,7 @@
 .BlogList-item-title {
     display: block;
     margin-bottom: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-family: adobe-garamond-pro;
+    font-family: 'Noto Serif', serif;
     font-weight: 400;
     font-style: normal;
     font-size: 34px;
@@ -118,12 +117,6 @@
     transition: box-shadow .1s ease-in-out;
     padding-top: 17px;
     padding-bottom: 17px;
-}
-
-.no-banner-section .sqs-block-content .sqs-block.html-block.sqs-block-html {
-    width: 83.33%;
-    margin-right: auto;
-    margin-left: auto;
 }
 
 .sqs-row:after {
@@ -320,10 +313,9 @@ h2,
 }
 
 h1 {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Noto Serif', serif;
     font-weight: 700;
     font-size: 32px;
-    font-family: adobe-garamond-pro;
     font-weight: 400;
     font-style: normal;
     font-size: 42px;

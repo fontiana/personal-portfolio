@@ -17,8 +17,8 @@
 }
 
 body {
-    font-size: .85em;
-    font-family: 'Montserrat', Proxima-Nova, Helvetica Neue, Arial, Sans-Serif;
+    font-size: 12vw;
+    font-family: 'Noto Serif', serif;
     color: #333330;
     line-height: 1;
     background-color: #26262a;
@@ -392,7 +392,7 @@ body:not(.button-style-default) .sqs-editable-button-layout {
 }
 
 .header-inner {
-    padding: 20px 50px 20px 50px;
+    padding: 2vh 6vw;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -433,30 +433,30 @@ h3 + h3 {
 }
 
 .index-page-content {
-    max-width: 1280px;
+    max-width: 1600px;
     margin-left: auto;
     margin-right: auto;
+    padding: 20vh 6vw;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .striped-section {
     background-color: #edeeef;
 }
 
-.no-banner-section {
-    margin-top: 80px;
-}
-
-.header-inner {
-    max-width: 1440px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.index-page-content {
+.intro-content {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    padding: 96px 60px;
+    padding: 50px 6vw;
+}
+
+.header-inner {
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .main-content {
@@ -482,16 +482,15 @@ h3 + h3 {
 
     .index-page h1 {
         color: #fff;
-        font-family: 'Montserrat', "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-size: 72px;
-        font-weight: 700;
+        font-family: 'Noto Serif', serif;
         line-height: 1em;
-        text-transform: uppercase;
+        margin-bottom: 40px !important;
+        font-size: 7.51vw;
     }
 
     .index-page h2 {
         color: #fff;
-        font-family: adobe-garamond-pro;
+        font-family: 'Noto Serif', serif;
         font-size: 24px;
         font-style: italic;
         font-weight: 400;
@@ -556,7 +555,7 @@ h3 + h3 {
 
 .portfolio-content-block__sub-title {
     color: #ccc;
-    font-family: "adobe-garamond-pro";
+    font-family: 'Noto Serif', serif;
     font-size: 13px;
     font-style: italic;
     font-weight: 400;
@@ -866,7 +865,7 @@ svg:not(:root) {
     font-size: 22px;
     font-size: 26px;
     letter-spacing: .5px;
-    font-family: "adobe-garamond-pro";
+    font-family: 'Noto Serif', serif;
     font-size: 24px;
     line-height: 1.3em;
     text-transform: none;

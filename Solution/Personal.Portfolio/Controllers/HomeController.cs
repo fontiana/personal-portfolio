@@ -15,14 +15,14 @@ namespace Personal.Portfolio.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            SetBanner(localizer["Let's build something amazing together"], localizer["I'm here to create meaningful and lasting relationships with my clients."]);
+            SetBanner(localizer["Technology<br/>Architect."]);
             return View();
         }
 
         [HttpGet]
         public IActionResult Portfolio()
         {
-            SetBanner(localizer["My projects"], localizer["My work as a Full-stack developer."]);
+            SetBanner(localizer["Tech Arch<br/>Projects"]);
             return View();
         }
 
@@ -35,7 +35,7 @@ namespace Personal.Portfolio.Controllers
         [HttpGet]
         public IActionResult About()
         {
-            SetBanner(localizer["My passions and traits"], localizer["Discover who I am as a person and as a developer."]);
+            SetBanner(localizer["My passions and traits"]);
             return View();
         }
 
@@ -62,13 +62,12 @@ namespace Personal.Portfolio.Controllers
         [HttpGet]
         public IActionResult Contact()
         {
-            SetBanner(localizer["Let's have a chat"], localizer["Send me a friendly hello."]);
+            SetBanner(localizer["Let's have a chat"]);
             return View();
         }
 
-        private void SetBanner(string title, string subtitle)
+        private void SetBanner(string title)
         {
-            ViewBag.subtitle = subtitle;
             ViewBag.title = title;
         }
     }

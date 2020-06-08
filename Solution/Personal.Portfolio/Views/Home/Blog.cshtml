@@ -1,57 +1,40 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
-
 @inject IViewLocalizer Localizer
 
-<section class="no-banner-section">
-    <div class="index-page-content">
-        <div class="sqs-layout sqs-grid-12 columns-12">
-            <div class="row sqs-row">
-                <div class="col sqs-col-12 span-12">
-                    <div class="sqs-block html-block sqs-block-html">
-                        <div class="block-content">
-                            <h1 class="text-align-center">@Localizer["Here's what've been studying."]</h1>
-                            <h2 class="text-align-center">@Localizer["Coming from a background in frontend and backend engineering, here's where I provide insight into my career"]</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="index-page-content main-content">
-        <div class="sqs-layout sqs-grid-12 columns-12">
-            <div class="row sqs-row">
-                <div class="col sqs-col-12 span-12">
-                    <div class="row sqs-row">
-                        <div class="col sqs-col-12 span-12">
-                            <div class="row sqs-row">
-                                <div class="sqs-block-summary-v2">
-                                    <div class="col sqs-col-4 span-4">
-                                        <div class="sqs-block code-block sqs-block-code">
-                                            <div class="BlogList-item-image">
-                                                <a asp-controller="home" asp-action="blog" asp-route-id="post" class="summary-thumbnail-container sqs-gallery-image-container">
-                                                    <div class="summary-thumbnail img-wrapper">
-                                                        <img class="summary-thumbnail-image loaded" src="http://via.placeholder.com/350x300">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="Blog-meta BlogList-item-meta">
-                                                <div class="">
-                                                    <span class="">
-                                                        <a asp-controller="home" asp-action="blog" asp-route-id="post">Subtitle</a>
-                                                    </span>
+<div class="intro-content"></div>
+<div class="index-page-content main-content">
+    <div class="sqs-layout sqs-grid-12 columns-12">
+        <div class="row sqs-row">
+            <div class="col sqs-col-12 span-12">
+                <div class="row sqs-row">
+                    <div class="col sqs-col-12 span-12">
+                        <div class="row sqs-row">
+                            <div class="sqs-block-summary-v2">
+                                <div class="col sqs-col-4 span-4">
+                                    <div class="sqs-block code-block sqs-block-code">
+                                        <div class="BlogList-item-image">
+                                            <a asp-controller="home" asp-action="blog" asp-route-id="post" class="summary-thumbnail-container sqs-gallery-image-container">
+                                                <div class="summary-thumbnail img-wrapper">
+                                                    <img class="summary-thumbnail-image loaded" src="http://via.placeholder.com/350x300">
                                                 </div>
-                                                <div class="Blog-meta-item--date">
-                                                    <time class="" datetime="2018-01-28">January 28, 2018</time>
-                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="Blog-meta BlogList-item-meta">
+                                            <div class="">
+                                                <span class="">
+                                                    <a asp-controller="home" asp-action="blog" asp-route-id="post">Subtitle</a>
+                                                </span>
                                             </div>
-                                            <a asp-controller="home" asp-action="blog" asp-route-id="post" class="BlogList-item-title">Blog post</a>
-                                            <div class="BlogList-item-excerpt">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eleifend massa augue, posuere accumsan purus volutpat vel.</p>
-                                                <a href="/blog/post" class="BlogList-item-readmore">
-                                                    <span>Read More →</span>
-                                                </a>
+                                            <div class="Blog-meta-item--date">
+                                                <time class="" datetime="2018-01-28">January 28, 2018</time>
                                             </div>
+                                        </div>
+                                        <a asp-controller="home" asp-action="blog" asp-route-id="post" class="BlogList-item-title">Blog post</a>
+                                        <div class="BlogList-item-excerpt">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eleifend massa augue, posuere accumsan purus volutpat vel.</p>
+                                            <a href="/blog/post" class="BlogList-item-readmore">
+                                                <span>Read More →</span>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -62,4 +45,4 @@
             </div>
         </div>
     </div>
-</section>
+</div>
