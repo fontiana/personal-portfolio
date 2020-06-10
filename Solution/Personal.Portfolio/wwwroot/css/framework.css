@@ -270,10 +270,6 @@ div#sidecarNav {
     position: absolute;
 }
 
-.dark-header.transparent-header #header {
-    background-color: #fff;
-}
-
 body:not(.force-mobile-nav) .nav-wrapper nav > div {
     display: inline-block;
     vertical-align: middle;
@@ -443,7 +439,7 @@ h3 + h3 {
 }
 
 .striped-section {
-    background-color: #edeeef;
+    background-color: #f0f0f0;
 }
 
 .intro-content {

@@ -3,15 +3,18 @@
     width: 100%;
 }
 
+.Mobile-bar {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 6vw;
+}
+
 .Mobile-bar--top {
     background: #fff;
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: auto;
-}
-
-.Mobile-bar {
-    padding-left: 12px;
-    padding-right: 12px;
     padding-top: 8px;
     padding-bottom: 8px;
 }
@@ -254,6 +257,10 @@
     #header {
         display: none;
     }
+
+    .intro-content {
+        padding: 0;
+    }
 }
 
 @media only screen and (max-width: 640px) {
@@ -263,10 +270,6 @@
 }
 
 @media screen and (max-width: 640px) {
-    .intro-content {
-        padding: 0;
-    }
-
     .index-page {
         min-height: auto;
     }
