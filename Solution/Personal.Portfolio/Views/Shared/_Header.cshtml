@@ -8,8 +8,8 @@
         <div data-nc-container="header-left">
             <div id="logoWrapper" class="wrapper">
                 <h1 id="logoImage">
-                    <a href="/">
-                        <img src="/images/logo.png" alt="Victor Fontana">
+                    <a asp-controller="home" asp-action="index">
+                        <img src="@(Context.Request.Path.Value.Contains("blog") ? "/images/VF_black.png" : "/images/VF_branco.png" )" width="60" alt="Logotipo Victor Fontana">
                     </a>
                 </h1>
             </div>
