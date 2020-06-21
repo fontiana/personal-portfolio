@@ -17,7 +17,7 @@
 }
 
 .Blog-meta a {
-    color: #e1a87a;
+    color: #7a8be1;
     transition: color .15s ease-out;
     text-decoration: none;
 }
@@ -37,7 +37,7 @@
     font-size: 11px;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: #e1a87a;
+    color: #7a8be1;
 }
 
 .BlogList-item-image {
