@@ -28,7 +28,7 @@
                                 <a asp-controller="home" asp-action="blog">@Localizer["Blog"]</a>
                                 <a asp-controller="home" asp-action="contact">@Localizer["Contact"]</a>
                             </h3>
-                            <p class="text-align-center">© 2018 Victor Fontana. @Localizer["All rights reserved. Developer ASP.NET"]</p>
+                            <p class="text-align-center">© @DateTime.Now.ToString("yyyy") Victor Fontana. @Localizer["All rights reserved. Developer ASP.NET"]</p>
                         </div>
                     </div>
                     <div class="sqs-block socialaccountlinks-v2-block sqs-block-socialaccountlinks-v2">

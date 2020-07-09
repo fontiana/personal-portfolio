@@ -17,11 +17,15 @@
 }
 
 body {
-    font-size: 12vw;
-    font-family: 'Noto Serif', serif;
-    color: #333330;
-    line-height: 1;
-    background-color: #26262a;
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 19px;
+    letter-spacing: 0em;
+    line-height: 2em;
+    text-transform: none;
+    color: #121212;
+    background-color: #121212;
 }
 
 input,
@@ -78,7 +82,7 @@ a {
 }
 
 .dark-header #headerNav nav a:hover {
-    color: #000;
+    color: #151515;
 }
 
 .clearfix:before,
@@ -89,17 +93,6 @@ a {
 
 .clearfix:after {
     clear: both;
-}
-
-#siteWrapper {
-    font-family: 'Montserrat', "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    line-height: 1.6em;
-    font-size: 16px;
-    line-height: 1.8em;
-    letter-spacing: 0px;
-    font-weight: 400;
-    font-style: normal;
-    color: rgba(26, 26, 26, .6);
 }
 
 #headerNav:hover a {
@@ -116,17 +109,12 @@ a {
 #sidecarNav nav a:visited,
 #headerNav nav label,
 #sidecarNav nav label {
-    font-family: 'Montserrat', "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 1px;
-    font-size: 13px;
+    font-size: 11.5px;
     text-transform: uppercase;
-    text-decoration: none;
-    letter-spacing: 2px;
-    font-weight: 400;
+    letter-spacing: .16em;
     font-style: normal;
-    line-height: 1em;
     color: rgba(255, 255, 255, 1);
 }
 
@@ -160,7 +148,7 @@ a {
 
 .enable-nav-button #headerNav nav > div:not(.folder):last-child a,
 .enable-nav-button #sidecarNav nav > div:not(.folder):last-child a {
-    font-family: 'Montserrat', "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -294,7 +282,7 @@ body:not(.button-style-default).button-style-outline .sqs-editable-button-style 
 
 body:not(.button-style-default) .sqs-editable-button,
 body:not(.button-style-default) .sqs-editable-button-font {
-    font-family: 'Montserrat', "proxima-nova", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 600;
@@ -569,7 +557,7 @@ h3 + h3 {
 }
 
 .portfolio-content-block__title {
-    font-family: 'Montserrat', "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 24px;
     font-weight: 700;
     letter-spacing: 1px;
@@ -591,7 +579,7 @@ h3 + h3 {
     border: 2px solid #fff;
     color: #fff;
     display: inline-block;
-    font-family: 'Montserrat', "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 12px;
     font-weight: 400;
     letter-spacing: 2px;
@@ -687,7 +675,7 @@ h3 + h3 {
 }
 
 #footer {
-    background-color: #26262a;
+    background-color: #121212;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     color: rgba(255, 255, 255, .4);
@@ -844,7 +832,7 @@ svg:not(:root) {
         font-size: 130px;
         font-weight: 500;
         letter-spacing: -2px;
-        font-family: 'Montserrat', "proxima-nova";
+        font-family: 'Montserrat', ;
         font-size: 98px;
         line-height: 1em;
         text-transform: none;
@@ -880,7 +868,7 @@ svg:not(:root) {
 [data-slice-type="buttons"] ul {
     font-weight: 500;
     font-size: 16px;
-    font-family: 'Montserrat', "proxima-nova";
+    font-family: 'Montserrat', ;
     font-size: 15px;
     text-transform: uppercase;
     letter-spacing: 2px;

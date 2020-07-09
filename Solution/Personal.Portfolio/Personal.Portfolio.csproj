@@ -5,7 +5,10 @@
     <UserSecretsId>9e626361-ea69-499b-9548-11be932e417d</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.App">
+      <PrivateAssets Condition="'%(PackageReference.Version)' == ''">all</PrivateAssets>
+      <Publish Condition="'%(PackageReference.Version)' == ''">true</Publish>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
@@ -50,6 +53,9 @@
     </Compile>
     <Compile Update="Resources\Controllers\AboutController.Designer.cs">
       <DependentUpon>AboutController.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Controllers\HomeController.pt-BR.Designer.cs">
+      <DependentUpon>HomeController.pt-BR.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>
