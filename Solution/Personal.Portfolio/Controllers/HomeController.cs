@@ -46,6 +46,7 @@ namespace Personal.Portfolio.Controllers
         }
 
         [HttpGet]
+        [Route("home/blog")]
         public IActionResult Blog()
         {
             ViewBag.darkHeader = "dark-header";
@@ -53,6 +54,7 @@ namespace Personal.Portfolio.Controllers
         }
 
         [HttpGet]
+        [Route("home/blog/{id}")]
         public IActionResult Blog(string id)
         {
             ViewBag.darkHeader = "dark-header";
