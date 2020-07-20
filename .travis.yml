@@ -1,6 +1,6 @@
 language: csharp
 mono: none
-dotnet: 2.1.300
+dotnet: 3.1
 script:
-  - dotnet restore Solution/Personal.Portfolio.sln
-  - dotnet build Solution/Personal.Portfolio.sln
+  - dotnet restore src/PersonalPortfolio.sln
+  - dotnet build src/PersonalPortfolio.sln

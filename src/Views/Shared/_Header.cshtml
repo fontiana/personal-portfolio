@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+<partial name="_MobileHeader.cshtml" />
+<header id="header">
+    <div class="header-inner header-inner-content">
+        <div data-nc-container="header-left">
+            <div id="logoWrapper" class="wrapper">
+                <h1 id="logoImage">
+                    <a asp-controller="home" asp-action="index">
+                        <img src="@(ViewBag.darkHeader == "dark-header" ? "/images/VF_black.png" : "/images/VF_branco.png" )" width="60" alt="Logotipo Victor Fontana">
+                    </a>
+                </h1>
+            </div>
+        </div>
+        <div data-nc-container="header-right">
+            <div id="headerNav">
+                <div id="mainNavWrapper" class="nav-wrapper">
+                    <nav id="mainNavigation">
+                        <a class="nav-link" asp-controller="home" asp-action="index">@Localizer["Home"]</a>
+                        <a class="nav-link" asp-controller="home" asp-action="portfolio">@Localizer["Portfolio"]</a>
+                        <a class="nav-link" asp-controller="home" asp-action="about">@Localizer["About"]</a>
+                        <a class="nav-link" asp-controller="home" asp-action="resume">@Localizer["Resume"]</a>
+                        <a class="nav-link" asp-controller="home" asp-action="blog">@Localizer["Blog"]</a>
+                        <a class="nav-link" asp-controller="home" asp-action="contact">@Localizer["Contact"]</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

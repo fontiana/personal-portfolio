@@ -1,8 +1,0 @@
-version: '3.4'
-
-services:
-  personal.portfolio:
-    image: ${DOCKER_REGISTRY}personalportfolio
-    build:
-      context: .
-      dockerfile: Personal.Portfolio/Dockerfile
