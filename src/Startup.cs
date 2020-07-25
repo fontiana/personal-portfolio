@@ -27,9 +27,13 @@ namespace PersonalPortfolio
 
             services.AddLocalization(options => options.ResourcesPath = "Resources");
 
-            services
+            var mvcBuilder = services
                 .AddControllersWithViews()
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
+
+            #if DEBUG
+            mvcBuilder.AddRazorRuntimeCompilation();
+            #endif
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -40,16 +44,22 @@ namespace PersonalPortfolio
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Error/index");
                 app.UseHsts();
             }
-            app.UseLocalization();
-            app.UseHttpsRedirection();
+            app.Use(async (context, next) =>
+            {
+                await next();
+                if (context.Response.StatusCode == 404)
+                {
+                    context.Request.Path = "/Error/NotFound";
+                    await next();
+                }
+            });
             app.UseStaticFiles();
-
             app.UseRouting();
-
             app.UseAuthorization();
+            app.UseLocalization();
 
             app.UseRouter(router =>
             {
