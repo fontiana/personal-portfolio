@@ -1,7 +1,9 @@
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
@@ -9,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using PersonalPortfolio.Middlewares;
+using Microsoft.Identity.Web;
+using Microsoft.Identity.Web.UI;
 
 namespace PersonalPortfolio
 {
@@ -23,12 +27,27 @@ namespace PersonalPortfolio
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
+            services.AddMicrosoftWebAppAuthentication(Configuration);
+
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddLocalization(options => options.ResourcesPath = "Resources");
 
             var mvcBuilder = services
-                .AddControllersWithViews()
+                .AddControllersWithViews(options =>
+                {
+                    var policy = new AuthorizationPolicyBuilder()
+                        .RequireAuthenticatedUser()
+                        .Build();
+                    options.Filters.Add(new AuthorizeFilter(policy));
+                })
+                .AddMicrosoftIdentityUI()
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
 
             #if DEBUG
@@ -58,7 +77,9 @@ namespace PersonalPortfolio
             });
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseCookiePolicy();
             app.UseAuthorization();
+            app.UseAuthentication();
             app.UseLocalization();
 
             app.UseRouter(router =>

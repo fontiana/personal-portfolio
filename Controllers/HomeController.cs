@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Localization;
 
 namespace PersonalPortfolio.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         private readonly IStringLocalizer<HomeController> localizer;
