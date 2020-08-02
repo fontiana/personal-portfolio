@@ -5,12 +5,12 @@ My personal portfolio and blog
 
 ## How it works?
 
- - Built with DOT.NET Core 2.1
+ - Built with DOT.NET Core 3.1
  - It's deployed on Azure Web App using Kudu tools which watchs for changes on this repository
  - It could also be deployed using this command: 
    ```shell
-   cd Solution\Personal.Portfolio
-   dotnet publish -c Release -o /Users/victoroliveira/Documents/Projetos/Deploys
+   cd PersonalPortfolio
+   dotnet publish -c Release -o /Users/{user}/Documents/Projetos/Deploys
    ```
 
 ## Work in Progress
