@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Personal.Portfolio.Areas.Admin.Models;
+using PersonalPortfolio.Areas.Admin.Models;
 
-namespace Personal.Portfolio.Areas.Admin.Controllers
+namespace PersonalPortfolio.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize]

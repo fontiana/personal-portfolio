@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Personal.Portfolio.Resources.Controllers {
+namespace PersonalPortfolio.Resources.Controllers {
     using System;
     using System.Reflection;
     
@@ -30,7 +30,7 @@ namespace Personal.Portfolio.Resources.Controllers {
         internal static System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.Equals(null, resourceMan)) {
-                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("Personal.Portfolio.Resources.Controllers.HomeController.pt-BR", typeof(HomeController_pt_BR).Assembly);
+                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("PersonalPortfolio.Resources.Controllers.HomeController.pt-BR", typeof(HomeController_pt_BR).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

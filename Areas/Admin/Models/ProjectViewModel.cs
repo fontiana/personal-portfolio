@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Http;
 
-namespace Personal.Portfolio.Areas.Admin.Models
+namespace PersonalPortfolio.Areas.Admin.Models
 {
     public class ProjectViewModel
     {

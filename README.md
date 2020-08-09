@@ -1,5 +1,5 @@
-# Personal.Portfolio
- [![devDependencies](https://travis-ci.org/fontiana/Personal.Portfolio.svg?branch=master)](https://api.travis-ci.org/fontiana/Personal.Portfolio.svg?branch=master)
+# PersonalPortfolio
+ [![devDependencies](https://travis-ci.org/fontiana/PersonalPortfolio.svg?branch=master)](https://api.travis-ci.org/fontiana/PersonalPortfolio.svg?branch=master)
 
 My personal portfolio and blog
 
