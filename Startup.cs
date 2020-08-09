@@ -13,6 +13,10 @@ using Microsoft.Extensions.Hosting;
 using PersonalPortfolio.Middlewares;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
+using FluentValidation.AspNetCore;
+using PersonalPortfolio.Areas.Admin.Validator;
+using PersonalPortfolio.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace PersonalPortfolio
 {
@@ -39,6 +43,9 @@ namespace PersonalPortfolio
 
             services.AddLocalization(options => options.ResourcesPath = "Resources");
 
+            services.AddDbContext<PortfolioContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("PortfolioContext")));
+
             var mvcBuilder = services
                 .AddControllersWithViews(options =>
                 {
@@ -47,6 +54,7 @@ namespace PersonalPortfolio
                         .Build();
                     options.Filters.Add(new AuthorizeFilter(policy));
                 })
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ProductValidator>())
                 .AddMicrosoftIdentityUI()
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
 
@@ -78,8 +86,8 @@ namespace PersonalPortfolio
             app.UseStaticFiles();
             app.UseRouting();
             app.UseCookiePolicy();
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
             app.UseLocalization();
 
             app.UseRouter(router =>
