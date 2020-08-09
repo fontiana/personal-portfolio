@@ -86,8 +86,10 @@ namespace PersonalPortfolio
             app.UseStaticFiles();
             app.UseRouting();
             app.UseCookiePolicy();
+            
             app.UseAuthentication();
             app.UseAuthorization();
+            
             app.UseLocalization();
 
             app.UseRouter(router =>
