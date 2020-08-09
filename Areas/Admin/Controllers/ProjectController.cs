@@ -31,6 +31,11 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Add(ProjectViewModel model)
         {
+            if (!ModelState.IsValid)
+            { 
+                return View("Add", model);
+            }
+
             model.Add();
 
             return View();

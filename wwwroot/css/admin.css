@@ -14,6 +14,22 @@ nav {
     border-right: 1px solid #eee;
 }
 
+nav.active {
+    margin-left: -250px;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
 main {
     width: 100%;
     padding: 20px;
@@ -38,4 +54,13 @@ label {
     text-transform: uppercase;
     font-weight: 400;
     color: #9A9A9A;
+}
+
+.input-validation-error {
+    border-color: #fa5c7c;
+}
+
+.field-validation-error {
+    color: #fa5c7c;
+    font-size: .75rem
 }

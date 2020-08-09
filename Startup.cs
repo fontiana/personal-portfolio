@@ -54,7 +54,10 @@ namespace PersonalPortfolio
                         .Build();
                     options.Filters.Add(new AuthorizeFilter(policy));
                 })
-                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ProductValidator>())
+                .AddFluentValidation(fv => {
+                    fv.RegisterValidatorsFromAssemblyContaining<ProductValidator>();
+                    fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
+                })
                 .AddMicrosoftIdentityUI()
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
 
