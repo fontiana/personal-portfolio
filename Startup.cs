@@ -95,7 +95,7 @@ namespace PersonalPortfolio
             
             app.UseLocalization();
 
-            context.Database.EnsureCreated();
+            //context.Database.EnsureCreated();
 
             app.UseRouter(router =>
             {
