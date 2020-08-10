@@ -1,22 +1,38 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PersonalPortfolio.Areas.Admin.Models;
+using PersonalPortfolio.Context;
 
 namespace PersonalPortfolio.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize]
     public class ProjectController : Controller
-    {     
+    {
+        private readonly PortfolioContext context;
+
+        public ProjectController(PortfolioContext context)
+        {
+            this.context = context;
+        }
+
         [HttpGet]   
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             var model = new List<ProjectViewModel>();
-            model.Add(new ProjectViewModel { Description = "Jonas", Title = "Brothers" });
-            model.Add(new ProjectViewModel { Description = "Jonas", Title = "Brothers" });
-            model.Add(new ProjectViewModel { Description = "Jonas", Title = "Brothers" });
-            model.Add(new ProjectViewModel { Description = "Jonas", Title = "Brothers" });
+            var projects = await context.Projects.ToListAsync();
+
+            foreach (var item in projects)
+            {
+                model.Add(new ProjectViewModel {
+                    Description = item.Description,
+                    Title = item.Title,
+                    Id = item.ProjectId,
+                });
+            }
         
             return View(model);
         }
@@ -29,16 +45,21 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Add(ProjectViewModel model)
+        public async Task<IActionResult> Add(ProjectViewModel model)
         {
             if (!ModelState.IsValid)
             { 
                 return View("Add", model);
             }
 
-            model.Add();
+            await context.Projects.AddAsync(new Project
+            {
+                Title = model.Title,
+                Description = model.Description,
+            });
+            await context.SaveChangesAsync();
 
-            return View();
+            return RedirectToAction("Index");
         }
         
         [HttpGet]
