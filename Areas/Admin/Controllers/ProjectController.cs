@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -56,6 +57,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
             {
                 Title = model.Title,
                 Description = model.Description,
+                //Technologies = model.TechStack.
             });
             await context.SaveChangesAsync();
 
@@ -63,31 +65,58 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
         }
         
         [HttpGet]
-        public IActionResult Edit(int? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (!id.HasValue)
             {
                 return RedirectToAction("Index");
             }
 
-            var model = new ProjectViewModel();
-            model.GetById(id.Value);
+            var project = await context.Projects.FindAsync(id.Value);
+            var model = new ProjectViewModel
+            {
+                Id = project.ProjectId,
+                Description = project.Description,
+                Title = project.Title,
+                TechStack = string.Join(", ", project.Technologies.Select(p => p.Name))
+            };
+
             return View(model);
         }
         
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(ProjectViewModel model)
+        [HttpPost]
+        public async Task<IActionResult> Edit(ProjectViewModel model)
         {
-            model.Edit();
+            if (!ModelState.IsValid)
+            {
+                return View("Add", model);
+            }
 
-            return View();
+            context.Projects.Update(new Project
+            {
+                Title = model.Title,
+                Description = model.Description,
+            });
+            await context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
         }
         
         [HttpGet]
-        //[HttpPost("{categoryId}")]
-        public IActionResult Delete(int? id)
+        public async Task<IActionResult> Delete(int? id)
         {
-            return View();
+            if (id.HasValue)
+            {
+                var project = await context.Projects.FindAsync(id.Value);
+                if (project != null)
+                {
+                    context.Projects.Remove(project);
+                    await context.SaveChangesAsync();
+                }
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }
