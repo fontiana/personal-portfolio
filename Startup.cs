@@ -43,8 +43,8 @@ namespace PersonalPortfolio
 
             services.AddLocalization(options => options.ResourcesPath = "Resources");
 
-            //services.AddDbContext<PortfolioContext>(options =>
-            //        options.UseSqlServer(Configuration.GetConnectionString("PortfolioContext")));
+            services.AddDbContext<PortfolioContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("PortfolioContext")));
 
             var mvcBuilder = services
                 .AddControllersWithViews(options =>
@@ -95,7 +95,7 @@ namespace PersonalPortfolio
             
             app.UseLocalization();
 
-            //context.Database.EnsureCreated();
+            context.Database.EnsureCreated();
 
             app.UseRouter(router =>
             {
