@@ -57,7 +57,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
             {
                 Title = model.Title,
                 Description = model.Description,
-                //Technologies = model.TechStack.
+                Technologies = model.TechStack?.Split(',').Select(tech => new Technology { Name = tech }).ToList()
             });
             await context.SaveChangesAsync();
 
@@ -78,7 +78,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 Id = project.ProjectId,
                 Description = project.Description,
                 Title = project.Title,
-                TechStack = string.Join(", ", project.Technologies.Select(p => p.Name))
+                TechStack = string.Join(", ", project.Technologies?.Select(p => p.Name))
             };
 
             return View(model);

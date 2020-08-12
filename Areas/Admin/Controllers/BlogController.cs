@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PersonalPortfolio.Areas.Admin.Models;
+using PersonalPortfolio.Context;
 
 namespace PersonalPortfolio.Areas.Admin.Controllers
 {
@@ -9,9 +12,27 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
     [Authorize]
     public class BlogController : Controller
     {
-        public IActionResult Index()
+        private readonly PortfolioContext context;
+
+        public BlogController(PortfolioContext context)
+        {
+            this.context = context;
+        }
+
+        public async Task<IActionResult> Index()
         {
             var model = new List<PostViewModel>();
+            var posts = await context.Posts.ToListAsync();
+
+            foreach (var item in posts)
+            {
+                model.Add(new PostViewModel
+                {
+                    Description = item.Descriptiong,
+                    Title = item.Title,
+                    Id = item.PostId,
+                });
+            }
 
             return View(model);
         }
