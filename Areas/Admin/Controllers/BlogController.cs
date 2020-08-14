@@ -48,12 +48,18 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
         public IActionResult Add(PostViewModel model)
         {
             if (!ModelState.IsValid)
-            {
+            { 
                 return View("Add", model);
             }
 
-            //model.Add();
-            return View();
+            await context.Posts.AddAsync(new Post
+            {
+                Title = model.Title,
+                Description = model.Description
+            });
+            await context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
