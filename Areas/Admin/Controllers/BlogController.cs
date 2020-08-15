@@ -45,7 +45,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Add(PostViewModel model)
+        public async Task<IActionResult> Add(PostViewModel model)
         {
             if (!ModelState.IsValid)
             { 
@@ -55,7 +55,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
             await context.Posts.AddAsync(new Post
             {
                 Title = model.Title,
-                Description = model.Description
+                Description = model.Descriptiong
             });
             await context.SaveChangesAsync();
 
