@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    <partial name="_Fonts.cshtml" />
+
+    <environment include="Development, Production">
+        <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/framework.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/mobile.css" asp-append-version="true" />
+    </environment>
+
+    <style>
+        .errorLayout {
+            text-align:center;
+            margin:0 auto;
+        }
+        h1 {
+            font-family: "Montserrat";
+            font-size: 98px;
+            line-height: 1em;
+            text-transform: none;
+            letter-spacing: 4px;
+            font-weight: 700;
+            font-style: normal;
+            color: #fff;
+        }
+    p { line-height: 1.3em; text-transform: none; letter-spacing: 1px; font-weight: 400; font-style: normal; color: #fff; }
+    </style>
+</head>
+<body class="transparent-header enable-nav-button nav-button-style-outline banner-button-style-outline gallery-design-grid small-button-style-outline medium-button-style-outline large-button-style-outline button-style-outline homepage collection-type-index @(ViewBag.darkHeader)">
+    <div class="errorLayout">
+        <a asp-controller="home" asp-action="index">
+            <img src="/images/VF_branco.png" width="80" alt="Logotipo Victor Fontana">
+        </a>
+        @RenderBody()
+    </div>
+</body>
+</html>
