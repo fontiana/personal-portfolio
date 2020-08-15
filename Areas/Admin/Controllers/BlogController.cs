@@ -55,7 +55,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
             await context.Posts.AddAsync(new Post
             {
                 Title = model.Title,
-                Description = model.Descriptiong
+                Descriptiong = model.Description
             });
             await context.SaveChangesAsync();
 
