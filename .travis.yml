@@ -4,3 +4,8 @@ dotnet: 3.1
 script:
   - dotnet restore PersonalPortfolio.sln
   - dotnet build PersonalPortfolio.sln
+# Send coverage data to Coveralls
+after_success: 
+after_script: 
+- dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
+- cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
