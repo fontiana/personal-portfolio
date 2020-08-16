@@ -2,8 +2,8 @@ language: csharp
 mono: none
 dotnet: 3.1
 script:
-  - dotnet restore PersonalPortfolio.sln
-  - dotnet build PersonalPortfolio.sln
+  - dotnet restore
+  - dotnet build
 # Send coverage data to Coveralls
 after_success: 
 after_script: 
