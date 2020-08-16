@@ -63,34 +63,57 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(int? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (!id.HasValue)
             {
                 return RedirectToAction("Index");
             }
 
-            var model = new PostViewModel();
-            //model.GetById(id.Value);
+            var post = await context.Posts.FindAsync(id.Value);
+            var model = new PostViewModel
+            {
+                Id = post.PostId,
+                Description = post.Descriptiong,
+                Title = post.Title
+            };
+
             return View(model);
         }
 
-        [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(PostViewModel model)
+        [HttpPost]
+        public async Task<IActionResult> Edit(ProjectViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 return View("Edit", model);
             }
 
-            return View(model);
+            context.Posts.Update(new Post
+            {
+                Title = model.Title,
+                Descriptiong = model.Description,
+            });
+            await context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public IActionResult Delete(int? id)
+        public async Task<IActionResult> Delete(int? id)
         {
-            return View();
+            if (id.HasValue)
+            {
+                var post = await context.Posts.FindAsync(id.Value);
+                if (post != null)
+                {
+                    context.Posts.Remove(post);
+                    await context.SaveChangesAsync();
+                }
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }
