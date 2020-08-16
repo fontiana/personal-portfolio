@@ -8,4 +8,4 @@ script:
 after_success: 
 after_script: 
 - dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
-- cat ./PersonalPortfolio.Tests/TestResults/coverage.info
+- cat ./tests/TestResults/coverage.info
