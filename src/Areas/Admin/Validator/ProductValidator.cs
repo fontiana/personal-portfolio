@@ -10,6 +10,7 @@ namespace PersonalPortfolio.Areas.Admin.Validator
             RuleFor(x => x.Title).NotEmpty().WithMessage("Please specify a title");
             RuleFor(x => x.Description).NotEmpty().WithMessage("Please specify a description");
             RuleFor(x => x.TechStack).NotEmpty().WithMessage("Please specify a tech stack");
+            RuleFor(x => x.Image).NotNull().WithMessage("Please specify a showcase image");
         }
     }
 }

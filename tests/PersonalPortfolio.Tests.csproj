@@ -19,7 +19,4 @@
   <ItemGroup>
     <ProjectReference Include="..\src\PersonalPortfolio.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
 </Project>

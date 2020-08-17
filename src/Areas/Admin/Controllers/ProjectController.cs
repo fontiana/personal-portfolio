@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -20,7 +21,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
             this.projectRepository = projectRepository;
         }
 
-        [HttpGet]   
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var model = new List<ProjectViewModel>();
@@ -28,42 +29,50 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
 
             foreach (var item in projects)
             {
-                model.Add(new ProjectViewModel {
+                model.Add(new ProjectViewModel
+                {
                     Description = item.Description,
                     Title = item.Title,
                     Id = item.ProjectId,
                 });
             }
-        
+
             return View(model);
         }
-        
+
         [HttpGet]
         public IActionResult Add()
         {
             return View();
         }
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Add(ProjectViewModel model)
         {
             if (!ModelState.IsValid)
-            { 
+            {
                 return View("Add", model);
+            }
+
+            var filePath = Path.GetTempFileName();
+            using (var stream = System.IO.File.Create(filePath))
+            {
+                await model.Image.CopyToAsync(stream);
             }
 
             await projectRepository.AddAsync(new Project
             {
                 Title = model.Title,
                 Description = model.Description,
-                Technologies = model.TechStack?.Split(',').Select(tech => new Technology { Name = tech }).ToList()
+                Technologies = model.TechStack?.Split(',').Select(tech => new Technology { Name = tech }).ToList(),
+                ShowcaseImage = model.Image.FileName
             });
             await projectRepository.Save();
 
             return RedirectToAction("Index");
         }
-        
+
         [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
@@ -83,7 +92,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
 
             return View(model);
         }
-        
+
         [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<IActionResult> Edit(ProjectViewModel model)
@@ -97,12 +106,13 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
             {
                 Title = model.Title,
                 Description = model.Description,
+                ShowcaseImage = model.Image.FileName
             });
             await projectRepository.Save();
 
             return RedirectToAction("Index");
         }
-        
+
         [HttpGet]
         public async Task<IActionResult> Delete(int? id)
         {
