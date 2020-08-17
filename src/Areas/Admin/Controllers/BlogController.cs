@@ -2,9 +2,9 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using PersonalPortfolio.Areas.Admin.Models;
 using PersonalPortfolio.Context;
+using PersonalPortfolio.Repository.Post;
 
 namespace PersonalPortfolio.Areas.Admin.Controllers
 {
@@ -12,23 +12,23 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
     [Authorize]
     public class BlogController : Controller
     {
-        private readonly PortfolioContext context;
+        private readonly IPostRepository postRepository;
 
-        public BlogController(PortfolioContext context)
+        public BlogController(IPostRepository postRepository)
         {
-            this.context = context;
+            this.postRepository = postRepository;
         }
 
         public async Task<IActionResult> Index()
         {
             var model = new List<PostViewModel>();
-            var posts = await context.Posts.ToListAsync();
+            var posts = await postRepository.GetAsync();
 
             foreach (var item in posts)
             {
                 model.Add(new PostViewModel
                 {
-                    Description = item.Descriptiong,
+                    Description = item.Description,
                     Title = item.Title,
                     Id = item.PostId,
                 });
@@ -52,12 +52,12 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return View("Add", model);
             }
 
-            await context.Posts.AddAsync(new Post
+            await postRepository.AddAsync(new Post
             {
                 Title = model.Title,
-                Descriptiong = model.Description
+                Description = model.Description
             });
-            await context.SaveChangesAsync();
+            await postRepository.Save();
 
             return RedirectToAction("Index");
         }
@@ -70,19 +70,19 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            var post = await context.Posts.FindAsync(id.Value);
+            var post = await postRepository.GetByIDAsync(id.Value);
             var model = new PostViewModel
             {
                 Id = post.PostId,
-                Description = post.Descriptiong,
+                Description = post.Description,
                 Title = post.Title
             };
 
             return View(model);
         }
 
-        [ValidateAntiForgeryToken]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(ProjectViewModel model)
         {
             if (!ModelState.IsValid)
@@ -90,12 +90,12 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return View("Edit", model);
             }
 
-            context.Posts.Update(new Post
+            postRepository.Update(new Post
             {
                 Title = model.Title,
-                Descriptiong = model.Description,
+                Description = model.Description,
             });
-            await context.SaveChangesAsync();
+            await postRepository.Save();
 
             return RedirectToAction("Index");
         }
@@ -105,12 +105,8 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
         {
             if (id.HasValue)
             {
-                var post = await context.Posts.FindAsync(id.Value);
-                if (post != null)
-                {
-                    context.Posts.Remove(post);
-                    await context.SaveChangesAsync();
-                }
+                await postRepository.DeleteAsync(id.Value);
+                await postRepository.Save();
             }
 
             return RedirectToAction("Index");

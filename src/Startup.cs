@@ -18,6 +18,7 @@ using PersonalPortfolio.Areas.Admin.Validator;
 using PersonalPortfolio.Context;
 using Microsoft.EntityFrameworkCore;
 using PersonalPortfolio.Repository.Project;
+using PersonalPortfolio.Repository.Post;
 
 namespace PersonalPortfolio
 {
@@ -48,6 +49,7 @@ namespace PersonalPortfolio
                     options.UseSqlServer(Configuration.GetConnectionString("PortfolioContext")));
 
             services.AddScoped<IProjectRepository, ProjectRepository>();
+            services.AddScoped<IPostRepository, PostRepository>();
 
             var mvcBuilder = services
                 .AddControllersWithViews(options =>
@@ -69,7 +71,7 @@ namespace PersonalPortfolio
             #endif
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, PortfolioContext context)
         {
             if (env.IsDevelopment())
             {
@@ -97,6 +99,8 @@ namespace PersonalPortfolio
             app.UseAuthorization();
             
             app.UseLocalization();
+
+            context.Database.EnsureCreated();
 
             app.UseRouter(router =>
             {

@@ -10,20 +10,5 @@ namespace PersonalPortfolio.Areas.Admin.Models
         public string Description { get; set; }
         public string TechStack { get; set; }
         public IFormFile Image { get; set; }
-
-        public bool Add()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Edit()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetById(int id)
-        {
-
-        }
     }
 }

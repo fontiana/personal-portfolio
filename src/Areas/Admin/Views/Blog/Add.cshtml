@@ -28,6 +28,19 @@
             </div>
         </div>
         <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="Categories"></label>
+                <textarea asp-for="Categories" class="form-control"></textarea>
+                <span asp-validation-for="Categories"></span>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="Image"></label>
+                <input asp-for="Image" class="form-control-file" />
+            </div>
+        </div>
+        <div class="col-md-12">
             <input type="submit" class="btn btn-primary btn-lg" value="save" />
         </div>
     </div>

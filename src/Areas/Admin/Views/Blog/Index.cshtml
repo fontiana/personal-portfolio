@@ -29,7 +29,10 @@
                     <tr>
                         <td>@post.Id</td>
                         <td>@post.Title</td>
-                        <td class="text-right"><a asp-controller="project" asp-action="delete" class="btn btn-outline-danger" role="button" aria-pressed="true">Delete</a></td>
+                        <td class="text-right">
+                            <a asp-controller="blog" asp-action="edit" asp-route-id="@post.Id" class="btn btn-outline-secondary" role="button" aria-pressed="true">Edit</a>
+                            <a asp-controller="blog" asp-action="delete" asp-route-id="@post.Id" class="btn btn-outline-danger" role="button" aria-pressed="true">Delete</a>
+                        </td>
                     </tr>
                 }
             </tbody>

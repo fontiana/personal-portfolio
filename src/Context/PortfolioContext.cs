@@ -27,6 +27,8 @@ namespace PersonalPortfolio.Context
         public string Title { get; set; }
         public string Description { get; set; }
         public string Url { get; set; }
+        public string ShowcaseImage { get; set; }
+        public string Images { get; set; }
         public List<Technology> Technologies { get; set; }
     }
 
@@ -40,7 +42,8 @@ namespace PersonalPortfolio.Context
     {
         public int PostId { get; set; }
         public string Title { get; set; }
-        public string Descriptiong { get; set; }
+        public string Description { get; set; }
+        public string ShowcaseImage { get; set; }
 
         public List<Category> Categories { get; set; }
     }

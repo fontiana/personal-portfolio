@@ -1,10 +1,7 @@
 ﻿using System;
 namespace PersonalPortfolio.Repository.Post
 {
-    public class IPostRepository
+    public interface IPostRepository : IRepository<Context.Post>
     {
-        public IPostRepository()
-        {
-        }
     }
 }

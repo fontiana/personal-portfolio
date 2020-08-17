@@ -7,7 +7,7 @@ namespace PersonalPortfolio.Areas.Admin.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public object MyProperty { get; set; }
+        public string Categories { get; set; }
         public IFormFile Image { get; set; }
     }
 }
