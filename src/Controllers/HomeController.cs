@@ -1,6 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Localization;
+using PersonalPortfolio.Context;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using PersonalPortfolio.Repository.Project;
 
 namespace PersonalPortfolio.Controllers
 {
@@ -8,9 +12,11 @@ namespace PersonalPortfolio.Controllers
     public class HomeController : Controller
     {
         private readonly IStringLocalizer<HomeController> localizer;
+        private readonly IProjectRepository projectRepository;
 
-        public HomeController(IStringLocalizer<HomeController> localizer)
+        public HomeController(IStringLocalizer<HomeController> localizer, IProjectRepository projectRepository)
         {
+            this.projectRepository = projectRepository;
             this.localizer = localizer;
         }
 
@@ -22,9 +28,22 @@ namespace PersonalPortfolio.Controllers
         }
 
         [HttpGet]
-        public IActionResult Portfolio()
+        public async Task<IActionResult> Portfolio()
         {
             SetBanner(localizer["Tech Arch<br/>Projects"]);
+
+            var projects = await projectRepository.GetAsync();
+
+            foreach (var item in projects)
+            {
+                //model.Add(new ProjectViewModel
+                //{
+                //    Description = item.Description,
+                //    Title = item.Title,
+                //    Id = item.ProjectId,
+                //});
+            }
+
             return View();
         }
 

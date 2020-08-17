@@ -19,9 +19,10 @@ My personal portfolio and blog
 ## Work in Progress
 
 - [Entity Framework Core](https://docs.microsoft.com/en-us/aspnet/core/data/ef-rp/intro?view=aspnetcore-3.1&tabs=visual-studio)
+- [Repository Pattern](https://codewithshadman.com/repository-pattern-csharp/)
+- [Unit Testing](https://docs.microsoft.com/pt-br/aspnet/core/mvc/controllers/testing?view=aspnetcore-3.1)
 - [Admin Menu](https://bootstrapious.com/p/bootstrap-sidebar)
 - [Localisation :white_check_mark:](https://andrewlock.net/adding-localisation-to-an-asp-net-core-application/)
-- [Log Input/Output](https://exceptionnotfound.net/using-middleware-to-log-requests-and-responses-in-asp-net-core/)
 - [Adding security headers](https://andrewlock.net/adding-default-security-headers-in-asp-net-core/)
 - [Checking Security headers](https://securityheaders.com/?q=www.victorfontana.com.br&followRedirects=on)
 - [Settings SSL :white_check_mark:](https://www.hanselman.com/blog/SecuringAnAzureAppServiceWebsiteUnderSSLInMinutesWithLetsEncrypt.aspx)

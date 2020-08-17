@@ -17,6 +17,7 @@ using FluentValidation.AspNetCore;
 using PersonalPortfolio.Areas.Admin.Validator;
 using PersonalPortfolio.Context;
 using Microsoft.EntityFrameworkCore;
+using PersonalPortfolio.Repository.Project;
 
 namespace PersonalPortfolio
 {
@@ -45,6 +46,8 @@ namespace PersonalPortfolio
 
             services.AddDbContext<PortfolioContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("PortfolioContext")));
+
+            services.AddScoped<IProjectRepository, ProjectRepository>();
 
             var mvcBuilder = services
                 .AddControllersWithViews(options =>

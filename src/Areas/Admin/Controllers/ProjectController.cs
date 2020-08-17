@@ -3,9 +3,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using PersonalPortfolio.Areas.Admin.Models;
 using PersonalPortfolio.Context;
+using PersonalPortfolio.Repository.Project;
 
 namespace PersonalPortfolio.Areas.Admin.Controllers
 {
@@ -13,18 +13,18 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
     [Authorize]
     public class ProjectController : Controller
     {
-        private readonly PortfolioContext context;
+        private readonly IProjectRepository projectRepository;
 
-        public ProjectController(PortfolioContext context)
+        public ProjectController(IProjectRepository projectRepository)
         {
-            this.context = context;
+            this.projectRepository = projectRepository;
         }
 
         [HttpGet]   
         public async Task<IActionResult> Index()
         {
             var model = new List<ProjectViewModel>();
-            var projects = await context.Projects.ToListAsync();
+            var projects = await projectRepository.GetAsync();
 
             foreach (var item in projects)
             {
@@ -53,13 +53,13 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return View("Add", model);
             }
 
-            await context.Projects.AddAsync(new Project
+            await projectRepository.AddAsync(new Project
             {
                 Title = model.Title,
                 Description = model.Description,
                 Technologies = model.TechStack?.Split(',').Select(tech => new Technology { Name = tech }).ToList()
             });
-            await context.SaveChangesAsync();
+            await projectRepository.Save();
 
             return RedirectToAction("Index");
         }
@@ -72,7 +72,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            var project = await context.Projects.FindAsync(id.Value);
+            var project = await projectRepository.GetByIDAsync(id.Value);
             var model = new ProjectViewModel
             {
                 Id = project.ProjectId,
@@ -93,12 +93,12 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return View("Add", model);
             }
 
-            context.Projects.Update(new Project
+            projectRepository.Update(new Project
             {
                 Title = model.Title,
                 Description = model.Description,
             });
-            await context.SaveChangesAsync();
+            await projectRepository.Save();
 
             return RedirectToAction("Index");
         }
@@ -108,12 +108,8 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
         {
             if (id.HasValue)
             {
-                var project = await context.Projects.FindAsync(id.Value);
-                if (project != null)
-                {
-                    context.Projects.Remove(project);
-                    await context.SaveChangesAsync();
-                }
+                await projectRepository.DeleteAsync(id.Value);
+                await projectRepository.Save();
             }
 
             return RedirectToAction("Index");
