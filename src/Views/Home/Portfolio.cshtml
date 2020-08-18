@@ -1,5 +1,5 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
-
+﻿@model List<ProjectViewModel>
+@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 
 <partial name="~/Views/Shared/_HeaderTitle.cshtml" />
@@ -30,72 +30,31 @@
                         </div>
                     </div>
                     <div class="row sqs-row">
-                        <div class="col sqs-col-4 span-4">
-                            <div class="sqs-block code-block sqs-block-code">
-                                <div class="sqs-block-content">
-                                    <section class="portfolio-block">
-                                        <div class="portfolio-image-block">
-                                            <a class="portfolio-image-block__link" href="/Arteadmiravel">
-                                                <img class="portfolio-image-block__image loader" src="https://via.placeholder.com/500" alt="ArteAdmiravel">
-                                            </a>
-                                        </div>
-                                        <div class="portfolio-content-block">
-                                            <div class="portfolio-content-block__holder">
-                                                <div class="portfolio-content-block__text">
-                                                    <div class="portfolio-content-block__sub-title">Website</div>
-                                                    <div class="portfolio-content-block__title">Arte Admiravel</div>
-                                                    <a class="portfolio-content-block__link" href="/Arteadmiravel" title="New Arte Admiravel">@Localizer["View Project"]</a>
+                        @foreach (var project in Model)
+                        {
+                            <div class="col sqs-col-4 span-4">
+                                <div class="sqs-block code-block sqs-block-code">
+                                    <div class="sqs-block-content">
+                                        <section class="portfolio-block">
+                                            <div class="portfolio-image-block">
+                                                <a class="portfolio-image-block__link" href="/Arteadmiravel">
+                                                    <img class="portfolio-image-block__image loader" src="https://via.placeholder.com/500" alt="ArteAdmiravel">
+                                                </a>
+                                            </div>
+                                            <div class="portfolio-content-block">
+                                                <div class="portfolio-content-block__holder">
+                                                    <div class="portfolio-content-block__text">
+                                                        <div class="portfolio-content-block__sub-title">Website</div>
+                                                        <div class="portfolio-content-block__title">Arte Admiravel</div>
+                                                        <a class="portfolio-content-block__link" href="/Arteadmiravel" title="New Arte Admiravel">@Localizer["View Project"]</a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </section>
+                                        </section>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col sqs-col-4 span-4">
-                            <div class="sqs-block code-block sqs-block-code">
-                                <div class="sqs-block-content">
-                                    <section class="portfolio-block">
-                                        <div class="portfolio-image-block">
-                                            <a class="portfolio-image-block__link" href="/Arteadmiravel">
-                                                <img class="portfolio-image-block__image loader" src="https://via.placeholder.com/500" alt="ArteAdmiravel">
-                                            </a>
-                                        </div>
-                                        <div class="portfolio-content-block">
-                                            <div class="portfolio-content-block__holder">
-                                                <div class="portfolio-content-block__text">
-                                                    <div class="portfolio-content-block__sub-title">Website</div>
-                                                    <div class="portfolio-content-block__title">Arte Admiravel</div>
-                                                    <a class="portfolio-content-block__link" href="/Arteadmiravel" title="New Arte Admiravel">@Localizer["View Project"]</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </section>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col sqs-col-4 span-4">
-                            <div class="sqs-block code-block sqs-block-code">
-                                <div class="sqs-block-content">
-                                    <section class="portfolio-block">
-                                        <div class="portfolio-image-block">
-                                            <a class="portfolio-image-block__link" href="/Arteadmiravel">
-                                                <img class="portfolio-image-block__image loader" src="https://via.placeholder.com/500" alt="ArteAdmiravel">
-                                            </a>
-                                        </div>
-                                        <div class="portfolio-content-block">
-                                            <div class="portfolio-content-block__holder">
-                                                <div class="portfolio-content-block__text">
-                                                    <div class="portfolio-content-block__sub-title">Website</div>
-                                                    <div class="portfolio-content-block__title">Arte Admiravel</div>
-                                                    <a class="portfolio-content-block__link" href="/Arteadmiravel" title="New Arte Admiravel">@Localizer["View Project"]</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </section>
-                                </div>
-                            </div>
-                        </div>
+                        }
                     </div>
                 </div>
             </div>

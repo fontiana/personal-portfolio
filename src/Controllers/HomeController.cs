@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PersonalPortfolio.Repository.Project;
 using PersonalPortfolio.Models;
+using System.Collections.Generic;
+using PersonalPortfolio.Repository.Post;
 
 namespace PersonalPortfolio.Controllers
 {
@@ -14,10 +16,15 @@ namespace PersonalPortfolio.Controllers
     {
         private readonly IStringLocalizer<HomeController> localizer;
         private readonly IProjectRepository projectRepository;
+        private readonly IPostRepository postRepository;
 
-        public HomeController(IStringLocalizer<HomeController> localizer, IProjectRepository projectRepository)
+        public HomeController(
+            IStringLocalizer<HomeController> localizer,
+            IProjectRepository projectRepository,
+            IPostRepository postRepository)
         {
             this.projectRepository = projectRepository;
+            this.postRepository = postRepository;
             this.localizer = localizer;
         }
 
@@ -33,25 +40,38 @@ namespace PersonalPortfolio.Controllers
         {
             SetBanner(localizer["Tech Arch<br/>Projects"]);
 
+            var model = new List<ProjectViewModel>();
             var projects = await projectRepository.GetAsync();
 
             foreach (var item in projects)
             {
-                //model.Add(new ProjectViewModel
-                //{
-                //    Description = item.Description,
-                //    Title = item.Title,
-                //    Id = item.ProjectId,
-                //});
+                model.Add(new ProjectViewModel
+                {
+                    Description = item.Description,
+                    Title = item.Title,
+                    Id = item.ProjectId,
+                });
             }
 
-            return View();
+            return View(model);
         }
 
         [HttpGet]
-        public IActionResult Project(string id)
+        public async Task<IActionResult> Project(int? id)
         {
-            return View();
+            if (!id.HasValue)
+            {
+                return View();
+            }
+
+            var project = await projectRepository.GetByIDAsync(id.Value);
+
+            var model = new ProjectViewModel
+            {
+
+            };
+
+            return View(model);
         }
 
         [HttpGet]
@@ -73,18 +93,18 @@ namespace PersonalPortfolio.Controllers
         {
             ViewBag.darkHeader = "dark-header";
 
-            var model = new BlogViewModel();
-            model.Posts.Add(new Models.Post
+            var model = new List<PostViewModel>();
+            model.Add(new PostViewModel
             {
                 Description = "Lorem ipsum dolores non fat",
                 Title = "Test"
             });
-            model.Posts.Add(new Models.Post
+            model.Add(new PostViewModel
             {
                 Description = "Lorem ipsum dolores non fat",
                 Title = "Test"
             });
-            model.Posts.Add(new Models.Post
+            model.Add(new PostViewModel
             {
                 Description = "Lorem ipsum dolores non fat",
                 Title = "Test"
@@ -95,17 +115,24 @@ namespace PersonalPortfolio.Controllers
 
         [HttpGet]
         [Route("home/blog/{id}")]
-        public IActionResult Blog(string id)
+        public async Task<IActionResult> Blog(int? id)
         {
             ViewBag.darkHeader = "dark-header";
-            if (string.IsNullOrWhiteSpace(id))
+            if (!id.HasValue)
             {
                 return View();
             }
-            else
+
+            var posts = await postRepository.GetByIDAsync(id.Value);
+            var model = new PostViewModel
             {
-                return View("BlogPost");
-            }
+                Id = posts.PostId,
+                Title = posts.Title,
+                Description = posts.Description,
+                //Showcase = posts.ShowcaseImage
+            };
+
+            return View("BlogPost", model);
         }
 
         [HttpGet]
