@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using Moq;
+using PersonalPortfolio.Context.Entity;
 using PersonalPortfolio.Controllers;
 using PersonalPortfolio.Models;
 using PersonalPortfolio.Repository.Post;
@@ -38,9 +39,9 @@ namespace PersonalPortfolio.Tests.Controllers
             // Arrange
             var localize = new Mock<IStringLocalizer<HomeController>>();
 
-            var projects = new List<Context.Project>();
-            projects.Add(new Context.Project());
-            projects.Add(new Context.Project());
+            var projects = new List<ProjectEntity>();
+            projects.Add(new ProjectEntity());
+            projects.Add(new ProjectEntity());
 
             var projectRepository = new Mock<IProjectRepository>();
             projectRepository
@@ -64,7 +65,7 @@ namespace PersonalPortfolio.Tests.Controllers
             // Arrange
             var localize = new Mock<IStringLocalizer<HomeController>>();
 
-            var projects = new List<Context.Project>();
+            var projects = new List<ProjectEntity>();
 
             var projectRepository = new Mock<IProjectRepository>();
             projectRepository
@@ -120,9 +121,9 @@ namespace PersonalPortfolio.Tests.Controllers
             // Arrange
             var localize = new Mock<IStringLocalizer<HomeController>>();
 
-            var posts = new List<Context.Post>();
-            posts.Add(new Context.Post());
-            posts.Add(new Context.Post());
+            var posts = new List<PostEntity>();
+            posts.Add(new PostEntity());
+            posts.Add(new PostEntity());
 
             var postRepository = new Mock<IPostRepository>();
             postRepository
@@ -145,7 +146,7 @@ namespace PersonalPortfolio.Tests.Controllers
             // Arrange
             var localize = new Mock<IStringLocalizer<HomeController>>();
 
-            var post = new Context.Post();
+            var post = new PostEntity();
 
             var postRepository = new Mock<IPostRepository>();
             postRepository

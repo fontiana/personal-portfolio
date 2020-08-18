@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PersonalPortfolio.Areas.Admin.Models;
-using PersonalPortfolio.Context;
+using PersonalPortfolio.Context.Entity;
 using PersonalPortfolio.Repository.Project;
 
 namespace PersonalPortfolio.Areas.Admin.Controllers
@@ -61,11 +61,11 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 await model.Image.CopyToAsync(stream);
             }
 
-            await projectRepository.AddAsync(new Project
+            await projectRepository.AddAsync(new ProjectEntity
             {
                 Title = model.Title,
                 Description = model.Description,
-                Technologies = model.TechStack?.Split(',').Select(tech => new Technology { Name = tech }).ToList(),
+                Technologies = model.TechStack?.Split(',').Select(tech => new TechnologyEntity { Name = tech }).ToList(),
                 ShowcaseImage = model.Image.FileName
             });
             await projectRepository.Save();
@@ -102,7 +102,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return View("Add", model);
             }
 
-            projectRepository.Update(new Project
+            projectRepository.Update(new ProjectEntity
             {
                 Title = model.Title,
                 Description = model.Description,

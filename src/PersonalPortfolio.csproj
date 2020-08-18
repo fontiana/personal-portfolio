@@ -15,7 +15,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Validator\" />
-    <Folder Include="Context\" />
     <Folder Include="Repository\" />
     <Folder Include="Repository\Project\" />
     <Folder Include="Repository\Post\" />

@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PersonalPortfolio.Areas.Admin.Models;
-using PersonalPortfolio.Context;
+using PersonalPortfolio.Context.Entity;
 using PersonalPortfolio.Repository.Post;
 
 namespace PersonalPortfolio.Areas.Admin.Controllers
@@ -52,7 +52,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return View("Add", model);
             }
 
-            await postRepository.AddAsync(new Post
+            await postRepository.AddAsync(new PostEntity
             {
                 Title = model.Title,
                 Description = model.Description
@@ -90,7 +90,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return View("Edit", model);
             }
 
-            postRepository.Update(new Post
+            postRepository.Update(new PostEntity
             {
                 Title = model.Title,
                 Description = model.Description,

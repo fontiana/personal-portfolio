@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PersonalPortfolio.Context;
+using PersonalPortfolio.Context.Entity;
 
 namespace PersonalPortfolio.Repository.Project
 {
@@ -15,23 +15,23 @@ namespace PersonalPortfolio.Repository.Project
             this.context = context;
         }
 
-        public async Task AddAsync(Context.Project entity)
+        public async Task AddAsync(ProjectEntity entity)
         {
             await context.Projects.AddAsync(entity);
         }
 
         public async Task DeleteAsync(int id)
         {
-            Context.Project project = await context.Projects.FindAsync(id);
+            var project = await context.Projects.FindAsync(id);
             context.Projects.Remove(project);
         }
 
-        public async Task<List<Context.Project>> GetAsync()
+        public async Task<List<ProjectEntity>> GetAsync()
         {
             return await context.Projects.ToListAsync();
         }
 
-        public async Task<Context.Project> GetByIDAsync(int id)
+        public async Task<ProjectEntity> GetByIDAsync(int id)
         {
             return await context.Projects.FindAsync(id);
         }
@@ -41,7 +41,7 @@ namespace PersonalPortfolio.Repository.Project
             await context.SaveChangesAsync();
         }
 
-        public void Update(Context.Project entity)
+        public void Update(ProjectEntity entity)
         {
             context.Entry(entity).State = EntityState.Modified;
         }

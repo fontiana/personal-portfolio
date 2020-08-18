@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PersonalPortfolio.Context;
+using PersonalPortfolio.Context.Entity;
 
 namespace PersonalPortfolio.Repository.Post
 {
@@ -15,23 +15,23 @@ namespace PersonalPortfolio.Repository.Post
             this.context = context;
         }
 
-        public async Task AddAsync(Context.Post entity)
+        public async Task AddAsync(PostEntity entity)
         {
             await context.Posts.AddAsync(entity);
         }
 
         public async Task DeleteAsync(int id)
         {
-            Context.Post post = await context.Posts.FindAsync(id);
+            var post = await context.Posts.FindAsync(id);
             context.Posts.Remove(post);
         }
 
-        public async Task<List<Context.Post>> GetAsync()
+        public async Task<List<PostEntity>> GetAsync()
         {
             return await context.Posts.ToListAsync();
         }
 
-        public async Task<Context.Post> GetByIDAsync(int id)
+        public async Task<PostEntity> GetByIDAsync(int id)
         {
             return await context.Posts.FindAsync(id);
         }
@@ -41,7 +41,7 @@ namespace PersonalPortfolio.Repository.Post
             await context.SaveChangesAsync();
         }
 
-        public void Update(Context.Post entity)
+        public void Update(PostEntity entity)
         {
             context.Entry(entity).State = EntityState.Modified;
         }
