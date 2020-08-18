@@ -60,19 +60,23 @@
     max-width: 100%;
 }
 
-.Mobile-overlay {
-    position: fixed;
-    top: 0;
-    left: -99999px;
-    bottom: 0;
-    z-index: 1010;
-    width: 100%;
-    -webkit-transition: left 0s 525ms,background-color 350ms cubic-bezier(.55,0,.1,1) 175ms;
-    -moz-transition: left 0s 525ms,background-color 350ms cubic-bezier(.55,0,.1,1) 175ms;
-    -ms-transition: left 0s 525ms,background-color 350ms cubic-bezier(.55,0,.1,1) 175ms;
-    -o-transition: left 0s 525ms,background-color 350ms cubic-bezier(.55,0,.1,1) 175ms;
-    transition: left 0s 525ms,background-color 350ms cubic-bezier(.55,0,.1,1) 175ms;
-}
+    .mobile-menu a {
+        line-height:0;
+    }
+
+    .Mobile-overlay {
+        position: fixed;
+        top: 0;
+        left: -99999px;
+        bottom: 0;
+        z-index: 1010;
+        width: 100%;
+        -webkit-transition: left 0s 525ms,background-color 350ms cubic-bezier(.55,0,.1,1) 175ms;
+        -moz-transition: left 0s 525ms,background-color 350ms cubic-bezier(.55,0,.1,1) 175ms;
+        -ms-transition: left 0s 525ms,background-color 350ms cubic-bezier(.55,0,.1,1) 175ms;
+        -o-transition: left 0s 525ms,background-color 350ms cubic-bezier(.55,0,.1,1) 175ms;
+        transition: left 0s 525ms,background-color 350ms cubic-bezier(.55,0,.1,1) 175ms;
+    }
 
 .is-mobile-overlay-active .Mobile-overlay-menu {
     -webkit-transform: translate3d(0,0,0);
@@ -263,9 +267,9 @@
     }
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 768px) {
     .index-page h1 {
-        font-size: 22px !important;
+        font-size: 10vw;
     }
 }
 
@@ -356,10 +360,6 @@
 
     #page {
         padding: 40px 20px;
-    }
-
-    h1 {
-        font-size: 30px;
     }
 
     .collection-type-index.page-content {

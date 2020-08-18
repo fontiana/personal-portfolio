@@ -71,7 +71,7 @@ namespace PersonalPortfolio
             #endif
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, PortfolioContext context)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -100,7 +100,7 @@ namespace PersonalPortfolio
             
             app.UseLocalization();
 
-            context.Database.EnsureCreated();
+            //context.Database.EnsureCreated();
 
             app.UseRouter(router =>
             {

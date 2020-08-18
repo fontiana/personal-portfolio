@@ -5,6 +5,7 @@ using PersonalPortfolio.Context;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PersonalPortfolio.Repository.Project;
+using PersonalPortfolio.Models;
 
 namespace PersonalPortfolio.Controllers
 {
@@ -71,7 +72,25 @@ namespace PersonalPortfolio.Controllers
         public IActionResult Blog()
         {
             ViewBag.darkHeader = "dark-header";
-            return View();
+
+            var model = new BlogViewModel();
+            model.Posts.Add(new Models.Post
+            {
+                Description = "Lorem ipsum dolores non fat",
+                Title = "Test"
+            });
+            model.Posts.Add(new Models.Post
+            {
+                Description = "Lorem ipsum dolores non fat",
+                Title = "Test"
+            });
+            model.Posts.Add(new Models.Post
+            {
+                Description = "Lorem ipsum dolores non fat",
+                Title = "Test"
+            });
+
+            return View(model);
         }
 
         [HttpGet]

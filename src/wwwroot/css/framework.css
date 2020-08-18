@@ -1,4 +1,36 @@
-﻿/* PRINCIPAL */
+﻿/* ERROR PAGE */
+.errorLayout {
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    padding: 40px 60px 60px 60px;
+    box-sizing: border-box;
+}
+
+    .errorLayout h1 {
+        font-family: "Montserrat";
+        font-size: 98px;
+        line-height: 1em;
+        text-transform: none;
+        letter-spacing: 4px;
+        font-weight: 700;
+        font-style: normal;
+        color: #fff;
+    }
+
+    .errorLayout p {
+        line-height: 1.3em;
+        text-transform: none;
+        letter-spacing: 1px;
+        font-weight: 400;
+        font-style: normal;
+        color: #fff;
+        margin-bottom: 40px;
+    }
+
+
+
+/* PRINCIPAL */
 
 * {
     box-sizing: border-box;

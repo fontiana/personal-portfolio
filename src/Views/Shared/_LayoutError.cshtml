@@ -13,23 +13,6 @@
         <link rel="stylesheet" href="~/css/mobile.css" asp-append-version="true" />
     </environment>
 
-    <style>
-        .errorLayout {
-            text-align:center;
-            margin:0 auto;
-        }
-        h1 {
-            font-family: "Montserrat";
-            font-size: 98px;
-            line-height: 1em;
-            text-transform: none;
-            letter-spacing: 4px;
-            font-weight: 700;
-            font-style: normal;
-            color: #fff;
-        }
-    p { line-height: 1.3em; text-transform: none; letter-spacing: 1px; font-weight: 400; font-style: normal; color: #fff; }
-    </style>
 </head>
 <body class="transparent-header enable-nav-button nav-button-style-outline banner-button-style-outline gallery-design-grid small-button-style-outline medium-button-style-outline large-button-style-outline button-style-outline homepage collection-type-index @(ViewBag.darkHeader)">
     <div class="errorLayout">
@@ -37,6 +20,13 @@
             <img src="/images/VF_branco.png" width="80" alt="Logotipo Victor Fontana">
         </a>
         @RenderBody()
+        <div class="actions">
+            <div class="sqs-slice-buttons sqs-slice-buttons-content" data-slice-type="buttons">
+                <ul>
+                    <li><a href="/">Back to Home</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </body>
 </html>
