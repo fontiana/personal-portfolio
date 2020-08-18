@@ -5,6 +5,7 @@ using Microsoft.Extensions.Localization;
 using Moq;
 using PersonalPortfolio.Controllers;
 using PersonalPortfolio.Models;
+using PersonalPortfolio.Repository.Post;
 using PersonalPortfolio.Repository.Project;
 using Xunit;
 
@@ -79,6 +80,102 @@ namespace PersonalPortfolio.Tests.Controllers
             var viewResult = Assert.IsType<ViewResult>(result);
             var model = Assert.IsAssignableFrom<ProjectViewModel>(viewResult.ViewData.Model);
             Assert.NotNull(model);
+        }
+
+        [Fact(DisplayName = "Should return a view result")]
+        public void About_ReturnsAViewResult()
+        {
+            // Arrange
+            var localize = new Mock<IStringLocalizer<HomeController>>();
+
+            var controller = new HomeController(localize.Object, null, null);
+
+            // Act
+            var result = controller.About();
+
+            // Assert
+            var viewResult = Assert.IsType<ViewResult>(result);
+            Assert.NotNull(viewResult);
+        }
+
+        [Fact(DisplayName = "Should return a view result")]
+        public void Resume_ReturnsAViewResult()
+        {
+            // Arrange
+            var localize = new Mock<IStringLocalizer<HomeController>>();
+
+            var controller = new HomeController(localize.Object, null, null);
+
+            // Act
+            var result = controller.Resume();
+
+            // Assert
+            var viewResult = Assert.IsType<ViewResult>(result);
+            Assert.NotNull(viewResult);
+        }
+
+        [Fact(DisplayName = "Should return a view result")]
+        public void Blog_ReturnsAViewResult()
+        {
+            // Arrange
+            var localize = new Mock<IStringLocalizer<HomeController>>();
+
+            var posts = new List<Context.Post>();
+            posts.Add(new Context.Post());
+            posts.Add(new Context.Post());
+
+            var postRepository = new Mock<IPostRepository>();
+            postRepository
+                .Setup(repo => repo.GetAsync())
+                .ReturnsAsync(posts);
+
+            var controller = new HomeController(localize.Object, null, postRepository.Object);
+
+            // Act
+            var result = controller.Blog();
+
+            // Assert
+            var viewResult = Assert.IsType<ViewResult>(result);
+            Assert.NotNull(viewResult);
+        }
+
+        [Fact(DisplayName = "Should return a view result")]
+        public async Task BlogPost_ReturnsAViewResult()
+        {
+            // Arrange
+            var localize = new Mock<IStringLocalizer<HomeController>>();
+
+            var post = new Context.Post();
+
+            var postRepository = new Mock<IPostRepository>();
+            postRepository
+                .Setup(repo => repo.GetByIDAsync(It.IsAny<int>()))
+                .ReturnsAsync(post);
+
+            var controller = new HomeController(localize.Object, null, postRepository.Object);
+
+            // Act
+            var result = await controller.Blog(0);
+
+            // Assert
+            var viewResult = Assert.IsType<ViewResult>(result);
+            Assert.NotNull(viewResult);
+        }
+
+        [Fact(DisplayName = "Should return a view result")]
+        public void Contact_ReturnsAViewResult()
+        {
+            // Arrange
+            var localize = new Mock<IStringLocalizer<HomeController>>();
+
+            var controller = new HomeController(localize.Object, null, null);
+
+            // Act
+            var result = controller.Contact();
+
+            // Assert
+            var viewResult = Assert.IsType<ViewResult>(result);
+            Assert.NotNull(viewResult);
         }
     }
 }
