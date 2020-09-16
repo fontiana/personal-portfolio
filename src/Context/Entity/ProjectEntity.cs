@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace PersonalPortfolio.Context.Entity
 {
     public class ProjectEntity
     {
+        [Key]
         public int ProjectId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

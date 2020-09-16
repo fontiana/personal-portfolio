@@ -1,13 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.Extensions.Localization;
-using PersonalPortfolio.Context;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using PersonalPortfolio.Repository.Project;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 using PersonalPortfolio.Models;
-using System.Collections.Generic;
 using PersonalPortfolio.Repository.Post;
+using PersonalPortfolio.Repository.Project;
 
 namespace PersonalPortfolio.Controllers
 {
@@ -65,10 +63,12 @@ namespace PersonalPortfolio.Controllers
             }
 
             var project = await projectRepository.GetByIDAsync(id.Value);
-
             var model = new ProjectViewModel
             {
-
+                Description = project.Description,
+                Id = project.ProjectId,
+                Showcase = project.ShowcaseImage,
+                Title = project.Title,
             };
 
             return View(model);
@@ -89,33 +89,29 @@ namespace PersonalPortfolio.Controllers
 
         [HttpGet]
         [Route("home/blog")]
-        public IActionResult Blog()
+        public async Task<IActionResult> Blog()
         {
             ViewBag.darkHeader = "dark-header";
 
             var model = new List<PostViewModel>();
-            model.Add(new PostViewModel
+            var posts = await postRepository.GetAsync();
+            foreach (var item in posts)
             {
-                Description = "Lorem ipsum dolores non fat",
-                Title = "Test"
-            });
-            model.Add(new PostViewModel
-            {
-                Description = "Lorem ipsum dolores non fat",
-                Title = "Test"
-            });
-            model.Add(new PostViewModel
-            {
-                Description = "Lorem ipsum dolores non fat",
-                Title = "Test"
-            });
+                model.Add(new PostViewModel
+                {
+                    Description = item.Description,
+                    Title = item.Title,
+                    Category = string.Join(", ", item.Categories),
+                    Id = item.PostId
+                });
+            }
 
             return View(model);
         }
 
         [HttpGet]
         [Route("home/blog/{id}")]
-        public async Task<IActionResult> Blog(int? id)
+        public async Task<IActionResult> Post(int? id)
         {
             ViewBag.darkHeader = "dark-header";
             if (!id.HasValue)
@@ -123,16 +119,16 @@ namespace PersonalPortfolio.Controllers
                 return View();
             }
 
-            var posts = await postRepository.GetByIDAsync(id.Value);
+            var post = await postRepository.GetByIDAsync(id.Value);
             var model = new PostViewModel
             {
-                Id = posts.PostId,
-                Title = posts.Title,
-                Description = posts.Description,
+                Id = post.PostId,
+                Title = post.Title,
+                Description = post.Description,
                 //Showcase = posts.ShowcaseImage
             };
 
-            return View("BlogPost", model);
+            return View(model);
         }
 
         [HttpGet]

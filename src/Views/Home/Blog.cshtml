@@ -23,10 +23,10 @@
                                                 </a>
                                                 <div class="Blog-meta BlogList-item-meta">
                                                     <span class="Blog-meta-item Blog-meta-item--categories">
-                                                        <a asp-controller="home" asp-action="blog" asp-route-id="post" class="Blog-meta-item-category">Lorem Ipsum</a>
+                                                        <a asp-controller="home" asp-action="post" asp-route-id="@post.Id" class="Blog-meta-item-category">Lorem Ipsum</a>
                                                     </span>
                                                 </div>
-                                                <a asp-controller="home" asp-action="blog" asp-route-id="post" class="BlogList-item-title">@post.Title</a>
+                                                <a asp-controller="home" asp-action="post" asp-route-id="@post.Id" class="BlogList-item-title">@post.Title</a>
                                             </div>
                                         </div>
                                     }

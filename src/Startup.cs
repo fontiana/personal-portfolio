@@ -82,15 +82,7 @@ namespace PersonalPortfolio
                 app.UseExceptionHandler("/Error/index");
                 app.UseHsts();
             }
-            app.Use(async (context, next) =>
-            {
-                await next();
-                if (context.Response.StatusCode == 404)
-                {
-                    context.Request.Path = "/Error/NotFound";
-                    await next();
-                }
-            });
+            app.UseMiddleware<ErrorMiddleware>();
             app.UseStaticFiles();
             app.UseRouting();
             app.UseCookiePolicy();
