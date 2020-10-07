@@ -7,5 +7,6 @@ namespace PersonalPortfolio.Context.Entity
         [Key]
         public int TechnologyId { get; set; }
         public string Name { get; set; }
+        public int ProjectId { get; set; }
     }
 }

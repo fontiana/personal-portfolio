@@ -17,7 +17,7 @@ namespace PersonalPortfolio.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ProjectEntity>().ToTable("Project");
-            modelBuilder.Entity<TechnologyEntity>().ToTable("Technology");
+            modelBuilder.Entity<TechnologyEntity>().ToTable("Technology"); 
             modelBuilder.Entity<PostEntity>().ToTable("Posts");
             modelBuilder.Entity<CategoryEntity>().ToTable("Category");
         }

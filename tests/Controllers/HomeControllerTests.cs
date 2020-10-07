@@ -141,7 +141,7 @@ namespace PersonalPortfolio.Tests.Controllers
         }
 
         [Fact(DisplayName = "Should return a view result")]
-        public async Task BlogPost_ReturnsAViewResult()
+        public async Task Post_ReturnsAViewResult()
         {
             // Arrange
             var localize = new Mock<IStringLocalizer<HomeController>>();
@@ -156,7 +156,7 @@ namespace PersonalPortfolio.Tests.Controllers
             var controller = new HomeController(localize.Object, null, postRepository.Object);
 
             // Act
-            var result = await controller.Blog(0);
+            var result = await controller.Post(0);
 
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
