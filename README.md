@@ -25,7 +25,7 @@ My personal portfolio and blog
 - [Localisation :white_check_mark:](https://andrewlock.net/adding-localisation-to-an-asp-net-core-application/)
 - [Adding security headers](https://andrewlock.net/adding-default-security-headers-in-asp-net-core/)
 - [Checking Security headers](https://securityheaders.com/?q=www.victorfontana.com.br&followRedirects=on)
-- [Settings SSL :white_check_mark:](https://www.hanselman.com/blog/SecuringAnAzureAppServiceWebsiteUnderSSLInMinutesWithLetsEncrypt.aspx)
+- [Settings SSL :white_check_mark:](https://medium.com/@marcmathijssen/add-ssl-to-azure-web-app-using-letsencrypt-9125c3fdfb03)
 
 ### Design Tips
 
