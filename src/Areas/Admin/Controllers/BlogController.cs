@@ -53,24 +53,11 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return View("Add", model);
             }
 
-            var categories = new List<CategoryEntity>();
-            var splitCategories = model.Categories.Split(",");
-            if (splitCategories != null)
-            {
-                foreach (var item in splitCategories)
-                {
-                    categories.Add(new CategoryEntity
-                    {
-                        Name = item
-                    });
-                }
-            }
-
             await postRepository.AddAsync(new PostEntity
             {
                 Title = model.Title,
                 Description = model.Description,
-                Categories = categories
+                Category = new CategoryEntity {  Name = model.Category }
             });
             await postRepository.Save();
 
@@ -91,7 +78,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 Id = post.PostId,
                 Description = post.Description,
                 Title = post.Title,
-                Categories = string.Join(",", post.Categories.Select(a => a.Name))
+                Category = post.Category.Name
             };
 
             return View(model);

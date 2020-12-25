@@ -87,7 +87,8 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 Id = project.ProjectId,
                 Description = project.Description,
                 Title = project.Title,
-                //TechStack = string.Join(", ", project.Technologies?.Select(p => p.Name))
+                TechStack = string.Join(", ", project.Technologies?.Select(p => p.Name))
+                //Image = project.ShowcaseImage
             };
 
             return View(model);

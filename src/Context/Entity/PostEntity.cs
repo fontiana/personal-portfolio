@@ -10,7 +10,6 @@ namespace PersonalPortfolio.Context.Entity
         public string Title { get; set; }
         public string Description { get; set; }
         public string ShowcaseImage { get; set; }
-
-        public List<CategoryEntity> Categories { get; set; }
+        public CategoryEntity Category { get; set; }
     }
 }

@@ -9,6 +9,7 @@ namespace PersonalPortfolio.Context
         public DbSet<TechnologyEntity> Technologies { get; set; }
         public DbSet<PostEntity> Posts { get; set; }
         public DbSet<CategoryEntity> Category { get; set; }
+        public DbSet<TagEntity> Tags { get; set; }
 
         public PortfolioContext(DbContextOptions<PortfolioContext> options)
         : base(options)
@@ -16,10 +17,16 @@ namespace PersonalPortfolio.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ProjectEntity>().ToTable("Project");
-            modelBuilder.Entity<TechnologyEntity>().ToTable("Technology"); 
-            modelBuilder.Entity<PostEntity>().ToTable("Posts");
-            modelBuilder.Entity<CategoryEntity>().ToTable("Category");
+            modelBuilder.Entity<ProjectEntity>().ToTable("Project")
+                                                    .HasMany(x => x.Technologies)
+                                                    .WithOne(x => x.Project);
+
+            modelBuilder.Entity<PostEntity>().ToTable("Posts")
+                                                .HasOne(x => x.Category);
+
+            //modelBuilder.Entity<TechnologyEntity>().ToTable("Technology"); 
+            //modelBuilder.Entity<CategoryEntity>().ToTable("Category");
+            //modelBuilder.Entity<TagEntity>().ToTable("Tags");
         }
     }
 }

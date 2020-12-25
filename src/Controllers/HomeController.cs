@@ -55,14 +55,14 @@ namespace PersonalPortfolio.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Project(int? id)
+        public async Task<IActionResult> Project(string id)
         {
-            if (!id.HasValue)
+            if (string.IsNullOrWhiteSpace(id))
             {
                 return View();
             }
 
-            var project = await projectRepository.GetByIDAsync(id.Value);
+            var project = await projectRepository.GetByIDAsync(1);
             var model = new ProjectViewModel
             {
                 Description = project.Description,
@@ -101,7 +101,7 @@ namespace PersonalPortfolio.Controllers
                 {
                     Description = item.Description,
                     Title = item.Title,
-                    Category = string.Join(", ", item.Categories),
+                    Category = item.Category.Name,
                     Id = item.PostId
                 });
             }
