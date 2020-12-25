@@ -31,7 +31,7 @@ namespace PersonalPortfolio.Repository.Post
             return await context.Posts.ToListAsync();
         }
 
-        public async Task<PostEntity> GetByIDAsync(int id)
+        public async Task<PostEntity> GetByIdAsync(int id)
         {
             return await context.Posts.FindAsync(id);
         }

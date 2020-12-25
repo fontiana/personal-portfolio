@@ -81,7 +81,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            var project = await projectRepository.GetByIDAsync(id.Value);
+            var project = await projectRepository.GetByIdAsync(id.Value);
             var model = new ProjectViewModel
             {
                 Id = project.ProjectId,

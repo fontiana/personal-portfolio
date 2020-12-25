@@ -72,7 +72,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            var post = await postRepository.GetByIDAsync(id.Value);
+            var post = await postRepository.GetByIdAsync(id.Value);
             var model = new PostViewModel
             {
                 Id = post.PostId,

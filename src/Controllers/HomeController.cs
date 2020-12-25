@@ -62,7 +62,7 @@ namespace PersonalPortfolio.Controllers
                 return View();
             }
 
-            var project = await projectRepository.GetByIDAsync(1);
+            var project = await projectRepository.GetByTitleAsync(id);
             var model = new ProjectViewModel
             {
                 Description = project.Description,
@@ -119,7 +119,7 @@ namespace PersonalPortfolio.Controllers
                 return View();
             }
 
-            var post = await postRepository.GetByIDAsync(id.Value);
+            var post = await postRepository.GetByIdAsync(id.Value);
             var model = new PostViewModel
             {
                 Id = post.PostId,
