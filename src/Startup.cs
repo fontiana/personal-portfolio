@@ -19,6 +19,8 @@ using PersonalPortfolio.Context;
 using Microsoft.EntityFrameworkCore;
 using PersonalPortfolio.Repository.Project;
 using PersonalPortfolio.Repository.Post;
+using Serilog;
+using Serilog.Events;
 
 namespace PersonalPortfolio
 {
@@ -38,6 +40,13 @@ namespace PersonalPortfolio
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+                .Enrich.FromLogContext()
+                .WriteTo.Console()
+                .CreateLogger();
 
             services.AddMicrosoftWebAppAuthentication(Configuration);
 
