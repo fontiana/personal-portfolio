@@ -19,10 +19,13 @@ namespace PersonalPortfolio.Context
         {
             modelBuilder.Entity<ProjectEntity>().ToTable("Project")
                                                     .HasMany(x => x.Technologies)
-                                                    .WithOne(x => x.Project);
+                                                    .WithOne(x => x.Project)
+                                                    .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<PostEntity>().ToTable("Posts")
-                                                .HasOne(x => x.Category);
+                                                .HasOne(x => x.Category)
+                                                .WithOne(x => x.Post)
+                                                .HasForeignKey<CategoryEntity>(x => x.CategoryId);
 
             //modelBuilder.Entity<TechnologyEntity>().ToTable("Technology"); 
             //modelBuilder.Entity<CategoryEntity>().ToTable("Category");

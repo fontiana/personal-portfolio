@@ -28,12 +28,16 @@ namespace PersonalPortfolio.Repository.Post
 
         public async Task<List<PostEntity>> GetAsync()
         {
-            return await context.Posts.ToListAsync();
+            return await context.Posts
+                .Include(r => r.Category)
+                .ToListAsync();
         }
 
         public async Task<PostEntity> GetByIdAsync(int id)
         {
-            return await context.Posts.FindAsync(id);
+            return await context.Posts
+                .Include(r => r.Category)
+                .FirstOrDefaultAsync(r => r.PostId == id);
         }
 
         public async Task Save()

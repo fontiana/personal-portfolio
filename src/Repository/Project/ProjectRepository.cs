@@ -33,12 +33,16 @@ namespace PersonalPortfolio.Repository.Project
 
         public async Task<ProjectEntity> GetByIdAsync(int id)
         {
-            return await context.Projects.FindAsync(id);
+            return await context.Projects
+                .Include(r => r.Technologies)
+                .FirstOrDefaultAsync(r => r.ProjectId == id);
         }
 
         public async Task<ProjectEntity> GetByTitleAsync(string title)
         {
-            return await context.Projects.FirstOrDefaultAsync(x => x.Title == title);
+            return await context.Projects
+                .Include(r => r.Technologies)
+                .FirstOrDefaultAsync(x => x.Title == title);
         }
 
         public async Task Save()

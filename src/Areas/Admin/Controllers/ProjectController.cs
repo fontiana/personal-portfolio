@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.IO;
+using PersonalPortfolio.Helper;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -55,16 +55,12 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return View("Add", model);
             }
 
-            var filePath = Path.GetTempFileName();
-            using (var stream = System.IO.File.Create(filePath))
-            {
-                await model.Image.CopyToAsync(stream);
-            }
-
+            await model.Image.SaveImageAsync();
             await projectRepository.AddAsync(new ProjectEntity
             {
                 Title = model.Title,
                 Description = model.Description,
+                Url = model.Url,
                 Technologies = model.TechStack?.Split(',').Select(tech => new TechnologyEntity { Name = tech }).ToList(),
                 ShowcaseImage = model.Image.FileName
             });
@@ -87,8 +83,9 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 Id = project.ProjectId,
                 Description = project.Description,
                 Title = project.Title,
-                TechStack = string.Join(", ", project.Technologies?.Select(p => p.Name))
-                //Image = project.ShowcaseImage
+                Url = project.Url,
+                TechStack = string.Join(", ", project.Technologies?.Select(p => p.Name)),
+                //Image = project.ShowcaseImage.LoadImage()
             };
 
             return View(model);
@@ -103,6 +100,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return View("Add", model);
             }
 
+            await model.Image.SaveImageAsync();
             projectRepository.Update(new ProjectEntity
             {
                 Title = model.Title,

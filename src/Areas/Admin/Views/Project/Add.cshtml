@@ -31,9 +31,16 @@
         </div>
         <div class="col-md-12">
             <div class="form-group">
+                <label asp-for="Url"></label>
+                <input asp-for="Url" class="form-control" />
+                <span asp-validation-for="Url"></span>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
                 <label asp-for="TechStack"></label>
-                
-                
+
+
                 <input asp-for="TechStack" class="form-control" />
                 <span asp-validation-for="TechStack"></span>
             </div>
