@@ -62,6 +62,8 @@ namespace PersonalPortfolio.Controllers
                 return View();
             }
 
+            ViewBag.darkHeader = "dark-header";
+
             var project = await projectRepository.GetByTitleAsync(id);
             var model = new ProjectViewModel
             {
