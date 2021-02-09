@@ -95,6 +95,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
 
             postRepository.Update(new PostEntity
             {
+                PostId = model.Id,
                 Title = model.Title,
                 Description = model.Description,
             });

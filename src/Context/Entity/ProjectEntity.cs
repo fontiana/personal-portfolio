@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -14,6 +15,7 @@ namespace PersonalPortfolio.Context.Entity
         public string Url { get; set; }
         public string ShowcaseImage { get; set; }
         public string Images { get; set; }
+        public DateTime CreatedAt { get; set; }
         public List<TechnologyEntity> Technologies { get; set; }
     }
 }

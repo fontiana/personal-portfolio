@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using PersonalPortfolio.Areas.Admin.Models;
 using PersonalPortfolio.Context.Entity;
 using PersonalPortfolio.Repository.Project;
+using System;
 
 namespace PersonalPortfolio.Areas.Admin.Controllers
 {
@@ -61,6 +62,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 Title = model.Title,
                 Description = model.Description,
                 Url = model.Url,
+                CreatedAt = DateTime.Now,
                 Technologies = model.TechStack?.Split(',').Select(tech => new TechnologyEntity { Name = tech }).ToList(),
                 ShowcaseImage = model.Image.FileName
             });
@@ -103,6 +105,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
             await model.Image.SaveImageAsync();
             projectRepository.Update(new ProjectEntity
             {
+                ProjectId = model.Id,
                 Title = model.Title,
                 Description = model.Description,
                 ShowcaseImage = model.Image.FileName
