@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using PersonalPortfolio.Areas.Admin.Models;
 using PersonalPortfolio.Context.Entity;
+using PersonalPortfolio.Helper;
 using PersonalPortfolio.Repository.Post;
 
 namespace PersonalPortfolio.Areas.Admin.Controllers
@@ -14,10 +15,12 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
     public class BlogController : Controller
     {
         private readonly IPostRepository postRepository;
+        private readonly IHostingEnvironment hostingEnvironment;
 
-        public BlogController(IPostRepository postRepository)
+        public BlogController(IPostRepository postRepository, IHostingEnvironment environment)
         {
             this.postRepository = postRepository;
+            hostingEnvironment = environment;
         }
 
         public async Task<IActionResult> Index()
@@ -53,11 +56,13 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return View("Add", model);
             }
 
+            await model.Image.SaveImageAsync();
             await postRepository.AddAsync(new PostEntity
             {
                 Title = model.Title,
                 Description = model.Description,
-                Category = new CategoryEntity {  Name = model.Category }
+                Category = new CategoryEntity {  Name = model.Category },
+                ShowcaseImage = model.Image.FileName
             });
             await postRepository.Save();
 
@@ -93,11 +98,13 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return View("Edit", model);
             }
 
+            await model.Image.SaveImageAsync();
             postRepository.Update(new PostEntity
             {
                 PostId = model.Id,
                 Title = model.Title,
                 Description = model.Description,
+                ShowcaseImage = model.Image.FileName
             });
             await postRepository.Save();
 
