@@ -127,7 +127,7 @@ namespace PersonalPortfolio.Controllers
                 Id = post.PostId,
                 Title = post.Title,
                 Description = post.Description,
-                //Showcase = posts.ShowcaseImage
+                ShowcaseImage = post.ShowcaseImage
             };
 
             return View(model);
