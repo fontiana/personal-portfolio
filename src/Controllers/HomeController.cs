@@ -71,6 +71,8 @@ namespace PersonalPortfolio.Controllers
                 Id = project.ProjectId,
                 Showcase = project.ShowcaseImage,
                 Title = project.Title,
+                Url = project.Url,
+                Technologies = string.Join(",", project.Technologies)
             };
 
             return View(model);

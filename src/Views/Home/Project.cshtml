@@ -8,7 +8,7 @@
 
                     <div class="sqs-block html-block sqs-block-html">
                         <div class="sqs-block-content">
-                            <h1 class="text-align-center">ArteAdmiravel.com.br</h1>
+                            <h1 class="text-align-center">@Model.Title</h1>
                         </div>
                     </div>
                     <div class="row sqs-row">
@@ -21,7 +21,7 @@
                             <div class="sqs-block button-block sqs-block-button">
                                 <div class="sqs-block-content">
                                     <div class="sqs-block-button-container--center">
-                                        <a href="http://www.arteadmiravel.com.br/" class="sqs-block-button-element--small sqs-block-button-element" target="_blank">Visit site</a>
+                                        <a href="@Model.Url" class="sqs-block-button-element--small sqs-block-button-element" target="_blank">Visit site</a>
                                     </div>
                                 </div>
                             </div>
@@ -31,7 +31,7 @@
                             <div class="sqs-block html-block sqs-block-html">
                                 <div class="sqs-block-content">
                                     <h3 class="text-align-center">Technology used.</h3>
-                                    <pre class="text-align-center">HTML, CSS, jQuery, ASP.NET MVC, MySql, Entity Framework</pre>
+                                    <pre class="text-align-center">@Model.Technologies</pre>
                                 </div>
                             </div>
                         </div>
