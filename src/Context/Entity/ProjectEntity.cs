@@ -14,7 +14,7 @@ namespace PersonalPortfolio.Context.Entity
         public string Description { get; set; }
         public string Url { get; set; }
         public string ShowcaseImage { get; set; }
-        public string Images { get; set; }
+        public IList<Image> Images { get; set; }
         public DateTime CreatedAt { get; set; }
         public List<TechnologyEntity> Technologies { get; set; }
     }
