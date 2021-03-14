@@ -131,7 +131,8 @@ namespace PersonalPortfolio.Controllers
                 Title = post.Title,
                 Description = post.Description,
                 ShowcaseImage = post.ShowcaseImage,
-                CreatedAt = post.CreatedAt
+                CreatedAt = post.CreatedAt,
+                Category = post.Category?.Name
             };
 
             return View(model);
