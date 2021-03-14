@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
@@ -72,7 +73,7 @@ namespace PersonalPortfolio.Controllers
                 Showcase = project.ShowcaseImage,
                 Title = project.Title,
                 Url = project.Url,
-                Technologies = string.Join(",", project.Technologies)
+                Technologies = string.Join(",", project.Technologies.Select(a => a.Name))
             };
 
             return View(model);
@@ -129,7 +130,8 @@ namespace PersonalPortfolio.Controllers
                 Id = post.PostId,
                 Title = post.Title,
                 Description = post.Description,
-                ShowcaseImage = post.ShowcaseImage
+                ShowcaseImage = post.ShowcaseImage,
+                CreatedAt = post.CreatedAt
             };
 
             return View(model);
