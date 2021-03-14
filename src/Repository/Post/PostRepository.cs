@@ -47,7 +47,7 @@ namespace PersonalPortfolio.Repository.Post
 
         public void Update(PostEntity entity)
         {
-            context.Entry(entity).State = EntityState.Modified;
+            context.Posts.Update(entity);
         }
     }
 }

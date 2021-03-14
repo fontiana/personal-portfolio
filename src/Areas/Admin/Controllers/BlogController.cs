@@ -103,6 +103,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
             post.Title = model.Title;
             post.Description = model.Description;
             post.ShowcaseImage = model.Image.FileName;
+
             postRepository.Update(post);
             await postRepository.Save();
 

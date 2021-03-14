@@ -87,7 +87,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 Title = project.Title,
                 Url = project.Url,
                 TechStack = string.Join(", ", project.Technologies?.Select(p => p.Name)),
-                //Image = project.ShowcaseImage.LoadImage()
+                //Image = project.ShowcaseImage.LoadImage(),
             };
 
             return View(model);
@@ -104,7 +104,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
 
             await model.Image.SaveImageAsync();
             var project = await projectRepository.GetByIdAsync(model.Id);
-            project.ProjectId = model.Id;
+            
             project.Title = model.Title;
             project.Description = model.Description;
             project.ShowcaseImage = model.Image.FileName;

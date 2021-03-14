@@ -52,7 +52,7 @@ namespace PersonalPortfolio.Repository.Project
 
         public void Update(ProjectEntity entity)
         {
-            context.Entry(entity).State = EntityState.Modified;
+            context.Projects.Update(entity);
         }
     }
 }

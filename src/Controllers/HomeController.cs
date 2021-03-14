@@ -107,7 +107,8 @@ namespace PersonalPortfolio.Controllers
                     Description = item.Description,
                     Title = item.Title,
                     Category = item.Category.Name,
-                    Id = item.PostId
+                    Id = item.PostId,
+                    ShowcaseImage = item.ShowcaseImage
                 });
             }
 
