@@ -103,13 +103,13 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
             }
 
             await model.Image.SaveImageAsync();
-            projectRepository.Update(new ProjectEntity
-            {
-                ProjectId = model.Id,
-                Title = model.Title,
-                Description = model.Description,
-                ShowcaseImage = model.Image.FileName
-            });
+            var project = await projectRepository.GetByIdAsync(model.Id);
+            project.ProjectId = model.Id;
+            project.Title = model.Title;
+            project.Description = model.Description;
+            project.ShowcaseImage = model.Image.FileName;
+
+            projectRepository.Update(project);
             await projectRepository.Save();
 
             return RedirectToAction("Index");

@@ -99,13 +99,11 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
             }
 
             await model.Image.SaveImageAsync();
-            postRepository.Update(new PostEntity
-            {
-                PostId = model.Id,
-                Title = model.Title,
-                Description = model.Description,
-                ShowcaseImage = model.Image.FileName
-            });
+            var post = await postRepository.GetByIdAsync(model.Id);
+            post.Title = model.Title;
+            post.Description = model.Description;
+            post.ShowcaseImage = model.Image.FileName;
+            postRepository.Update(post);
             await postRepository.Save();
 
             return RedirectToAction("Index");
