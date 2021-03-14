@@ -91,7 +91,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(ProjectViewModel model)
+        public async Task<IActionResult> Edit(PostViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -100,8 +100,10 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
 
             await model.Image.SaveImageAsync();
             var post = await postRepository.GetByIdAsync(model.Id);
+            post.Category.Name = model.Category;
             post.Title = model.Title;
             post.Description = model.Description;
+            post.Category = post.Category;
             post.ShowcaseImage = model.Image.FileName;
 
             postRepository.Update(post);

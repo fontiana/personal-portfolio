@@ -108,6 +108,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
             project.Title = model.Title;
             project.Description = model.Description;
             project.ShowcaseImage = model.Image.FileName;
+            project.Url = model.Url;
             project.Technologies = model.TechStack?.Split(',').Select(tech => new TechnologyEntity { Name = tech }).ToList();
 
             projectRepository.Update(project);

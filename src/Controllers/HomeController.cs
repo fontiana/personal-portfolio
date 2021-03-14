@@ -49,6 +49,7 @@ namespace PersonalPortfolio.Controllers
                     Description = item.Description,
                     Title = item.Title,
                     Id = item.ProjectId,
+                    Showcase = item.ShowcaseImage
                 });
             }
 
