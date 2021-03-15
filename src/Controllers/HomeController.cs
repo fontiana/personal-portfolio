@@ -7,6 +7,7 @@ using Microsoft.Extensions.Localization;
 using PersonalPortfolio.Models;
 using PersonalPortfolio.Repository.Post;
 using PersonalPortfolio.Repository.Project;
+using PersonalPortfolio.Helper;
 
 namespace PersonalPortfolio.Controllers
 {
@@ -71,7 +72,7 @@ namespace PersonalPortfolio.Controllers
             {
                 Description = project.Description,
                 Id = project.ProjectId,
-                Showcase = project.ShowcaseImage,
+                Showcase = project.ShowcaseImage.LoadImage(),
                 Title = project.Title,
                 Url = project.Url,
                 Technologies = string.Join(",", project.Technologies.Select(a => a.Name))
@@ -132,7 +133,7 @@ namespace PersonalPortfolio.Controllers
                 Id = post.PostId,
                 Title = post.Title,
                 Description = post.Description,
-                ShowcaseImage = post.ShowcaseImage,
+                ShowcaseImage = post.ShowcaseImage.LoadImage(),
                 CreatedAt = post.CreatedAt,
                 Category = post.Category?.Name
             };

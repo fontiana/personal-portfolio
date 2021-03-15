@@ -7,19 +7,19 @@ namespace PersonalPortfolio.Helper
 {
     public static class ImageHelper
     {
-        public static async Task SaveImageAsync(this IFormFile target, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task SaveImageAsync(this IFormFile target, CancellationToken cancellationToken)
         {
             var filePath = Path.GetTempFileName();
             using (var stream = File.Create(filePath))
             {
-                await target.CopyToAsync(stream);
+                await target.CopyToAsync(stream, cancellationToken);
             }
         }
 
-        public static void LoadImage(this string fileName)
+        public static string LoadImage(this string fileName)
         {
             var filePath = Path.GetTempFileName();
-            Path.Combine(filePath, fileName);
+            return Path.Combine(filePath, fileName);
         }
     }
 }

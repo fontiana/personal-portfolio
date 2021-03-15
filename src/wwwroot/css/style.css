@@ -167,6 +167,14 @@
     margin-bottom: 0;
 }
 
+.sqs-block-html p a {
+    color: #7a8be1;
+    padding-bottom: .05em;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(225,168,122,.3);
+}
+
 .sqs-gallery-block-grid {
     overflow:hidden;
 }

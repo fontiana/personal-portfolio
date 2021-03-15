@@ -8,6 +8,7 @@ using PersonalPortfolio.Areas.Admin.Models;
 using PersonalPortfolio.Context.Entity;
 using PersonalPortfolio.Repository.Project;
 using System;
+using System.Threading;
 
 namespace PersonalPortfolio.Areas.Admin.Controllers
 {
@@ -49,14 +50,14 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Add(ProjectViewModel model)
+        public async Task<IActionResult> Add(ProjectViewModel model, CancellationToken cancellationToken)
         {
             if (!ModelState.IsValid)
             {
                 return View("Add", model);
             }
 
-            await model.Image.SaveImageAsync();
+            await model.Image.SaveImageAsync(cancellationToken);
             await projectRepository.AddAsync(new ProjectEntity
             {
                 Title = model.Title,
@@ -95,14 +96,14 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public async Task<IActionResult> Edit(ProjectViewModel model)
+        public async Task<IActionResult> Edit(ProjectViewModel model, CancellationToken cancellationToken)
         {
             if (!ModelState.IsValid)
             {
                 return View("Add", model);
             }
 
-            await model.Image.SaveImageAsync();
+            await model.Image.SaveImageAsync(cancellationToken);
             var project = await projectRepository.GetByIdAsync(model.Id);
             
             project.Title = model.Title;
