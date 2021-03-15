@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -49,14 +50,14 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Add(PostViewModel model)
+        public async Task<IActionResult> Add(PostViewModel model, CancellationToken cancellationToken)
         {
             if (!ModelState.IsValid)
             { 
                 return View("Add", model);
             }
 
-            await model.Image.SaveImageAsync();
+            await model.Image.SaveImageAsync(cancellationToken);
             await postRepository.AddAsync(new PostEntity
             {
                 Title = model.Title,
@@ -91,14 +92,14 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(PostViewModel model)
+        public async Task<IActionResult> Edit(PostViewModel model, CancellationToken cancellationToken)
         {
             if (!ModelState.IsValid)
             {
                 return View("Edit", model);
             }
 
-            await model.Image.SaveImageAsync();
+            await model.Image.SaveImageAsync(cancellationToken);
             var post = await postRepository.GetByIdAsync(model.Id);
             post.Category.Name = model.Category;
             post.Title = model.Title;
