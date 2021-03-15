@@ -16,12 +16,10 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
     public class BlogController : Controller
     {
         private readonly IPostRepository postRepository;
-        private readonly IHostingEnvironment hostingEnvironment;
 
-        public BlogController(IPostRepository postRepository, IHostingEnvironment environment)
+        public BlogController(IPostRepository postRepository)
         {
             this.postRepository = postRepository;
-            hostingEnvironment = environment;
         }
 
         public async Task<IActionResult> Index()
@@ -57,13 +55,13 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return View("Add", model);
             }
 
-            await model.Image.SaveImageAsync(cancellationToken);
+            var showcaseImageName = await model.Image.SaveImageAsync(cancellationToken);
             await postRepository.AddAsync(new PostEntity
             {
                 Title = model.Title,
                 Description = model.Description,
                 Category = new CategoryEntity {  Name = model.Category },
-                ShowcaseImage = model.Image.FileName
+                ShowcaseImage = showcaseImageName
             });
             await postRepository.Save();
 
@@ -99,13 +97,13 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return View("Edit", model);
             }
 
-            await model.Image.SaveImageAsync(cancellationToken);
+            var showcaseImageName = await model.Image.SaveImageAsync(cancellationToken);
             var post = await postRepository.GetByIdAsync(model.Id);
             post.Category.Name = model.Category;
             post.Title = model.Title;
             post.Description = model.Description;
             post.Category = post.Category;
-            post.ShowcaseImage = model.Image.FileName;
+            post.ShowcaseImage = showcaseImageName;
 
             postRepository.Update(post);
             await postRepository.Save();

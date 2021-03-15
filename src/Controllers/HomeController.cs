@@ -72,7 +72,7 @@ namespace PersonalPortfolio.Controllers
             {
                 Description = project.Description,
                 Id = project.ProjectId,
-                Showcase = project.ShowcaseImage.LoadImage(),
+                Showcase = project.ShowcaseImage,
                 Title = project.Title,
                 Url = project.Url,
                 Technologies = string.Join(",", project.Technologies.Select(a => a.Name))
@@ -133,7 +133,7 @@ namespace PersonalPortfolio.Controllers
                 Id = post.PostId,
                 Title = post.Title,
                 Description = post.Description,
-                ShowcaseImage = post.ShowcaseImage.LoadImage(),
+                ShowcaseImage = post.ShowcaseImage,
                 CreatedAt = post.CreatedAt,
                 Category = post.Category?.Name
             };

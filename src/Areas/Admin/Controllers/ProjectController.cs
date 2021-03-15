@@ -57,7 +57,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return View("Add", model);
             }
 
-            await model.Image.SaveImageAsync(cancellationToken);
+            var showcaseImageName = await model.Image.SaveImageAsync(cancellationToken);
             await projectRepository.AddAsync(new ProjectEntity
             {
                 Title = model.Title,
@@ -65,7 +65,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 Url = model.Url,
                 CreatedAt = DateTime.Now,
                 Technologies = model.TechStack?.Split(',').Select(tech => new TechnologyEntity { Name = tech }).ToList(),
-                ShowcaseImage = model.Image.FileName
+                ShowcaseImage = showcaseImageName
             });
             await projectRepository.Save();
 
@@ -103,12 +103,12 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return View("Add", model);
             }
 
-            await model.Image.SaveImageAsync(cancellationToken);
+            var showcaseImageName = await model.Image.SaveImageAsync(cancellationToken);
             var project = await projectRepository.GetByIdAsync(model.Id);
             
             project.Title = model.Title;
             project.Description = model.Description;
-            project.ShowcaseImage = model.Image.FileName;
+            project.ShowcaseImage = showcaseImageName;
             project.Url = model.Url;
             project.Technologies = model.TechStack?.Split(',').Select(tech => new TechnologyEntity { Name = tech }).ToList();
 
