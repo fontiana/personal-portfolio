@@ -21,6 +21,7 @@ using PersonalPortfolio.Repository.Project;
 using PersonalPortfolio.Repository.Post;
 using Serilog;
 using Serilog.Events;
+using PersonalPortfolio.Helper;
 
 namespace PersonalPortfolio
 {
@@ -59,6 +60,7 @@ namespace PersonalPortfolio
 
             services.AddScoped<IProjectRepository, ProjectRepository>();
             services.AddScoped<IPostRepository, PostRepository>();
+            services.AddScoped<IImageHelper, ImageHelper>();
 
             var mvcBuilder = services
                 .AddControllersWithViews(options =>

@@ -1,5 +1,5 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
-
+﻿@model IndexViewModel
+@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 
 <partial name="~/Views/Shared/_HeaderTitle.cshtml" />
@@ -131,90 +131,37 @@
                         <div class="col sqs-col-12 span-12">
                             <div class="row sqs-row">
                                 <div class="sqs-block-summary-v2">
-                                    <div class="col sqs-col-4 span-4">
-                                        <div class="sqs-block code-block sqs-block-code">
-                                            <div class="summary-item summary-item-record-type-text">
-                                                <div class="summary-thumbnail-outer-container">
-                                                    <a asp-controller="home" asp-action="blog" asp-route-id="post" class="summary-thumbnail-container sqs-gallery-image-container">
-                                                        <div class="summary-thumbnail img-wrapper">
-                                                            <img class="summary-thumbnail-image loaded" src="https://via.placeholder.com/350x300">
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="summary-content sqs-gallery-meta-container">
-                                                    <div class="summary-title">
-                                                        <a asp-controller="home" asp-action="blog" asp-route-id="post" class="summary-title-link">Blog post</a>
+                                    @foreach (var item in Model.Posts)
+                                    {
+                                        <div class="col sqs-col-4 span-4">
+                                            <div class="sqs-block code-block sqs-block-code">
+                                                <div class="summary-item summary-item-record-type-text">
+                                                    <div class="summary-thumbnail-outer-container">
+                                                        <a asp-controller="home" asp-action="blog" asp-route-id="@item.Id" class="summary-thumbnail-container sqs-gallery-image-container">
+                                                            <div class="summary-thumbnail img-wrapper">
+                                                                <img class="summary-thumbnail-image loaded" src="@item.ShowcaseImage">
+                                                            </div>
+                                                        </a>
                                                     </div>
-                                                    <div class="summary-metadata-container summary-metadata-container--below-content">
-                                                        <div class="summary-metadata summary-metadata--primary">
-                                                            <span class="summary-metadata-item">
-                                                                <a asp-controller="home" asp-action="blog" asp-route-id="post">Subtitle</a>
-                                                            </span>
+                                                    <div class="summary-content sqs-gallery-meta-container">
+                                                        <div class="summary-title">
+                                                            <a asp-controller="home" asp-action="blog" asp-route-id="item.Id" class="summary-title-link">Blog post</a>
                                                         </div>
-                                                        <div class="summary-metadata summary-metadata--secondary">
-                                                            <time class="summary-metadata-item" datetime="2018-01-28">Jan 28, 2018</time>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col sqs-col-4 span-4">
-                                        <div class="sqs-block code-block sqs-block-code">
-                                            <div class="summary-item summary-item-record-type-text">
-                                                <div class="summary-thumbnail-outer-container">
-                                                    <a asp-controller="home" asp-action="blog" asp-route-id="post" class="summary-thumbnail-container sqs-gallery-image-container">
-                                                        <div class="summary-thumbnail img-wrapper">
-                                                            <img class="summary-thumbnail-image loaded" src="https://via.placeholder.com/350x300">
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="summary-content sqs-gallery-meta-container">
-                                                    <div class="summary-title">
-                                                        <a asp-controller="home" asp-action="blog" asp-route-id="post" class="summary-title-link">Blog post</a>
-                                                    </div>
-                                                    <div class="summary-metadata-container summary-metadata-container--below-content">
-                                                        <div class="summary-metadata summary-metadata--primary">
-                                                            <span class="summary-metadata-item">
-                                                                <a asp-controller="home" asp-action="blog" asp-route-id="post">Subtitle</a>
-                                                            </span>
-                                                        </div>
-                                                        <div class="summary-metadata summary-metadata--secondary">
-                                                            <time class="summary-metadata-item" datetime="2018-01-28">Jan 28, 2018</time>
+                                                        <div class="summary-metadata-container summary-metadata-container--below-content">
+                                                            <div class="summary-metadata summary-metadata--primary">
+                                                                <span class="summary-metadata-item">
+                                                                    <a asp-controller="home" asp-action="blog" asp-route-id="post">@item.Title</a>
+                                                                </span>
+                                                            </div>
+                                                            <div class="summary-metadata summary-metadata--secondary">
+                                                                <time class="summary-metadata-item" datetime="@item.CreatedAt">@item.CreatedAt</time>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col sqs-col-4 span-4">
-                                        <div class="sqs-block code-block sqs-block-code">
-                                            <div class="summary-item summary-item-record-type-text">
-                                                <div class="summary-thumbnail-outer-container">
-                                                    <a asp-controller="home" asp-action="blog" asp-route-id="post" class="summary-thumbnail-container sqs-gallery-image-container">
-                                                        <div class="summary-thumbnail img-wrapper">
-                                                            <img class="summary-thumbnail-image loaded" src="https://via.placeholder.com/350x300">
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="summary-content sqs-gallery-meta-container">
-                                                    <div class="summary-title">
-                                                        <a asp-controller="home" asp-action="blog" asp-route-id="post" class="summary-title-link">Blog post</a>
-                                                    </div>
-                                                    <div class="summary-metadata-container summary-metadata-container--below-content">
-                                                        <div class="summary-metadata summary-metadata--primary">
-                                                            <span class="summary-metadata-item">
-                                                                <a asp-controller="home" asp-action="blog" asp-route-id="post">Subtitle</a>
-                                                            </span>
-                                                        </div>
-                                                        <div class="summary-metadata summary-metadata--secondary">
-                                                            <time class="summary-metadata-item" datetime="2018-01-28">Jan 28, 2018</time>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    }
                                 </div>
                             </div>
                         </div>

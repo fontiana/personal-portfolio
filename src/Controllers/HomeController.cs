@@ -17,22 +17,30 @@ namespace PersonalPortfolio.Controllers
         private readonly IStringLocalizer<HomeController> localizer;
         private readonly IProjectRepository projectRepository;
         private readonly IPostRepository postRepository;
+        private readonly IImageHelper imageHelper;
 
         public HomeController(
+
             IStringLocalizer<HomeController> localizer,
             IProjectRepository projectRepository,
-            IPostRepository postRepository)
+            IPostRepository postRepository,
+            IImageHelper imageHelper)
         {
             this.projectRepository = projectRepository;
             this.postRepository = postRepository;
             this.localizer = localizer;
+            this.imageHelper = imageHelper;
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
             SetBanner(localizer["Technology<br/>Architect."]);
-            return View();
+            var model = new IndexViewModel();
+            //model.Projects = await projectRepository.GetAsync();
+            //model.Posts = await postRepository.GetAsync();
+
+            return View(model);
         }
 
         [HttpGet]
@@ -50,8 +58,8 @@ namespace PersonalPortfolio.Controllers
                     Description = item.Description,
                     Title = item.Title,
                     Id = item.ProjectId,
-                    Showcase = item.ShowcaseImage
-                });
+                    Showcase = imageHelper.getFilePath(item.ShowcaseImage)
+                }); ;
             }
 
             return View(model);
@@ -72,7 +80,7 @@ namespace PersonalPortfolio.Controllers
             {
                 Description = project.Description,
                 Id = project.ProjectId,
-                Showcase = project.ShowcaseImage,
+                Showcase = imageHelper.getFilePath(project.ShowcaseImage),
                 Title = project.Title,
                 Url = project.Url,
                 Technologies = string.Join(",", project.Technologies.Select(a => a.Name))
@@ -110,7 +118,7 @@ namespace PersonalPortfolio.Controllers
                     Title = item.Title,
                     Category = item.Category.Name,
                     Id = item.PostId,
-                    ShowcaseImage = item.ShowcaseImage
+                    ShowcaseImage = imageHelper.getFilePath(item.ShowcaseImage),
                 });
             }
 
@@ -133,7 +141,7 @@ namespace PersonalPortfolio.Controllers
                 Id = post.PostId,
                 Title = post.Title,
                 Description = post.Description,
-                ShowcaseImage = post.ShowcaseImage,
+                ShowcaseImage = imageHelper.getFilePath(post.ShowcaseImage),
                 CreatedAt = post.CreatedAt,
                 Category = post.Category?.Name
             };

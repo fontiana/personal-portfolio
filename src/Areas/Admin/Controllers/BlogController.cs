@@ -3,7 +3,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Hosting;
 using PersonalPortfolio.Areas.Admin.Models;
 using PersonalPortfolio.Context.Entity;
 using PersonalPortfolio.Helper;
@@ -16,10 +15,12 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
     public class BlogController : Controller
     {
         private readonly IPostRepository postRepository;
+        private readonly IImageHelper imageHelper;
 
-        public BlogController(IPostRepository postRepository)
+        public BlogController(IPostRepository postRepository, IImageHelper imageHelper)
         {
             this.postRepository = postRepository;
+            this.imageHelper = imageHelper;
         }
 
         public async Task<IActionResult> Index()
@@ -55,7 +56,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return View("Add", model);
             }
 
-            var showcaseImageName = await model.Image.SaveImageAsync(cancellationToken);
+            var showcaseImageName = await imageHelper.saveFileAsync(model.Image);
             await postRepository.AddAsync(new PostEntity
             {
                 Title = model.Title,
@@ -97,7 +98,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return View("Edit", model);
             }
 
-            var showcaseImageName = await model.Image.SaveImageAsync(cancellationToken);
+            var showcaseImageName = await imageHelper.saveFileAsync(model.Image);
             var post = await postRepository.GetByIdAsync(model.Id);
             post.Category.Name = model.Category;
             post.Title = model.Title;

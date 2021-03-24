@@ -17,10 +17,13 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
     public class ProjectController : Controller
     {
         private readonly IProjectRepository projectRepository;
+        private readonly IImageHelper imageHelper;
 
-        public ProjectController(IProjectRepository projectRepository)
+        public ProjectController(IProjectRepository projectRepository, IImageHelper imageHelper)
         {
             this.projectRepository = projectRepository;
+            this.imageHelper = imageHelper;
+
         }
 
         [HttpGet]
@@ -57,7 +60,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return View("Add", model);
             }
 
-            var showcaseImageName = await model.Image.SaveImageAsync(cancellationToken);
+            var showcaseImageName = await imageHelper.saveFileAsync(model.Image);
             await projectRepository.AddAsync(new ProjectEntity
             {
                 Title = model.Title,
@@ -103,7 +106,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 return View("Add", model);
             }
 
-            var showcaseImageName = await model.Image.SaveImageAsync(cancellationToken);
+            var showcaseImageName = await imageHelper.saveFileAsync(model.Image);
             var project = await projectRepository.GetByIdAsync(model.Id);
             
             project.Title = model.Title;

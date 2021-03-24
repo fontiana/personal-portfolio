@@ -19,4 +19,8 @@
   <ItemGroup>
     <ProjectReference Include="..\src\PersonalPortfolio.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\" />
+    <Folder Include="Areas\Controllers\" />
+  </ItemGroup>
 </Project>

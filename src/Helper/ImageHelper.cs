@@ -1,22 +1,40 @@
 ﻿using System.IO;
-using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 
 namespace PersonalPortfolio.Helper
 {
-    public static class ImageHelper
+    public class ImageHelper : IImageHelper
     {
-        public static async Task<string> SaveImageAsync(this IFormFile target, CancellationToken cancellationToken)
-        {
-            var filePath = Path.GetTempFileName();
+        private readonly string uploadPath = "uploads";
+        private IWebHostEnvironment hostingEnvironment;
 
-            using (var stream = File.Create(filePath))
+        public ImageHelper(IWebHostEnvironment hostingEnvironment)
+        {
+            this.hostingEnvironment = hostingEnvironment;
+        }
+
+        public string getFilePath(string filename)
+        {
+            return Path.Combine("/", uploadPath, filename);
+        }
+
+        public async Task<string> saveFileAsync(IFormFile formFile)
+        {
+            string uploadsPath = Path.Combine(hostingEnvironment.WebRootPath, uploadPath);
+
+            if (!Directory.Exists(uploadsPath))
             {
-                await target.CopyToAsync(stream, cancellationToken);
+                Directory.CreateDirectory(uploadsPath);
             }
 
-            return filePath;
+            string filePath = Path.Combine(uploadsPath, formFile.FileName);
+            using (Stream fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                await formFile.CopyToAsync(fileStream);
+            }
+            return formFile.FileName;
         }
     }
 }
