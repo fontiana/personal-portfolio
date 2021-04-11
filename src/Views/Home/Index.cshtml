@@ -145,16 +145,13 @@
                                                     </div>
                                                     <div class="summary-content sqs-gallery-meta-container">
                                                         <div class="summary-title">
-                                                            <a asp-controller="home" asp-action="blog" asp-route-id="item.Id" class="summary-title-link">Blog post</a>
+                                                            <a asp-controller="home" asp-action="blog" asp-route-id="item.Id" class="summary-title-link">@item.Category</a>
                                                         </div>
                                                         <div class="summary-metadata-container summary-metadata-container--below-content">
                                                             <div class="summary-metadata summary-metadata--primary">
                                                                 <span class="summary-metadata-item">
                                                                     <a asp-controller="home" asp-action="blog" asp-route-id="post">@item.Title</a>
                                                                 </span>
-                                                            </div>
-                                                            <div class="summary-metadata summary-metadata--secondary">
-                                                                <time class="summary-metadata-item" datetime="@item.CreatedAt">@item.CreatedAt</time>
                                                             </div>
                                                         </div>
                                                     </div>

@@ -45,7 +45,9 @@ namespace PersonalPortfolio.Controllers
                 {
                     Id = post.PostId,
                     Title = post.Title,
-                    ShowcaseImage = post.ShowcaseImage,
+                    ShowcaseImage = imageHelper.getFilePath(post.ShowcaseImage),
+                    CreatedAt = post.CreatedAt,
+                    Category = post.Category.Name
                 };
             })?.ToList();
 
