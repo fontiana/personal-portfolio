@@ -21,6 +21,7 @@ namespace PersonalPortfolio.Middlewares
             try
             {
                 await next(context);
+
                 if (context.Response.StatusCode == 404)
                 {
                     context.Request.Path = "/Error/NotFound";

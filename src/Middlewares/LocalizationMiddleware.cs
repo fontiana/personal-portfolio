@@ -13,6 +13,7 @@ namespace PersonalPortfolio.Middlewares
                 new CultureInfo("pt-BR"),
                 new CultureInfo("en-US"),
             };
+
             app.UseRequestLocalization(new RequestLocalizationOptions
             {
                 DefaultRequestCulture = new RequestCulture("pt-BR"),

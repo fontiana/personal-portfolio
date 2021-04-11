@@ -38,7 +38,16 @@ namespace PersonalPortfolio.Controllers
             SetBanner(localizer["Technology<br/>Architect."]);
             var model = new IndexViewModel();
             //model.Projects = await projectRepository.GetAsync();
-            //model.Posts = await postRepository.GetAsync();
+            var posts = await postRepository.GetAsync();
+            model.Posts = posts.Select(post =>
+            {
+                return new PostViewModel
+                {
+                    Id = post.PostId,
+                    Title = post.Title,
+                    ShowcaseImage = post.ShowcaseImage,
+                };
+            })?.ToList();
 
             return View(model);
         }

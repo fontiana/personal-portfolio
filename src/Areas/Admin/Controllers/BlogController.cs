@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -62,7 +63,8 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 Title = model.Title,
                 Description = model.Description,
                 Category = new CategoryEntity {  Name = model.Category },
-                ShowcaseImage = showcaseImageName
+                ShowcaseImage = showcaseImageName,
+                CreatedAt = DateTime.Now
             });
             await postRepository.Save();
 

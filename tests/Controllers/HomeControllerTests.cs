@@ -25,17 +25,27 @@ namespace PersonalPortfolio.Tests.Controllers
         }
 
 
-        [Fact(DisplayName = "Should return a view result")]
-        public void Index_ReturnsAViewResult()
+        [Fact(DisplayName = "Should return a view result for index page")]
+        public async Task Index_ReturnsAViewResult()
         {
-            var controller = new HomeController(localize.Object, null, null, imageHelper.Object);
+            var posts = new List<PostEntity>();
+            posts.Add(new PostEntity { Category = new CategoryEntity(), Title = "Teste", ShowcaseImage = "teste" });
+            posts.Add(new PostEntity { Category = new CategoryEntity(), Title = "Teste", ShowcaseImage = "teste" });
+
+            var postRepository = new Mock<IPostRepository>();
+            postRepository
+                .Setup(repo => repo.GetAsync())
+                .ReturnsAsync(posts);
+
+            var controller = new HomeController(localize.Object, null, postRepository.Object, imageHelper.Object);
 
             // Act
-            var result = controller.IndexAsync();
+            var result = await controller.IndexAsync();
 
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
-            Assert.NotNull(viewResult);
+            var model = Assert.IsAssignableFrom<IndexViewModel>(viewResult.ViewData.Model);
+            Assert.NotNull(model);
         }
 
         [Fact(DisplayName = "Should return a view result with a list of projects")]
@@ -89,7 +99,7 @@ namespace PersonalPortfolio.Tests.Controllers
             Assert.NotNull(model);
         }
 
-        [Fact(DisplayName = "Should return a view result")]
+        [Fact(DisplayName = "Should return a view result for about")]
         public void About_ReturnsAViewResult()
         {
             // Arrange
@@ -105,7 +115,7 @@ namespace PersonalPortfolio.Tests.Controllers
             Assert.NotNull(viewResult);
         }
 
-        [Fact(DisplayName = "Should return a view result")]
+        [Fact(DisplayName = "Should return a view result for resume")]
         public void Resume_ReturnsAViewResult()
         {
             // Arrange
@@ -121,8 +131,8 @@ namespace PersonalPortfolio.Tests.Controllers
             Assert.NotNull(viewResult);
         }
 
-        [Fact(DisplayName = "Should return a view result", Skip = "This will be fixed in future releases")]
-        public void Blog_ReturnsAViewResult()
+        [Fact(DisplayName = "Should return a view result for blog")]
+        public async Task Blog_ReturnsAViewResult()
         {
             // Arrange
             var localize = new Mock<IStringLocalizer<HomeController>>();
@@ -139,14 +149,14 @@ namespace PersonalPortfolio.Tests.Controllers
             var controller = new HomeController(localize.Object, null, postRepository.Object, imageHelper.Object);
 
             // Act
-            var result = controller.Blog();
+            var result = await controller.Blog();
 
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
             Assert.NotNull(viewResult);
         }
 
-        [Fact(DisplayName = "Should return a view result")]
+        [Fact(DisplayName = "Should return a view result for blog post")]
         public async Task Post_ReturnsAViewResult()
         {
             // Arrange
