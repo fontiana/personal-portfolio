@@ -1,0 +1,63 @@
+﻿@model List<ProjectViewModel>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<partial name="~/Views/Shared/_HeaderTitle.cshtml" />
+<section>
+    <div class="index-page-content">
+        <div class="sqs-layout sqs-grid-12 columns-12">
+            <div class="row sqs-row">
+                <div class="col sqs-col-12 span-12">
+                    <div class="sqs-block html-block sqs-block-html">
+                        <div class="block-content">
+                            <h1 class="text-align-center">@Localizer["Half Code / Half Design"]</h1>
+                            <h2 class="text-align-center">Below you will find a handful of my work that I've accomplished over the past few years. Each project has detailed descriptions and technology used.</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="striped-section">
+    <div class="index-page-content">
+        <div class="sqs-layout sqs-grid-12 columns-12">
+            <div class="row sqs-row">
+                <div class="col sqs-col-12 span-12">
+                    <div class="sqs-block html-block sqs-block-html">
+                        <div class="sqs-block-content">
+                            <h1 class="text-align-center">Personal Projects</h1>
+                        </div>
+                    </div>
+                    <div class="row sqs-row">
+                        @foreach (var project in Model)
+                        {
+                            <div class="col sqs-col-4 span-4">
+                                <div class="sqs-block code-block sqs-block-code">
+                                    <div class="sqs-block-content">
+                                        <section class="portfolio-block">
+                                            <div class="portfolio-image-block">
+                                                <a class="portfolio-image-block__link" href="/Home/Project/@project.Title">
+                                                    <img class="portfolio-image-block__image loader" src="@project.Showcase" alt="@project.Title">
+                                                </a>
+                                            </div>
+                                            <div class="portfolio-content-block">
+                                                <div class="portfolio-content-block__holder">
+                                                    <div class="portfolio-content-block__text">
+                                                        <div class="portfolio-content-block__sub-title">Website</div>
+                                                        <div class="portfolio-content-block__title">@project.Title</div>
+                                                        <a class="portfolio-content-block__link" href="/Home/Project/@project.Title" title="New Arte Admiravel">@Localizer["View Project"]</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

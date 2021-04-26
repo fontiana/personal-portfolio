@@ -1,0 +1,49 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@Localizer["Technolgy Architect / Victor Fontana"]</title>
+    <link rel="Shortcut Icon" href="~/favicon.ico" />
+    <partial name="_Fonts.cshtml" />
+
+    <environment include="Development, Production">
+        <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/framework.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/mobile.css" asp-append-version="true" />
+    </environment>
+</head>
+<body class="transparent-header enable-nav-button nav-button-style-outline banner-button-style-outline gallery-design-grid small-button-style-outline medium-button-style-outline large-button-style-outline button-style-outline homepage collection-type-index @(ViewBag.darkHeader)">
+    <div id="siteWrapper">
+        <partial name="_Header.cshtml" />
+        <div id="page" role="main">
+            <div id="content" class="main-content">
+                @RenderBody()
+            </div>
+        </div>
+        <partial name="_Footer.cshtml" />
+    </div>
+
+    <environment include="Development, Production">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+                crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('[data-nc-element="menu-icon"]').on("click", function () {
+                    $('body').addClass('is-mobile-overlay-active');
+                });
+                $('[data-nc-element="close-icon"]').on("click", function () {
+                    $('body').removeClass('is-mobile-overlay-active');
+                });
+            });
+        </script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿@model PostViewModel
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-8">
+        <h2>Project</h2>
+    </div>
+</div>
+
+<form asp-action="Add" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title"></span>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description"></span>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="Category"></label>
+                <textarea asp-for="Category" class="form-control"></textarea>
+                <span asp-validation-for="Category"></span>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="Image"></label>
+                <input asp-for="Image" class="form-control-file" />
+            </div>
+        </div>
+        <div class="col-md-12">
+            <input type="submit" class="btn btn-primary btn-lg" value="save" />
+        </div>
+    </div>
+</form>

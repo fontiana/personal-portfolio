@@ -1,0 +1,179 @@
+﻿@model IndexViewModel
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<partial name="~/Views/Shared/_HeaderTitle.cshtml" />
+<section class="striped-section">
+    <div class="index-page-content">
+        <div class="sqs-layout sqs-grid-12 columns-12">
+            <div class="row sqs-row">
+                <div class="col sqs-col-12 span-12">
+                    <div class="sqs-block html-block sqs-block-html">
+                        <div class="block-content">
+                            <h1 class="text-align-center">@Localizer["My life at a glance"]</h1>
+                            <h2 class="text-align-center">My interest in programming stemmed from my passion for gaming. Between developing systems and playing video games. Some of my passions are writing clean code, creating suberb user experiences and filling up a fresh cup of coffee.</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="index-page-content">
+        <div class="sqs-layout sqs-grid-12 columns-12">
+            <div class="row sqs-row">
+                <div class="col sqs-col-12 span-12">
+                    <div class="sblock html-block">
+                        <div class="sqs-block html-block sqs-block-html">
+                            <div class="sqs-block-content">
+                                <h1 class="text-align-center">My lastest projects</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row sqs-row">
+                        <div class="col sqs-col-12 span-12">
+                            <div class="row sqs-row">
+                                <div class="col sqs-col-4 span-4">
+                                    <div class="sqs-block code-block sqs-block-code">
+                                        <div class="sqs-block-content">
+                                            <section class="portfolio-block">
+                                                <div class="portfolio-image-block">
+                                                    <a class="portfolio-image-block__link" href="/Arteadmiravel">
+                                                        <img class="portfolio-image-block__image loader" src="https://via.placeholder.com/500" alt="ArteAdmiravel">
+                                                    </a>
+                                                </div>
+                                                <div class="portfolio-content-block">
+                                                    <div class="portfolio-content-block__holder">
+                                                        <div class="portfolio-content-block__text">
+                                                            <div class="portfolio-content-block__sub-title">Website</div>
+                                                            <div class="portfolio-content-block__title">Arte Admiravel</div>
+                                                            <a class="portfolio-content-block__link" href="/Arteadmiravel" title="New Arte Admiravel">@Localizer["View Project"]</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col sqs-col-4 span-4">
+                                    <div class="sqs-block code-block sqs-block-code">
+                                        <div class="sqs-block-content">
+                                            <section class="portfolio-block">
+                                                <div class="portfolio-image-block">
+                                                    <a class="portfolio-image-block__link" href="/Arteadmiravel">
+                                                        <img class="portfolio-image-block__image" src="https://via.placeholder.com/500" alt="Old Arte Admiravel">
+                                                    </a>
+                                                </div>
+                                                <div class="portfolio-content-block">
+                                                    <div class="portfolio-content-block__holder">
+                                                        <div class="portfolio-content-block__text">
+                                                            <div class="portfolio-content-block__sub-title">Website</div>
+                                                            <div class="portfolio-content-block__title">Old Arte Admiravel</div>
+                                                            <a class="portfolio-content-block__link" href="/OldArteadmiravel" title="Old Arte Admiravel">@Localizer["View Project"]</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col sqs-col-4 span-4">
+                                    <div class="sqs-block code-block sqs-block-code">
+                                        <div class="sqs-block-content">
+                                            <section class="portfolio-block">
+                                                <div class="portfolio-image-block">
+                                                    <a class="portfolio-image-block__link" href="/SafetyAndSecurity">
+                                                        <img class="portfolio-image-block__image" src="https://via.placeholder.com/500" alt="Safety and Security">
+                                                    </a>
+                                                </div>
+                                                <div class="portfolio-content-block">
+                                                    <div class="portfolio-content-block__holder">
+                                                        <div class="portfolio-content-block__text">
+                                                            <div class="portfolio-content-block__sub-title">Website</div>
+                                                            <div class="portfolio-content-block__title">Safety And Security</div>
+                                                            <a class="portfolio-content-block__link" href="/SafetyAndSecurity" title="Safety and Security">@Localizer["View Project"]</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sqs-block button-block sqs-block-button">
+                        <div class="sqs-block-content">
+                            <div class="sqs-block-button-container--center">
+                                <a class="sqs-block-button-element--medium sqs-block-button-element"
+                                   asp-controller="home"
+                                   asp-action="portfolio">@Localizer["View more projects"]→</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="striped-section">
+    <div class="index-page-content">
+        <div class="sqs-layout sqs-grid-12 columns-12">
+            <div class="row sqs-row">
+                <div class="col sqs-col-12 span-12">
+                    <div class="sblock html-block">
+                        <div class="block-content">
+                            <h1 class="text-align-center">@Localizer["My latest blog posts"]</h1>
+                        </div>
+                    </div>
+                    <div class="row sqs-row">
+                        <div class="col sqs-col-12 span-12">
+                            <div class="row sqs-row">
+                                <div class="sqs-block-summary-v2">
+                                    @foreach (var item in Model.Posts)
+                                    {
+                                        <div class="col sqs-col-4 span-4">
+                                            <div class="sqs-block code-block sqs-block-code">
+                                                <div class="summary-item summary-item-record-type-text">
+                                                    <div class="summary-thumbnail-outer-container">
+                                                        <a asp-controller="home" asp-action="blog" asp-route-id="@item.Id" class="summary-thumbnail-container sqs-gallery-image-container">
+                                                            <div class="summary-thumbnail img-wrapper">
+                                                                <img class="summary-thumbnail-image loaded" src="@item.ShowcaseImage">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="summary-content sqs-gallery-meta-container">
+                                                        <div class="summary-title">
+                                                            <a asp-controller="home" asp-action="blog" asp-route-id="item.Id" class="summary-title-link">@item.Category</a>
+                                                        </div>
+                                                        <div class="summary-metadata-container summary-metadata-container--below-content">
+                                                            <div class="summary-metadata summary-metadata--primary">
+                                                                <span class="summary-metadata-item">
+                                                                    <a asp-controller="home" asp-action="blog" asp-route-id="post">@item.Title</a>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sqs-block button-block sqs-block-button">
+                        <div class="sqs-block-content">
+                            <div class="sqs-block-button-container--center">
+                                <a class="sqs-block-button-element--medium sqs-block-button-element"
+                                   asp-controller="home"
+                                   asp-action="blog">@Localizer["View more posts"]→</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,42 @@
+﻿@model PostViewModel
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<div class="striped-section">
+    <div class="index-page-content">
+        <div class="sqs-layout sqs-grid-12 columns-12">
+            <div class="row sqs-row">
+                <div class="col sqs-col-12 span-12">
+                    <article class="sqs-block html-block sqs-block-html BlogItem">
+                        <div class="Blog-meta BlogItem-meta">
+                            <span class="Blog-meta-item Blog-meta-item--categories">
+                                <a href="#" class="Blog-meta-item-category">@Model.Category - </a>
+                            </span>
+                            <time class="Blog-meta-item Blog-meta-item--date" datetime="@Model.CreatedAt.ToString("MM-dd-yyyy")">@Model.CreatedAt.ToString("MMMM dd, yyyy")</time>
+                        </div>
+                        <h1 class="BlogItem-title">@Model.Title</h1>
+
+                        <div class="sqs-layout sqs-grid-12 columns-12">
+                            <div class="row sqs-row">
+                                <div class="col sqs-col-12 span-12">
+                                    <div class="sqs-block gallery-block sqs-block-gallery">
+                                        <div class="sqs-gallery-block-grid">
+                                            <img alt="@Model.Title" src="@Model.ShowcaseImage">
+                                        </div>
+                                    </div>
+                                    <div class="sqs-block html-block sqs-block-html">
+                                        <div class="sqs-block-content">
+                                            <p>
+                                                @Html.Raw(@Model.Description)
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
