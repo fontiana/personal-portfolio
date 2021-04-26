@@ -36,8 +36,18 @@ namespace PersonalPortfolio.Controllers
         public async Task<IActionResult> IndexAsync()
         {
             SetBanner(localizer["Technology<br/>Architect."]);
+
             var model = new IndexViewModel();
-            //model.Projects = await projectRepository.GetAsync();
+
+            var projects = await projectRepository.GetAsync();
+            model.Projects = projects.Select(project =>
+            {
+                return new ProjectViewModel
+                {
+
+                };
+            })?.ToList();
+
             var posts = await postRepository.GetAsync();
             model.Posts = posts.Select(post =>
             {

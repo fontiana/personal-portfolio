@@ -17,10 +17,10 @@
     <PackageReference Include="Moq" Version="4.14.5" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\src\PersonalPortfolio.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Areas\" />
     <Folder Include="Areas\Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\src\PersonalPortfolio.Api\PersonalPortfolio.Api.csproj" />
   </ItemGroup>
 </Project>

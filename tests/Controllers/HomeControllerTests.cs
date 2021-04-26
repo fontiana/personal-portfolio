@@ -29,15 +29,23 @@ namespace PersonalPortfolio.Tests.Controllers
         public async Task Index_ReturnsAViewResult()
         {
             var posts = new List<PostEntity>();
-            posts.Add(new PostEntity { Category = new CategoryEntity(), Title = "Teste", ShowcaseImage = "teste" });
-            posts.Add(new PostEntity { Category = new CategoryEntity(), Title = "Teste", ShowcaseImage = "teste" });
+            posts.Add(new PostEntity { Category = new CategoryEntity(), Title = "Test", ShowcaseImage = "test" });
+            posts.Add(new PostEntity { Category = new CategoryEntity(), Title = "Test", ShowcaseImage = "test" });
 
             var postRepository = new Mock<IPostRepository>();
             postRepository
                 .Setup(repo => repo.GetAsync())
                 .ReturnsAsync(posts);
 
-            var controller = new HomeController(localize.Object, null, postRepository.Object, imageHelper.Object);
+            var projects = new List<ProjectEntity>();
+            projects.Add(new ProjectEntity { Technologies = new List<TechnologyEntity>(), Title = "Test" });
+
+            var projectRepository = new Mock<IProjectRepository>();
+            projectRepository
+                .Setup(repo => repo.GetAsync())
+                .ReturnsAsync(projects);
+
+            var controller = new HomeController(localize.Object, projectRepository.Object, postRepository.Object, imageHelper.Object);
 
             // Act
             var result = await controller.IndexAsync();
