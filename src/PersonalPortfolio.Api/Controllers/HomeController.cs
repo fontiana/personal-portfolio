@@ -44,7 +44,7 @@ namespace PersonalPortfolio.Controllers
             {
                 return new ProjectViewModel
                 {
-
+                    Id = project.ProjectId
                 };
             })?.ToList();
 
