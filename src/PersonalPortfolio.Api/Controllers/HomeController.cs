@@ -44,7 +44,11 @@ namespace PersonalPortfolio.Controllers
             {
                 return new ProjectViewModel
                 {
-                    Id = project.ProjectId
+                    Id = project.ProjectId,
+                    Description = project.Description,
+                    Showcase = imageHelper.getFilePath(project.ShowcaseImage),
+                    Title = project.Title,
+                    Url = project.Url
                 };
             })?.ToList();
 
