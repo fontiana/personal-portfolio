@@ -7,5 +7,5 @@ script:
 # Send coverage data to Coveralls
 after_success: 
 after_script: 
-- dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov /p:Exclude=\"[*.cshtml],[*.designer.*]\"
+- dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov /p:Exclude="*.cshtml"
 - cat ./tests/TestResults/coverage.info
