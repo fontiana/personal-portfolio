@@ -40,6 +40,13 @@ namespace PersonalPortfolio.Repository.Post
                 .FirstOrDefaultAsync(r => r.PostId == id);
         }
 
+        public async Task<PostEntity> GetByTitleAsync(string title)
+        {
+            return await context.Posts
+                .Include(r => r.Category)
+                .FirstOrDefaultAsync(x => x.Title == title);
+        }
+
         public async Task Save()
         {
             await context.SaveChangesAsync();

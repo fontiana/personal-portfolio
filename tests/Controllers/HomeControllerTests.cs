@@ -99,7 +99,7 @@ namespace PersonalPortfolio.Tests.Controllers
             var controller = new HomeController(localize.Object, projectRepository.Object, null, imageHelper.Object);
 
             // Act
-            var result = await controller.Project("Teste");
+            var result = await controller.Portfolio("Teste");
 
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
@@ -174,13 +174,13 @@ namespace PersonalPortfolio.Tests.Controllers
 
             var postRepository = new Mock<IPostRepository>();
             postRepository
-                .Setup(repo => repo.GetByIdAsync(It.IsAny<int>()))
+                .Setup(repo => repo.GetByTitleAsync(It.IsAny<string>()))
                 .ReturnsAsync(post);
 
             var controller = new HomeController(localize.Object, null, postRepository.Object, imageHelper.Object);
 
             // Act
-            var result = await controller.Post(0);
+            var result = await controller.Post("title-post");
 
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
