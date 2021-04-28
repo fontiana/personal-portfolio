@@ -21,7 +21,7 @@ jobs:
     - name: Generate coverage report
       run: |
         cd ./tests/
-        dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov /p:Exclude="[PersonalPortfolio.Api.Views*]*%2c[*]*Examples?%2c[*]*Startup"
+        dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov /p:Exclude="[PersonalPortfolio.Api.Views*]*%2c[*]*Program?%2c[*]*Startup"
     - name: Publish coverage report to coveralls.io
       uses: coverallsapp/github-action@master
       with:
