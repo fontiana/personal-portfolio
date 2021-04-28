@@ -93,7 +93,7 @@ namespace PersonalPortfolio.Controllers
 
         [HttpGet]
         [Route("home/portfolio/{title}")]
-        public async Task<IActionResult> Portfolio(string title)
+        public async Task<IActionResult> Portfolio([FromRoute] string title)
         {
             if (string.IsNullOrWhiteSpace(title))
             {
@@ -154,7 +154,7 @@ namespace PersonalPortfolio.Controllers
 
         [HttpGet]
         [Route("home/blog/{title}")]
-        public async Task<IActionResult> Post(string title)
+        public async Task<IActionResult> Post([FromRoute] string title)
         {
             ViewBag.darkHeader = "dark-header";
             if (string.IsNullOrWhiteSpace(title))
