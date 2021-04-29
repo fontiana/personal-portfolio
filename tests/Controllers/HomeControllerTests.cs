@@ -99,7 +99,7 @@ namespace PersonalPortfolio.Tests.Controllers
             var controller = new HomeController(localize.Object, projectRepository.Object, null, imageHelper.Object);
 
             // Act
-            var result = await controller.Portfolio("Teste");
+            var result = await controller.Project("Teste");
 
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);

@@ -69,7 +69,6 @@ namespace PersonalPortfolio.Controllers
         }
 
         [HttpGet]
-        [Route("home/portfolio")]
         public async Task<IActionResult> Portfolio()
         {
             SetBanner(localizer["Tech Arch<br/>Projects"]);
@@ -92,17 +91,17 @@ namespace PersonalPortfolio.Controllers
         }
 
         [HttpGet]
-        [Route("home/portfolio/{title}")]
-        public async Task<IActionResult> Portfolio([FromRoute] string title)
+        [Route("home/portfolio/{id}")]
+        public async Task<IActionResult> Project(string id)
         {
-            if (string.IsNullOrWhiteSpace(title))
+            if (string.IsNullOrWhiteSpace(id))
             {
                 return View();
             }
 
             ViewBag.darkHeader = "dark-header";
 
-            var project = await projectRepository.GetByTitleAsync(title);
+            var project = await projectRepository.GetByTitleAsync(id);
             var model = new ProjectViewModel
             {
                 Description = project.Description,
@@ -130,7 +129,6 @@ namespace PersonalPortfolio.Controllers
         }
 
         [HttpGet]
-        [Route("home/blog")]
         public async Task<IActionResult> Blog()
         {
             ViewBag.darkHeader = "dark-header";
@@ -153,16 +151,16 @@ namespace PersonalPortfolio.Controllers
         }
 
         [HttpGet]
-        [Route("home/blog/{title}")]
-        public async Task<IActionResult> Post([FromRoute] string title)
+        [Route("home/blog/{id}")]
+        public async Task<IActionResult> Post(string id)
         {
             ViewBag.darkHeader = "dark-header";
-            if (string.IsNullOrWhiteSpace(title))
+            if (string.IsNullOrWhiteSpace(id))
             {
                 return View();
             }
 
-            var post = await postRepository.GetByTitleAsync(title);
+            var post = await postRepository.GetByTitleAsync(id);
             var model = new PostViewModel
             {
                 Id = post.PostId,
