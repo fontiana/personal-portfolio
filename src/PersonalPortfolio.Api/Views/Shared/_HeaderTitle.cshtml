@@ -1,10 +1,14 @@
-﻿<section class="index-page">
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+<section class="index-page">
     <div class="index-page-content">
         <div class="row sqs-row">
             <div class="col sqs-col-12 span-12">
                 <div class="sqs-block html-block sqs-block-html">
                     <div class="sqs-block-content">
-                        <h1>@Html.Raw(@ViewBag.title)</h1>
+                        <h1>@Localizer[Html.Raw(@ViewBag.title).ToString()]</h1>
                     </div>
                 </div>
             </div>

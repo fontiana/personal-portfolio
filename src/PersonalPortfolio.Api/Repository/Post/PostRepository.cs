@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PersonalPortfolio.Context;
@@ -29,6 +30,14 @@ namespace PersonalPortfolio.Repository.Post
         public async Task<List<PostEntity>> GetAsync()
         {
             return await context.Posts
+                .Include(r => r.Category)
+                .ToListAsync();
+        }
+
+        public async Task<List<PostEntity>> GetByCategoryAsync(string categoryTitle)
+        {
+            return await context.Posts
+                .Where(x => x.Category.Name == categoryTitle)
                 .Include(r => r.Category)
                 .ToListAsync();
         }

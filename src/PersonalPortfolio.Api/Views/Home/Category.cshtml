@@ -1,0 +1,41 @@
+@model List<PostViewModel>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<div class="striped-section">
+    <div class="intro-content"></div>
+    <div class="index-page-content main-content">
+        <div class="sqs-layout sqs-grid-12 columns-12">
+            <div class="row sqs-row">
+                <div class="col sqs-col-12 span-12">
+                    <div class="row sqs-row">
+                        <div class="col sqs-col-12 span-12">
+                            <div class="row sqs-row">
+                                <div class="sqs-block-summary-v2">
+                                    @foreach (var post in Model)
+                                    {
+                                        <div class="col sqs-col-4 span-4">
+                                            <div class="sqs-block code-block sqs-block-code">
+                                                <a asp-controller="home" asp-action="blog" asp-route-id="@post.Title" class="summary-thumbnail-container sqs-gallery-image-container">
+                                                    <div class="summary-thumbnail img-wrapper BlogList-item-image">
+                                                        <img class="summary-thumbnail-image loaded" src="@post.ShowcaseImage">
+                                                    </div>
+                                                </a>
+                                                <div class="Blog-meta BlogList-item-meta">
+                                                    <span class="Blog-meta-item Blog-meta-item--categories">
+                                                        <a asp-controller="home" asp-action="blog" asp-route-extra="category" asp-route-id="@post.Title" class="Blog-meta-item-category">@post.Category</a>
+                                                    </span>
+                                                </div>
+                                                <a asp-controller="home" asp-action="blog" asp-route-id="@post.Title" class="BlogList-item-title">@post.Title</a>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

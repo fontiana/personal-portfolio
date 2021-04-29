@@ -151,6 +151,29 @@ namespace PersonalPortfolio.Controllers
         }
 
         [HttpGet]
+        [Route("home/blog/category/{id}")]
+        public async Task<IActionResult> Category(string id)
+        {
+            ViewBag.darkHeader = "dark-header";
+
+            var model = new List<PostViewModel>();
+            var posts = await postRepository.GetByCategoryAsync(id);
+            foreach (var item in posts)
+            {
+                model.Add(new PostViewModel
+                {
+                    Description = item.Description,
+                    Title = item.Title,
+                    Category = item.Category.Name,
+                    Id = item.PostId,
+                    ShowcaseImage = imageHelper.getFilePath(item.ShowcaseImage),
+                });
+            }
+
+            return View(model);
+        }
+
+        [HttpGet]
         [Route("home/blog/{id}")]
         public async Task<IActionResult> Post(string id)
         {
