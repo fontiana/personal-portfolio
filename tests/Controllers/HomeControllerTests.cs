@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
@@ -29,7 +30,7 @@ namespace PersonalPortfolio.Tests.Controllers
         public async Task Index_ReturnsAViewResult()
         {
             var posts = new List<PostEntity>();
-            posts.Add(new PostEntity { Category = new CategoryEntity(), Title = "Test", ShowcaseImage = "test" });
+            posts.Add(new PostEntity { Category = new CategoryEntity(), Title = "Test", ShowcaseImage = "test", PostId = 1, Description = "Test", CreatedId = DateTime.Now });
             posts.Add(new PostEntity { Category = new CategoryEntity(), Title = "Test", ShowcaseImage = "test" });
 
             var postRepository = new Mock<IPostRepository>();
@@ -158,6 +159,31 @@ namespace PersonalPortfolio.Tests.Controllers
 
             // Act
             var result = await controller.Blog();
+
+            // Assert
+            var viewResult = Assert.IsType<ViewResult>(result);
+            Assert.NotNull(viewResult);
+        }
+
+        [Fact(DisplayName = "Should return a view result for category")]
+        public async Task Category_ReturnsAViewResult()
+        {
+            // Arrange
+            var localize = new Mock<IStringLocalizer<HomeController>>();
+
+            var posts = new List<PostEntity>();
+            posts.Add(new PostEntity { Category = new CategoryEntity() });
+            posts.Add(new PostEntity { Category = new CategoryEntity() });
+
+            var postRepository = new Mock<IPostRepository>();
+            postRepository
+                .Setup(repo => repo.GetByCategoryAsync(It.IsAny<string>()))
+                .ReturnsAsync(posts);
+
+            var controller = new HomeController(localize.Object, null, postRepository.Object, imageHelper.Object);
+
+            // Act
+            var result = await controller.Category("teste");
 
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
