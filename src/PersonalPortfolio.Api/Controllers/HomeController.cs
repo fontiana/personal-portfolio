@@ -101,7 +101,7 @@ namespace PersonalPortfolio.Controllers
 
             ViewBag.darkHeader = "dark-header";
 
-            var project = await projectRepository.GetByTitleAsync(id);
+            var project = await projectRepository.GetByTitleAsync(id.RemoveDash());
             var model = new ProjectViewModel
             {
                 Description = project.Description,
@@ -157,7 +157,7 @@ namespace PersonalPortfolio.Controllers
             ViewBag.darkHeader = "dark-header";
 
             var model = new List<PostViewModel>();
-            var posts = await postRepository.GetByCategoryAsync(id);
+            var posts = await postRepository.GetByCategoryAsync(id.RemoveDash());
             foreach (var item in posts)
             {
                 model.Add(new PostViewModel
@@ -183,7 +183,7 @@ namespace PersonalPortfolio.Controllers
                 return View();
             }
 
-            var post = await postRepository.GetByTitleAsync(id);
+            var post = await postRepository.GetByTitleAsync(id.RemoveDash());
             var model = new PostViewModel
             {
                 Id = post.PostId,

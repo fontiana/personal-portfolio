@@ -41,7 +41,7 @@
                                             <div class="sqs-block-content">
                                                 <section class="portfolio-block">
                                                     <div class="portfolio-image-block">
-                                                        <a asp-controller="home" asp-action="portfolio" asp-route-id="@item.Title" class="portfolio-image-block__link">
+                                                        <a asp-controller="home" asp-action="portfolio" asp-route-id="@item.DashedTitle" class="portfolio-image-block__link">
                                                             <img class="portfolio-image-block__image loader" src="@item.Showcase" alt="@item.Title">
                                                         </a>
                                                     </div>
@@ -50,7 +50,7 @@
                                                             <div class="portfolio-content-block__text">
                                                                 <div class="portfolio-content-block__sub-title">Website</div>
                                                                 <div class="portfolio-content-block__title">@item.Title</div>
-                                                                <a asp-controller="home" asp-action="portfolio" asp-route-id="@item.Title" class="portfolio-content-block__link" title="@item.Title">@Localizer["View Project"]</a>
+                                                                <a asp-controller="home" asp-action="portfolio" asp-route-id="@item.DashedTitle" class="portfolio-content-block__link" title="@item.Title">@Localizer["View Project"]</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -94,17 +94,17 @@
                                     {
                                     <div class="col sqs-col-4 span-4">
                                         <div class="sqs-block code-block sqs-block-code">
-                                            <a asp-controller="home" asp-action="blog" asp-route-id="@post.Title" class="summary-thumbnail-container sqs-gallery-image-container">
+                                            <a asp-controller="home" asp-action="blog" asp-route-id="@post.DashedTitle" class="summary-thumbnail-container sqs-gallery-image-container">
                                                 <div class="summary-thumbnail img-wrapper BlogList-item-image">
                                                     <img class="summary-thumbnail-image loaded" src="@post.ShowcaseImage">
                                                 </div>
                                             </a>
                                             <div class="Blog-meta BlogList-item-meta">
                                                 <span class="Blog-meta-item Blog-meta-item--categories">
-                                                    <a asp-controller="home" asp-action="blog" asp-route-id="@post.Title" class="Blog-meta-item-category">@post.Category</a>
+                                                    <a asp-route="category" asp-route-id="@post.DashedCategory" class="Blog-meta-item-category">@post.Category</a>
                                                 </span>
                                             </div>
-                                            <a asp-controller="home" asp-action="blog" asp-route-id="@post.Title" class="BlogList-item-title">@post.Title</a>
+                                            <a asp-controller="home" asp-action="blog" asp-route-id="@post.DashedTitle" class="BlogList-item-title">@post.Title</a>
                                         </div>
                                     </div>
                                     }

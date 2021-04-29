@@ -10,7 +10,7 @@
                     <article class="sqs-block html-block sqs-block-html BlogItem">
                         <div class="Blog-meta BlogItem-meta">
                             <span class="Blog-meta-item Blog-meta-item--categories">
-                                <a asp-route="category" asp-route-id="@Model.Category" class="Blog-meta-item-category">@Model.Category - </a>
+                                <a asp-route="category" asp-route-id="@Model.DashedCategory" class="Blog-meta-item-category">@Model.Category - </a>
                             </span>
                             <time class="Blog-meta-item Blog-meta-item--date" datetime="@Model.CreatedAt.ToString("MM-dd-yyyy")">@Model.CreatedAt.ToString("MMMM dd, yyyy")</time>
                         </div>
