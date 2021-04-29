@@ -23,7 +23,7 @@
                                                 </a>
                                                 <div class="Blog-meta BlogList-item-meta">
                                                     <span class="Blog-meta-item Blog-meta-item--categories">
-                                                        <a asp-controller="home" asp-action="blog" asp-route-extra="category" asp-route-id="@post.DashedTitle" class="Blog-meta-item-category">@post.Category</a>
+                                                        <a asp-route="category" asp-route-id="@post.DashedTitle" class="Blog-meta-item-category">@post.Category</a>
                                                     </span>
                                                 </div>
                                                 <a asp-controller="home" asp-action="blog" asp-route-id="@post.DashedTitle" class="BlogList-item-title">@post.Title</a>
