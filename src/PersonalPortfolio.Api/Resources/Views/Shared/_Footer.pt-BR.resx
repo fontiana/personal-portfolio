@@ -120,4 +120,22 @@
   <data name="All rights reserved. Developer ASP.NET" xml:space="preserve">
     <value>Todos os direitos reservados. Desenvolvedor ASP.NET</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>Sobre</value>
+  </data>
+  <data name="Blog" xml:space="preserve">
+    <value>Blog</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contato</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Portfolio" xml:space="preserve">
+    <value>Portifolio</value>
+  </data>
+  <data name="Resume" xml:space="preserve">
+    <value>Resumo</value>
+  </data>
 </root>

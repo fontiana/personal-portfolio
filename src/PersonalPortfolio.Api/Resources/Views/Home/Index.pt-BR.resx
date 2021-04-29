@@ -118,6 +118,12 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="My life at a glance" xml:space="preserve">
-        <value>Teste</value>
+        <value>Minha vida em um relance</value>
+    </data>
+    <data name="My projects" xml:space="preserve">
+        <value>Meus projects</value>
+    </data>
+    <data name="My latest blog posts" xml:space="preserve">
+        <value>Minhas postagens recentes</value>
     </data>
 </root>
