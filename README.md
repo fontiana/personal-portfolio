@@ -1,7 +1,7 @@
 # PersonalPortfolio
 
  [![devDependencies](https://travis-ci.org/fontiana/Personal-Portfolio.svg?branch=master)](https://api.travis-ci.org/fontiana/PersonalPortfolio.svg?branch=master)
- [![Coverage Status](https://coveralls.io/repos/github/fontiana/personal-portfolio/badge.svg?branch=master)](https://coveralls.io/github/fontiana/personal-portfolio?branch=master)
+ [![Coverage Status](https://coveralls.io/repos/github/fontiana/personal-portfolio/badge.svg?branch=master&cache=1)](https://coveralls.io/github/fontiana/personal-portfolio?branch=master)
 
 My personal portfolio and blog
 
