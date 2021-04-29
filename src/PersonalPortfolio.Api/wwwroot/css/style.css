@@ -47,6 +47,10 @@
     text-align: center;
     padding: 0 8.5%;
     display: block;
+    font-size: 22px;
+    color: #121212;
+    font-family: 'Noto Serif', serif;
+    letter-spacing: .05em;
 }
 
 .BlogList-item-meta {

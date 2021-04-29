@@ -19,8 +19,8 @@
                         <div class="sqs-layout sqs-grid-12 columns-12">
                             <div class="row sqs-row">
                                 <div class="col sqs-col-12 span-12">
-                                    <div class="sqs-block gallery-block sqs-block-gallery">
-                                        <div class="sqs-gallery-block-grid">
+                                    <div class="sqs-block image-block sqs-block-image sqs-text-ready">
+                                        <div class="sqs-block-content">
                                             <img alt="@Model.Title" src="@Model.ShowcaseImage">
                                         </div>
                                     </div>
@@ -29,6 +29,11 @@
                                             <p>
                                                 @Html.Raw(@Model.Description)
                                             </p>
+                                        </div>
+                                    </div>
+                                    <div class="sqs-block gallery-block sqs-block-gallery">
+                                        <div class="sqs-gallery-block-grid">
+                                            <img alt="@Model.Title" src="@Model.ShowcaseImage">
                                         </div>
                                     </div>
                                 </div>
