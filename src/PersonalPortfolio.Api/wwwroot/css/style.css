@@ -460,7 +460,7 @@ input[type="radio"] {
 }
 
 #footerBlocks .sqs-block-content a:hover {
-    color: #fff;
+    color: rgba(255, 255, 255, .5);
 }
 
 #footerBlocks .sqs-block-content a {

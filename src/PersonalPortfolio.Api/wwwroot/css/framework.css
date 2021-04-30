@@ -736,7 +736,7 @@ h3 + h3 {
 
 #footer .html-block a,
 #footer .html-block a:visited {
-    color: rgba(255, 255, 255, .4);
+    color: #fff
 }
 
 .sqs-svg-icon--list.social-icon-alignment-center {
