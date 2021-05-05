@@ -118,6 +118,8 @@ namespace PersonalPortfolio.Controllers
                 Technologies = string.Join(",", project.Technologies.Select(a => a.Name))
             };
 
+            SetSeoInformation(string.Empty, project.ShortDescription);
+
             return View(model);
         }
 
@@ -204,6 +206,8 @@ namespace PersonalPortfolio.Controllers
                 Category = post.Category?.Name
             };
 
+            SetSeoInformation(string.Empty, post.ShortDescription);
+
             return View(model);
         }
 
@@ -214,6 +218,7 @@ namespace PersonalPortfolio.Controllers
                 localizer["Let's have a chat"],
                 localizer["Contact me today if you're interested in hiring a true Tecnology Expert with years of experience as a Developer"]
             );
+
             return View();
         }
 

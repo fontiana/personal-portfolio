@@ -12,9 +12,10 @@ namespace PersonalPortfolio.Context.Entity
         public int ProjectId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        public string ShortDescription { get; set; }
         public string Url { get; set; }
         public string ShowcaseImage { get; set; }
-        public IList<Image> Images { get; set; }
+        public IList<ImageEntity> Images { get; set; }
         public DateTime CreatedAt { get; set; }
         public List<TechnologyEntity> Technologies { get; set; }
     }

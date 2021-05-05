@@ -3,11 +3,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PersonalPortfolio.Context.Entity
 {
-    public class Image
+    public class ImageEntity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Imageid { get; set; }
+        public int ImageId { get; set; }
         public string Filepath { get; set; }
     }
 }

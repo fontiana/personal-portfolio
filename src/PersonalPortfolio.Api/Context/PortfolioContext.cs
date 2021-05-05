@@ -26,10 +26,6 @@ namespace PersonalPortfolio.Context
                                                 .HasOne(x => x.Category)
                                                 .WithOne(x => x.Post)
                                                 .HasForeignKey<CategoryEntity>(x => x.CategoryId);
-
-            //modelBuilder.Entity<TechnologyEntity>().ToTable("Technology"); 
-            //modelBuilder.Entity<CategoryEntity>().ToTable("Category");
-            //modelBuilder.Entity<TagEntity>().ToTable("Tags");
         }
     }
 }
