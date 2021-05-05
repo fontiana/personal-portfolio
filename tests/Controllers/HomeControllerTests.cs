@@ -30,7 +30,7 @@ namespace PersonalPortfolio.Tests.Controllers
         public async Task Index_ReturnsAViewResult()
         {
             var posts = new List<PostEntity>();
-            posts.Add(new PostEntity { Category = new CategoryEntity(), Title = "Test", ShowcaseImage = "test", PostId = 1, Description = "Test", CreatedAt = DateTime.Now });
+            posts.Add(new PostEntity { Category = new CategoryEntity { CategoryId = 1, Name = "Test", PostId = 1, Post = new PostEntity {  } }, Title = "Test", ShowcaseImage = "test", PostId = 1, Description = "Test", CreatedAt = DateTime.Now });
             posts.Add(new PostEntity { Category = new CategoryEntity(), Title = "Test", ShowcaseImage = "test" }); 
 
             var postRepository = new Mock<IPostRepository>();

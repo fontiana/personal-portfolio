@@ -18,7 +18,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\" />
-    <Folder Include="Areas\Controllers\" />
+    <Folder Include="Areas\Admin\" />
+    <Folder Include="Areas\Admin\Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\src\PersonalPortfolio.Api\PersonalPortfolio.Api.csproj" />

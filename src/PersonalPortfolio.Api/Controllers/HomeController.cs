@@ -35,7 +35,10 @@ namespace PersonalPortfolio.Controllers
         [HttpGet]
         public async Task<IActionResult> IndexAsync()
         {
-            SetBanner(localizer["Technology<br/>Architect."]);
+            SetSeoInformation(
+                localizer["Technology<br/>Architect."],
+                localizer["Hi, I'm Victor. I am the author of this blog, I share knowledge and work as a consultant in an outsourcing company"]
+            );
 
             var model = new IndexViewModel();
 
@@ -71,7 +74,10 @@ namespace PersonalPortfolio.Controllers
         [HttpGet]
         public async Task<IActionResult> Portfolio()
         {
-            SetBanner(localizer["Tech Arch<br/>Projects"]);
+            SetSeoInformation(
+                localizer["Tech Arch<br/>Projects"],
+                localizer["Here you'll find my portfolio work and what I've accomplished over the years as a Front-End Developer"]
+            );
 
             var model = new List<ProjectViewModel>();
             var projects = await projectRepository.GetAsync();
@@ -118,7 +124,11 @@ namespace PersonalPortfolio.Controllers
         [HttpGet]
         public IActionResult About()
         {
-            SetBanner(localizer["My passions &<br/>Personality"]);
+            SetSeoInformation(
+                localizer["My passions &<br/>Personality"],
+                localizer["Take a look into my life, and learn how I became a Developer."]
+            );
+
             return View();
         }
 
@@ -200,13 +210,17 @@ namespace PersonalPortfolio.Controllers
         [HttpGet]
         public IActionResult Contact()
         {
-            SetBanner(localizer["Let's have a chat"]);
+            SetSeoInformation(
+                localizer["Let's have a chat"],
+                localizer["Contact me today if you're interested in hiring a true Tecnology Expert with years of experience as a Developer"]
+            );
             return View();
         }
 
-        private void SetBanner(string title)
+        private void SetSeoInformation(string title, string description)
         {
             ViewBag.title = title;
+            ViewBag.Description = description;
         }
     }
 }
