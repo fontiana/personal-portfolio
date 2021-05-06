@@ -29,6 +29,13 @@
         </div>
         <div class="col-md-12">
             <div class="form-group">
+                <label asp-for="ShortDescription"></label>
+                <textarea asp-for="ShortDescription" class="form-control"></textarea>
+                <span asp-validation-for="ShortDescription"></span>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
                 <input asp-for="Id" type="hidden" class="form-control" />
             </div>
         </div>

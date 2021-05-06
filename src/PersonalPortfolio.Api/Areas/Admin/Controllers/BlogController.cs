@@ -62,6 +62,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
             {
                 Title = model.Title,
                 Description = model.Description,
+                ShortDescription = model.ShortDescription,
                 Category = new CategoryEntity {  Name = model.Category },
                 ShowcaseImage = showcaseImageName,
                 CreatedAt = DateTime.Now
@@ -84,6 +85,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
             {
                 Id = post.PostId,
                 Description = post.Description,
+                ShortDescription = post.ShortDescription,
                 Title = post.Title,
                 Category = post.Category.Name
             };
@@ -105,6 +107,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
             post.Category.Name = model.Category;
             post.Title = model.Title;
             post.Description = model.Description;
+            post.ShortDescription = model.ShortDescription;
             post.Category = post.Category;
             post.ShowcaseImage = showcaseImageName;
 

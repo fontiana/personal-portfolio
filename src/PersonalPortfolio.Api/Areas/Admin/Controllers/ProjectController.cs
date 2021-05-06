@@ -65,6 +65,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
             {
                 Title = model.Title,
                 Description = model.Description,
+                ShortDescription = model.ShortDescription,
                 Url = model.Url,
                 CreatedAt = DateTime.Now,
                 Technologies = model.TechStack?.Split(',').Select(tech => new TechnologyEntity { Name = tech }).ToList(),
@@ -88,6 +89,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
             {
                 Id = project.ProjectId,
                 Description = project.Description,
+                ShortDescription = project.ShortDescription,
                 Title = project.Title,
                 Url = project.Url,
                 TechStack = string.Join(", ", project.Technologies?.Select(p => p.Name)),
@@ -112,6 +114,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
             project.Title = model.Title;
             project.Description = model.Description;
             project.ShowcaseImage = showcaseImageName;
+            project.ShortDescription = model.ShortDescription;
             project.Url = model.Url;
             project.Technologies = model.TechStack?.Split(',').Select(tech => new TechnologyEntity { Name = tech }).ToList();
 
