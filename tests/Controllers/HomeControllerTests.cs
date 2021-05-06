@@ -30,7 +30,16 @@ namespace PersonalPortfolio.Tests.Controllers
         public async Task Index_ReturnsAViewResult()
         {
             var posts = new List<PostEntity>();
-            posts.Add(new PostEntity { Category = new CategoryEntity { CategoryId = 1, Name = "Test", PostId = 1, Post = new PostEntity {  } }, Title = "Test", ShowcaseImage = "test", PostId = 1, Description = "Test", CreatedAt = DateTime.Now });
+            posts.Add(new PostEntity {
+                Category = new CategoryEntity { CategoryId = 1, Name = "Test", PostId = 1, Post = new PostEntity {  } },
+                Title = "Test",
+                ShowcaseImage = "test",
+                PostId = 1,
+                Description = "Test",
+                CreatedAt = DateTime.Now,
+                ShortDescription = "Test",
+                Images = new List<ImageEntity>()
+            });
             posts.Add(new PostEntity { Category = new CategoryEntity(), Title = "Test", ShowcaseImage = "test" }); 
 
             var postRepository = new Mock<IPostRepository>();
@@ -89,8 +98,12 @@ namespace PersonalPortfolio.Tests.Controllers
             // Arrange
             var localize = new Mock<IStringLocalizer<HomeController>>();
 
-            var project = new ProjectEntity();
-            project.Technologies = new List<TechnologyEntity>();
+            var project = new ProjectEntity
+            {
+                Technologies = new List<TechnologyEntity>(),
+                Description = "Test",
+                ShortDescription = "Test"
+            };
 
             var projectRepository = new Mock<IProjectRepository>();
             projectRepository
