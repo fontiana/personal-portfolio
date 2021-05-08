@@ -27,10 +27,10 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(CancellationToken cancellationToken)
         {
             var model = new List<ProjectViewModel>();
-            var projects = await projectRepository.GetAsync();
+            var projects = await projectRepository.GetAsync(cancellationToken);
 
             foreach (var item in projects)
             {
@@ -70,21 +70,21 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 CreatedAt = DateTime.Now,
                 Technologies = model.TechStack?.Split(',').Select(tech => new TechnologyEntity { Name = tech }).ToList(),
                 ShowcaseImage = showcaseImageName
-            });
-            await projectRepository.Save();
+            }, cancellationToken);
+            await projectRepository.Save(cancellationToken);
 
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? id, CancellationToken cancellationToken)
         {
             if (!id.HasValue)
             {
                 return RedirectToAction("Index");
             }
 
-            var project = await projectRepository.GetByIdAsync(id.Value);
+            var project = await projectRepository.GetByIdAsync(id.Value, cancellationToken);
             var model = new ProjectViewModel
             {
                 Id = project.ProjectId,
@@ -109,7 +109,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
             }
 
             var showcaseImageName = await imageHelper.saveFileAsync(model.Image);
-            var project = await projectRepository.GetByIdAsync(model.Id);
+            var project = await projectRepository.GetByIdAsync(model.Id, cancellationToken);
             
             project.Title = model.Title;
             project.Description = model.Description;
@@ -119,18 +119,18 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
             project.Technologies = model.TechStack?.Split(',').Select(tech => new TechnologyEntity { Name = tech }).ToList();
 
             projectRepository.Update(project);
-            await projectRepository.Save();
+            await projectRepository.Save(cancellationToken);
 
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id, CancellationToken cancellationToken)
         {
             if (id.HasValue)
             {
-                await projectRepository.DeleteAsync(id.Value);
-                await projectRepository.Save();
+                await projectRepository.DeleteAsync(id.Value, cancellationToken);
+                await projectRepository.Save(cancellationToken);
             }
 
             return RedirectToAction("Index");

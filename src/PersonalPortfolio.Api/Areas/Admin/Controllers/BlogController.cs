@@ -24,10 +24,10 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
             this.imageHelper = imageHelper;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(CancellationToken cancellationToken)
         {
             var model = new List<PostViewModel>();
-            var posts = await postRepository.GetAsync();
+            var posts = await postRepository.GetAsync(cancellationToken);
 
             foreach (var item in posts)
             {
@@ -66,21 +66,21 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
                 Category = new CategoryEntity {  Name = model.Category },
                 ShowcaseImage = showcaseImageName,
                 CreatedAt = DateTime.Now
-            });
-            await postRepository.Save();
+            }, cancellationToken);
+            await postRepository.Save(cancellationToken);
 
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? id, CancellationToken cancellationToken)
         {
             if (!id.HasValue)
             {
                 return RedirectToAction("Index");
             }
 
-            var post = await postRepository.GetByIdAsync(id.Value);
+            var post = await postRepository.GetByIdAsync(id.Value, cancellationToken);
             var model = new PostViewModel
             {
                 Id = post.PostId,
@@ -103,7 +103,7 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
             }
 
             var showcaseImageName = await imageHelper.saveFileAsync(model.Image);
-            var post = await postRepository.GetByIdAsync(model.Id);
+            var post = await postRepository.GetByIdAsync(model.Id, cancellationToken);
             post.Category.Name = model.Category;
             post.Title = model.Title;
             post.Description = model.Description;
@@ -112,18 +112,18 @@ namespace PersonalPortfolio.Areas.Admin.Controllers
             post.ShowcaseImage = showcaseImageName;
 
             postRepository.Update(post);
-            await postRepository.Save();
+            await postRepository.Save(cancellationToken);
 
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id, CancellationToken cancellationToken)
         {
             if (id.HasValue)
             {
-                await postRepository.DeleteAsync(id.Value);
-                await postRepository.Save();
+                await postRepository.DeleteAsync(id.Value, cancellationToken);
+                await postRepository.Save(cancellationToken);
             }
 
             return RedirectToAction("Index");

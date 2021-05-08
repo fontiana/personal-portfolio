@@ -8,6 +8,7 @@ using PersonalPortfolio.Models;
 using PersonalPortfolio.Repository.Post;
 using PersonalPortfolio.Repository.Project;
 using PersonalPortfolio.Helper;
+using System.Threading;
 
 namespace PersonalPortfolio.Controllers
 {
@@ -33,7 +34,7 @@ namespace PersonalPortfolio.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> IndexAsync()
+        public async Task<IActionResult> IndexAsync(CancellationToken cancellationToken)
         {
             SetSeoInformation(
                 localizer["Technology<br/>Architect."],
@@ -42,7 +43,7 @@ namespace PersonalPortfolio.Controllers
 
             var model = new IndexViewModel();
 
-            var projects = await projectRepository.GetAsync();
+            var projects = await projectRepository.GetAsync(cancellationToken);
             model.Projects = projects.Select(project =>
             {
                 return new ProjectViewModel
@@ -55,7 +56,7 @@ namespace PersonalPortfolio.Controllers
                 };
             })?.ToList();
 
-            var posts = await postRepository.GetAsync();
+            var posts = await postRepository.GetAsync(cancellationToken);
             model.Posts = posts.Select(post =>
             {
                 return new PostViewModel
@@ -72,7 +73,7 @@ namespace PersonalPortfolio.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Portfolio()
+        public async Task<IActionResult> Portfolio(CancellationToken cancellationToken)
         {
             SetSeoInformation(
                 localizer["Tech Arch<br/>Projects"],
@@ -80,7 +81,7 @@ namespace PersonalPortfolio.Controllers
             );
 
             var model = new List<ProjectViewModel>();
-            var projects = await projectRepository.GetAsync();
+            var projects = await projectRepository.GetAsync(cancellationToken);
 
             foreach (var item in projects)
             {
@@ -98,7 +99,7 @@ namespace PersonalPortfolio.Controllers
 
         [HttpGet]
         [Route("home/portfolio/{id}")]
-        public async Task<IActionResult> Project(string id)
+        public async Task<IActionResult> Project(string id, CancellationToken cancellationToken)
         {
             if (string.IsNullOrWhiteSpace(id))
             {
@@ -107,7 +108,7 @@ namespace PersonalPortfolio.Controllers
 
             ViewBag.darkHeader = "dark-header";
 
-            var project = await projectRepository.GetByTitleAsync(id.RemoveDash());
+            var project = await projectRepository.GetByTitleAsync(id.RemoveDash(), cancellationToken);
             var model = new ProjectViewModel
             {
                 Description = project.Description,
@@ -141,12 +142,12 @@ namespace PersonalPortfolio.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Blog()
+        public async Task<IActionResult> Blog(CancellationToken cancellationToken)
         {
             ViewBag.darkHeader = "dark-header";
 
             var model = new List<PostViewModel>();
-            var posts = await postRepository.GetAsync();
+            var posts = await postRepository.GetAsync(cancellationToken);
             foreach (var item in posts)
             {
                 model.Add(new PostViewModel
@@ -164,12 +165,12 @@ namespace PersonalPortfolio.Controllers
 
         [HttpGet]
         [Route("home/blog/category/{id}")]
-        public async Task<IActionResult> Category(string id)
+        public async Task<IActionResult> Category(string id, CancellationToken cancellationToken)
         {
             ViewBag.darkHeader = "dark-header";
 
             var model = new List<PostViewModel>();
-            var posts = await postRepository.GetByCategoryAsync(id.RemoveDash());
+            var posts = await postRepository.GetByCategoryAsync(id.RemoveDash(), cancellationToken);
             foreach (var item in posts)
             {
                 model.Add(new PostViewModel
@@ -187,7 +188,7 @@ namespace PersonalPortfolio.Controllers
 
         [HttpGet]
         [Route("home/blog/{id}")]
-        public async Task<IActionResult> Post(string id)
+        public async Task<IActionResult> Post(string id, CancellationToken cancellationToken)
         {
             ViewBag.darkHeader = "dark-header";
             if (string.IsNullOrWhiteSpace(id))
@@ -195,7 +196,7 @@ namespace PersonalPortfolio.Controllers
                 return View();
             }
 
-            var post = await postRepository.GetByTitleAsync(id.RemoveDash());
+            var post = await postRepository.GetByTitleAsync(id.RemoveDash(), cancellationToken);
             var model = new PostViewModel
             {
                 Id = post.PostId,

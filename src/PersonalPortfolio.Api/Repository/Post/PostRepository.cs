@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PersonalPortfolio.Context;
@@ -16,49 +17,49 @@ namespace PersonalPortfolio.Repository.Post
             this.context = context;
         }
 
-        public async Task AddAsync(PostEntity entity)
+        public async Task AddAsync(PostEntity entity, CancellationToken cancellationToken)
         {
-            await context.Posts.AddAsync(entity);
+            await context.Posts.AddAsync(entity, cancellationToken);
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id, CancellationToken cancellationToken)
         {
-            var post = await context.Posts.FindAsync(id);
+            var post = await context.Posts.FindAsync(id, cancellationToken);
             context.Posts.Remove(post);
         }
 
-        public async Task<List<PostEntity>> GetAsync()
+        public async Task<List<PostEntity>> GetAsync(CancellationToken cancellationToken)
         {
             return await context.Posts
                 .Include(r => r.Category)
-                .ToListAsync();
+                .ToListAsync(cancellationToken);
         }
 
-        public async Task<List<PostEntity>> GetByCategoryAsync(string categoryTitle)
+        public async Task<List<PostEntity>> GetByCategoryAsync(string categoryTitle, CancellationToken cancellationToken)
         {
             return await context.Posts
                 .Where(x => x.Category.Name == categoryTitle)
                 .Include(r => r.Category)
-                .ToListAsync();
+                .ToListAsync(cancellationToken);
         }
 
-        public async Task<PostEntity> GetByIdAsync(int id)
+        public async Task<PostEntity> GetByIdAsync(int id, CancellationToken cancellationToken)
         {
             return await context.Posts
                 .Include(r => r.Category)
-                .FirstOrDefaultAsync(r => r.PostId == id);
+                .FirstOrDefaultAsync(r => r.PostId == id, cancellationToken);
         }
 
-        public async Task<PostEntity> GetByTitleAsync(string title)
+        public async Task<PostEntity> GetByTitleAsync(string title, CancellationToken cancellationToken)
         {
             return await context.Posts
                 .Include(r => r.Category)
-                .FirstOrDefaultAsync(x => x.Title == title);
+                .FirstOrDefaultAsync(x => x.Title == title, cancellationToken);
         }
 
-        public async Task Save()
+        public async Task Save(CancellationToken cancellationToken)
         {
-            await context.SaveChangesAsync();
+            await context.SaveChangesAsync(cancellationToken);
         }
 
         public void Update(PostEntity entity)

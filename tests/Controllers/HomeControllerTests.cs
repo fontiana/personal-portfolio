@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
@@ -18,6 +19,7 @@ namespace PersonalPortfolio.Tests.Controllers
     {
         public Mock<IStringLocalizer<HomeController>> localize;
         public Mock<IImageHelper> imageHelper;
+        public CancellationToken cancellationToken;
 
         public HomeControllerTests()
         {
@@ -29,6 +31,8 @@ namespace PersonalPortfolio.Tests.Controllers
         [Fact(DisplayName = "Should return a view result for index page")]
         public async Task Index_ReturnsAViewResult()
         {
+            cancellationToken = new CancellationToken();
+
             var posts = new List<PostEntity>();
             posts.Add(new PostEntity {
                 Category = new CategoryEntity { CategoryId = 1, Name = "Test", PostId = 1, Post = new PostEntity {  } },
@@ -44,7 +48,7 @@ namespace PersonalPortfolio.Tests.Controllers
 
             var postRepository = new Mock<IPostRepository>();
             postRepository
-                .Setup(repo => repo.GetAsync())
+                .Setup(repo => repo.GetAsync(cancellationToken))
                 .ReturnsAsync(posts);
 
             var projects = new List<ProjectEntity>();
@@ -52,13 +56,13 @@ namespace PersonalPortfolio.Tests.Controllers
 
             var projectRepository = new Mock<IProjectRepository>();
             projectRepository
-                .Setup(repo => repo.GetAsync())
+                .Setup(repo => repo.GetAsync(cancellationToken))
                 .ReturnsAsync(projects);
 
             var controller = new HomeController(localize.Object, projectRepository.Object, postRepository.Object, imageHelper.Object);
 
             // Act
-            var result = await controller.IndexAsync();
+            var result = await controller.IndexAsync(cancellationToken);
 
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
@@ -70,6 +74,7 @@ namespace PersonalPortfolio.Tests.Controllers
         public async Task Portfolio_ReturnsAViewResult_WithAListOfProjects()
         {
             // Arrange
+            cancellationToken = new CancellationToken();
             var localize = new Mock<IStringLocalizer<HomeController>>();
 
             var projects = new List<ProjectEntity>();
@@ -78,13 +83,13 @@ namespace PersonalPortfolio.Tests.Controllers
 
             var projectRepository = new Mock<IProjectRepository>();
             projectRepository
-                .Setup(repo => repo.GetAsync())
+                .Setup(repo => repo.GetAsync(cancellationToken))
                 .ReturnsAsync(projects);
 
             var controller = new HomeController(localize.Object, projectRepository.Object, null, imageHelper.Object);
 
             // Act
-            var result = await controller.Portfolio();
+            var result = await controller.Portfolio(cancellationToken);
 
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
@@ -96,6 +101,7 @@ namespace PersonalPortfolio.Tests.Controllers
         public async Task Project_ReturnsAViewResult()
         {
             // Arrange
+            cancellationToken = new CancellationToken();
             var localize = new Mock<IStringLocalizer<HomeController>>();
 
             var project = new ProjectEntity
@@ -107,13 +113,13 @@ namespace PersonalPortfolio.Tests.Controllers
 
             var projectRepository = new Mock<IProjectRepository>();
             projectRepository
-                .Setup(repo => repo.GetByTitleAsync(It.IsAny<string>()))
+                .Setup(repo => repo.GetByTitleAsync(It.IsAny<string>(), cancellationToken))
                 .ReturnsAsync(project);
 
             var controller = new HomeController(localize.Object, projectRepository.Object, null, imageHelper.Object);
 
             // Act
-            var result = await controller.Project("Teste");
+            var result = await controller.Project("Teste", cancellationToken);
 
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
@@ -157,6 +163,7 @@ namespace PersonalPortfolio.Tests.Controllers
         public async Task Blog_ReturnsAViewResult()
         {
             // Arrange
+            cancellationToken = new CancellationToken();
             var localize = new Mock<IStringLocalizer<HomeController>>();
 
             var posts = new List<PostEntity>();
@@ -165,13 +172,13 @@ namespace PersonalPortfolio.Tests.Controllers
 
             var postRepository = new Mock<IPostRepository>();
             postRepository
-                .Setup(repo => repo.GetAsync())
+                .Setup(repo => repo.GetAsync(cancellationToken))
                 .ReturnsAsync(posts);
 
             var controller = new HomeController(localize.Object, null, postRepository.Object, imageHelper.Object);
 
             // Act
-            var result = await controller.Blog();
+            var result = await controller.Blog(cancellationToken);
 
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
@@ -190,13 +197,13 @@ namespace PersonalPortfolio.Tests.Controllers
 
             var postRepository = new Mock<IPostRepository>();
             postRepository
-                .Setup(repo => repo.GetByCategoryAsync(It.IsAny<string>()))
+                .Setup(repo => repo.GetByCategoryAsync(It.IsAny<string>(), cancellationToken))
                 .ReturnsAsync(posts);
 
             var controller = new HomeController(localize.Object, null, postRepository.Object, imageHelper.Object);
 
             // Act
-            var result = await controller.Category("teste");
+            var result = await controller.Category("teste", cancellationToken);
 
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
@@ -207,19 +214,20 @@ namespace PersonalPortfolio.Tests.Controllers
         public async Task Post_ReturnsAViewResult()
         {
             // Arrange
+            cancellationToken = new CancellationToken();
             var localize = new Mock<IStringLocalizer<HomeController>>();
 
             var post = new PostEntity();
 
             var postRepository = new Mock<IPostRepository>();
             postRepository
-                .Setup(repo => repo.GetByTitleAsync(It.IsAny<string>()))
+                .Setup(repo => repo.GetByTitleAsync(It.IsAny<string>(), cancellationToken))
                 .ReturnsAsync(post);
 
             var controller = new HomeController(localize.Object, null, postRepository.Object, imageHelper.Object);
 
             // Act
-            var result = await controller.Post("title-post");
+            var result = await controller.Post("title-post", cancellationToken);
 
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
