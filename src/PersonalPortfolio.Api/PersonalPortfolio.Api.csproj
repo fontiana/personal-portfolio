@@ -23,4 +23,7 @@
     <Folder Include="Repository\Project\" />
     <Folder Include="Repository\Post\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Forem.Api" />
+  </ItemGroup>
 </Project>

@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D75950F5-690
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalPortfolio.Application", "src\PersonalPortfolio.Application\PersonalPortfolio.Application.csproj", "{7006F517-2402-4664-B829-AD2A66643456}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalPortfolio.Client.Forem", "src\PersonalPortfolio.Client.Forem\PersonalPortfolio.Client.Forem.csproj", "{F5724C0F-376B-429E-8FF4-CF22A8110073}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{7006F517-2402-4664-B829-AD2A66643456}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7006F517-2402-4664-B829-AD2A66643456}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7006F517-2402-4664-B829-AD2A66643456}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5724C0F-376B-429E-8FF4-CF22A8110073}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5724C0F-376B-429E-8FF4-CF22A8110073}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5724C0F-376B-429E-8FF4-CF22A8110073}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5724C0F-376B-429E-8FF4-CF22A8110073}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,5 +48,6 @@ Global
 		{0A88AAC0-ADEC-413A-B46C-952FDA7C9BAD} = {43EDA944-7CAE-484C-867B-8ABDDB2F77FF}
 		{F634F3F3-BBB3-41E1-AEFA-E7913DF2F947} = {D75950F5-6901-4543-AB70-CBF2E9DFC62D}
 		{7006F517-2402-4664-B829-AD2A66643456} = {D75950F5-6901-4543-AB70-CBF2E9DFC62D}
+		{F5724C0F-376B-429E-8FF4-CF22A8110073} = {D75950F5-6901-4543-AB70-CBF2E9DFC62D}
 	EndGlobalSection
 EndGlobal

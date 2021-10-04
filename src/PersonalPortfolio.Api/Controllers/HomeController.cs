@@ -9,7 +9,6 @@ using PersonalPortfolio.Repository.Post;
 using PersonalPortfolio.Repository.Project;
 using PersonalPortfolio.Helper;
 using System.Threading;
-
 namespace PersonalPortfolio.Controllers
 {
     [AllowAnonymous]
@@ -21,7 +20,6 @@ namespace PersonalPortfolio.Controllers
         private readonly IImageHelper imageHelper;
 
         public HomeController(
-
             IStringLocalizer<HomeController> localizer,
             IProjectRepository projectRepository,
             IPostRepository postRepository,
