@@ -26,4 +26,9 @@
   <ItemGroup>
     <None Remove="Forem.Api" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PersonalPortfolio.Client.Forem\PersonalPortfolio.Client.Forem.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

@@ -5,16 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Article\" />
     <None Remove="Models\" />
     <None Remove="System.Text.Json" />
     <None Remove="Newtonsoft.Json" />
+    <None Remove="Base\" />
+    <None Remove="Microsoft.Extensions.Options" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Article\" />
     <Folder Include="Models\" />
+    <Folder Include="Base\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.20" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
+using PersonalPortfolio.Client.Forem.Base;
 using PersonalPortfolio.Client.Forem.Models;
 
 namespace PersonalPortfolio.Client.Forem.Services
@@ -14,10 +16,16 @@ namespace PersonalPortfolio.Client.Forem.Services
             this.foremClient = foremClient;
         }
 
-        public Task<IEnumerable<Article>> GetArticlesByUserAsync(string username, int page = 1, int perPage = 30)
+        public Task<IEnumerable<Article>> GetArticlesByUserAsync(CancellationToken cancellationToken)
         {
+            //string username, int page = 1, int perPage = 30
+            var httpConfig = new HttpConfig
+            {
+
+            };
+
             //return foremClient.SendAsync();
-            throw new NotImplementedException();
+            throw new NotImplementedException("This scenario has not been implemented");
         }
     }
 }

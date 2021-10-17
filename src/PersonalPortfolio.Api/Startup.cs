@@ -22,6 +22,7 @@ using PersonalPortfolio.Repository.Post;
 using Serilog;
 using Serilog.Events;
 using PersonalPortfolio.Helper;
+using PersonalPortfolio.Client.Forem;
 
 namespace PersonalPortfolio
 {
@@ -61,6 +62,10 @@ namespace PersonalPortfolio
             services.AddScoped<IProjectRepository, ProjectRepository>();
             services.AddScoped<IPostRepository, PostRepository>();
             services.AddScoped<IImageHelper, ImageHelper>();
+
+            var foremConfig = Configuration.GetSection("DevTo");
+            services.Configure<ForemConfig>(foremConfig);
+            services.AddHttpClient<IForemClient, ForemClient>();
 
             var mvcBuilder = services
                 .AddControllersWithViews(options =>

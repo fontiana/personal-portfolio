@@ -2,7 +2,7 @@
 {
     public class ForemConfig
     {
-        public string BaseUrl { get; set; }
+        public string Uri { get; set; }
         public string ApiKey { get; set; }
     }
 }
