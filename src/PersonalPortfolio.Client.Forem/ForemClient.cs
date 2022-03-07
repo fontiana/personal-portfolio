@@ -19,14 +19,16 @@ namespace PersonalPortfolio.Client.Forem
             this.config = options.Value;
         }
 
-        public async Task<TResponse> SendAsync<TResponse>(HttpConfig httpConfig, CancellationToken cancelationToken)
+        public async Task<TResponse> SendAsync<TResponse>(HttpConfig httpConfig, CancellationToken cancellationToken)
         {
             var message = new HttpRequestMessage
             {
-                Method = httpConfig.HttpMethod
+                Method = httpConfig.HttpMethod,
+                RequestUri = new Uri($"{config.Uri}{httpConfig.Path}")
             };
 
             message.Headers.Add("api-key", config.ApiKey);
+            message.Headers.Add("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.1 Safari/605.1.15");
 
             using var response = await httpClient.SendAsync(message);
 
@@ -36,8 +38,10 @@ namespace PersonalPortfolio.Client.Forem
             {
                 return JsonConvert.DeserializeObject<TResponse>(responseJson);
             }
-
-            throw new NotImplementedException("This scenario has not been implemented");
+            else
+            {
+                throw new ForemException(response.ReasonPhrase, responseJson, response.StatusCode);
+            }
         }
     }
 }

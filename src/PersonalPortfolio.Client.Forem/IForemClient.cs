@@ -6,6 +6,6 @@ namespace PersonalPortfolio.Client.Forem
 {
     public interface IForemClient
     {
-        Task<TResponse> SendAsync<TResponse>(HttpConfig httpConfig, CancellationToken cancelationToken);
+        Task<TResponse> SendAsync<TResponse>(HttpConfig httpConfig, CancellationToken cancellationToken);
     }
 }

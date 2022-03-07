@@ -7,6 +7,8 @@ namespace PersonalPortfolio.Client.Forem.Services
 {
     public interface IArticleService
     {
-        Task<IEnumerable<Article>> GetArticlesByUserAsync(CancellationToken cancellationToken);
+        Task<IEnumerable<Article>> GetArticlesByUserAsync(int page,
+                                                          int perPage,
+                                                          CancellationToken cancellationToken);
     }
 }

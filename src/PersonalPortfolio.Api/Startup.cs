@@ -23,6 +23,7 @@ using Serilog;
 using Serilog.Events;
 using PersonalPortfolio.Helper;
 using PersonalPortfolio.Client.Forem;
+using PersonalPortfolio.Client.Forem.Services;
 
 namespace PersonalPortfolio
 {
@@ -62,10 +63,7 @@ namespace PersonalPortfolio
             services.AddScoped<IProjectRepository, ProjectRepository>();
             services.AddScoped<IPostRepository, PostRepository>();
             services.AddScoped<IImageHelper, ImageHelper>();
-
-            var foremConfig = Configuration.GetSection("DevTo");
-            services.Configure<ForemConfig>(foremConfig);
-            services.AddHttpClient<IForemClient, ForemClient>();
+            AddForem(services);
 
             var mvcBuilder = services
                 .AddControllersWithViews(options =>
@@ -75,16 +73,26 @@ namespace PersonalPortfolio
                         .Build();
                     options.Filters.Add(new AuthorizeFilter(policy));
                 })
-                .AddFluentValidation(fv => {
+                .AddFluentValidation(fv =>
+                {
                     fv.RegisterValidatorsFromAssemblyContaining<ProjectValidator>();
                     fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
                 })
                 .AddMicrosoftIdentityUI()
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
 
-            #if DEBUG
+#if DEBUG
             mvcBuilder.AddRazorRuntimeCompilation();
-            #endif
+#endif
+        }
+
+        private void AddForem(IServiceCollection services)
+        {
+            var foremConfig = Configuration.GetSection("DevTo");
+            services.Configure<ForemConfig>(foremConfig);
+
+            services.AddHttpClient<IForemClient, ForemClient>();
+            services.AddScoped<IArticleService, ArticleService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, PortfolioContext context)
@@ -109,6 +117,8 @@ namespace PersonalPortfolio
             app.UseLocalization();
 
             context.Database.EnsureCreated();
+
+            app.UseCors();
 
             app.UseRouter(router =>
             {

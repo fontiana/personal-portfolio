@@ -9,6 +9,8 @@ using PersonalPortfolio.Repository.Post;
 using PersonalPortfolio.Repository.Project;
 using PersonalPortfolio.Helper;
 using System.Threading;
+using PersonalPortfolio.Client.Forem.Services;
+
 namespace PersonalPortfolio.Controllers
 {
     [AllowAnonymous]
@@ -18,17 +20,20 @@ namespace PersonalPortfolio.Controllers
         private readonly IProjectRepository projectRepository;
         private readonly IPostRepository postRepository;
         private readonly IImageHelper imageHelper;
+        private readonly IArticleService articleService;
 
         public HomeController(
             IStringLocalizer<HomeController> localizer,
             IProjectRepository projectRepository,
             IPostRepository postRepository,
+            IArticleService articleService,
             IImageHelper imageHelper)
         {
             this.projectRepository = projectRepository;
             this.postRepository = postRepository;
             this.localizer = localizer;
             this.imageHelper = imageHelper;
+            this.articleService = articleService;
         }
 
         [HttpGet]
@@ -54,16 +59,15 @@ namespace PersonalPortfolio.Controllers
                 };
             })?.ToList();
 
-            var posts = await postRepository.GetAsync(cancellationToken);
+            var posts = await articleService.GetArticlesByUserAsync(0, 3, cancellationToken);
             model.Posts = posts.Select(post =>
             {
                 return new PostViewModel
                 {
-                    Id = post.PostId,
+                    Id = post.ArticleId,
                     Title = post.Title,
-                    ShowcaseImage = imageHelper.getFilePath(post.ShowcaseImage),
-                    CreatedAt = post.CreatedAt,
-                    Category = post.Category.Name
+                    ShowcaseImage = post.CoverImage,
+                    CreatedAt = post.CreatedAt
                 };
             })?.ToList();
 
@@ -154,7 +158,7 @@ namespace PersonalPortfolio.Controllers
                     Title = item.Title,
                     Category = item.Category.Name,
                     Id = item.PostId,
-                    ShowcaseImage = imageHelper.getFilePath(item.ShowcaseImage),
+                    //ShowcaseImage = imageHelper.getFilePath(item.ShowcaseImage),
                 });
             }
 
@@ -177,7 +181,7 @@ namespace PersonalPortfolio.Controllers
                     Title = item.Title,
                     Category = item.Category.Name,
                     Id = item.PostId,
-                    ShowcaseImage = imageHelper.getFilePath(item.ShowcaseImage),
+                    //ShowcaseImage = imageHelper.getFilePath(item.ShowcaseImage),
                 });
             }
 
@@ -200,7 +204,7 @@ namespace PersonalPortfolio.Controllers
                 Id = post.PostId,
                 Title = post.Title,
                 Description = post.Description,
-                ShowcaseImage = imageHelper.getFilePath(post.ShowcaseImage),
+                //ShowcaseImage = imageHelper.getFilePath(post.ShowcaseImage),
                 CreatedAt = post.CreatedAt,
                 Category = post.Category?.Name
             };

@@ -9,8 +9,8 @@ namespace PersonalPortfolio.Models
         public string DashedTitle { get { return Title.ToLower().Replace(" ", "-"); }}
         public string Description { get; set; }
         public string Category { get; set; }
-        public string DashedCategory { get { return Category.ToLower().Replace(" ", "-"); } }
-        public string ShowcaseImage { get; set; }
+        public string DashedCategory { get; set; }
+        public Uri ShowcaseImage { get; set; }
         public DateTime CreatedAt { get; set; }
     }
 }

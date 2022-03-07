@@ -7,5 +7,6 @@ namespace PersonalPortfolio.Client.Forem.Base
     {
         public HttpMethod HttpMethod { get; set; }
         public string Path { get; set; }
+        public object Body { get; set; }
     }
 }
